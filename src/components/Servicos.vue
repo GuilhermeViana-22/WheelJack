@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-4xl mx-auto py-12 px-4">
-    <!-- Heading with gold underline -->
+    <!-- Heading com linha dourada -->
     <div class="flex flex-col items-center mb-12">
       <h2 class="text-4xl md:text-5xl font-bold text-black mb-2">Nossos Serviços</h2>
       <div class="h-1 w-full max-w-md bg-amber-500"></div>
@@ -13,8 +13,8 @@
         :key="index"
         class="bg-white rounded-md overflow-hidden shadow-md"
       >
-        <!-- Skeleton loader - sempre visível até a imagem carregar -->
-        <div v-show="!image.loaded && !image.error" class="relative w-full h-60 bg-gray-200 animate-pulse">
+        <!-- Skeleton enquanto a imagem carrega -->
+        <div v-if="!image.loaded && !image.error" class="relative w-full h-60 bg-gray-200 animate-pulse">
           <div class="absolute inset-0 flex items-center justify-center">
             <svg
               class="w-10 h-10 text-gray-400"
@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <!-- Imagem real - escondida até carregar -->
+        <!-- Imagem carregada -->
         <img
           v-show="image.loaded && !image.error"
           :src="image.src"
@@ -44,8 +44,8 @@
           @error="handleImageError(index)"
         />
 
-        <!-- Fallback para o skeleton caso a imagem não seja carregada -->
-        <div v-show="image.error" class="relative w-full h-60 bg-gray-200 animate-pulse">
+        <!-- Fallback se a imagem falhar -->
+        <div v-if="image.error" class="relative w-full h-60 bg-gray-200 animate-pulse">
           <div class="absolute inset-0 flex items-center justify-center">
             <svg
               class="w-10 h-10 text-gray-400"
@@ -71,38 +71,39 @@
 <script setup>
 import { ref } from 'vue';
 
-// Função para criar o estado de cada imagem
-const createImage = (src) => ({
-  src,
-  loaded: false,
-  error: false
-});
+// Importação direta das imagens
+import img1 from '../assets/arquivos/1.png';
+import img2 from '../assets/arquivos/2.png';
+import img3 from '../assets/arquivos/3.png';
+import img4 from '../assets/arquivos/4.png';
+import img5 from '../assets/arquivos/5.png';
+import img6 from '../assets/arquivos/6.png';
 
-// Definir as imagens com placeholders para carregamento
+// Lista das imagens com status de carregamento
 const images = ref([
-  createImage('https://via.placeholder.com/300x200/FF0000/FFFFFF?text=Imagem+1'),
-  createImage('https://via.placeholder.com/300x200/00FF00/FFFFFF?text=Imagem+2'),
-  createImage('https://via.placeholder.com/300x200/0000FF/FFFFFF?text=Imagem+3'),
-  createImage('https://via.placeholder.com/300x200/FFFF00/FFFFFF?text=Imagem+4'),
-  createImage('https://via.placeholder.com/300x200/FF00FF/FFFFFF?text=Imagem+5'),
-  createImage('https://via.placeholder.com/300x200/00FFFF/FFFFFF?text=Imagem+6'),
+  { src: img1, loaded: false, error: false },
+  { src: img2, loaded: false, error: false },
+  { src: img3, loaded: false, error: false },
+  { src: img4, loaded: false, error: false },
+  { src: img5, loaded: false, error: false },
+  { src: img6, loaded: false, error: false }
 ]);
 
-// Função chamada quando a imagem é carregada com sucesso
+// Quando a imagem carregar, marca como carregada
 const handleImageLoaded = (index) => {
   images.value[index].loaded = true;
   images.value[index].error = false;
 };
 
-// Função chamada em caso de erro no carregamento da imagem
+// Se a imagem falhar, exibe o skeleton
 const handleImageError = (index) => {
   images.value[index].error = true;
-  images.value[index].loaded = false; // Isso ajuda a manter o skeleton visível em caso de erro
+  images.value[index].loaded = false;
 };
 </script>
 
 <style>
-/* Animação personalizada para o skeleton loading */
+/* Animação personalizada para skeleton loader */
 @keyframes skeletonPulse {
   0% {
     background-color: rgba(226, 232, 240, 0.6);

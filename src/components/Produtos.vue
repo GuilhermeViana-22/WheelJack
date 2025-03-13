@@ -1,21 +1,20 @@
 <template>
   <div class="max-w-4xl mx-auto py-12 px-4">
-    <!-- Heading with gold underline -->
-     <div class="flex flex-col items-center mb-12">
-        <h2 class="text-4xl md:text-5xl font-bold text-black mb-2">Nossos Produtos</h2>
-        <div class="h-1 w-full max-w-md bg-amber-500"></div>
-      </div>
+    <!-- Título principal com sublinhado dourado -->
+    <div class="flex flex-col items-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-black mb-2">Nossos Produtos</h2>
+      <div class="h-1 w-full max-w-md bg-amber-500"></div>
+    </div>
 
-    <!-- Product cards grid with responsive spacing -->
+    <!-- Grid de produtos -->
     <div class="space-y-6">
       <div 
         v-for="product in products" 
         :key="product.id" 
         class="bg-white rounded-md p-4 md:p-6 shadow-md flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start"
       >
-        <!-- Product image with skeleton loading state -->
+        <!-- Imagem do produto com skeleton loader -->
         <div class="shrink-0 relative w-[200px] h-[150px]">
-          <!-- Skeleton loader - always show until image is loaded -->
           <div 
             v-show="!product.imageLoaded" 
             class="absolute inset-0 rounded-md bg-gray-200 animate-pulse"
@@ -39,7 +38,7 @@
             </div>
           </div>
           
-          <!-- Actual image - hidden until loaded -->
+          <!-- Imagem real -->
           <img
             :src="product.image"
             :alt="product.title"
@@ -50,14 +49,14 @@
           />
         </div>
         
-        <!-- Product details -->
+        <!-- Detalhes do produto -->
         <div class="flex-1 space-y-2 text-center md:text-left">
           <h2 class="text-xl font-semibold">{{ product.title }}</h2>
           <p class="text-gray-700">{{ product.description }}</p>
           <p class="text-gray-600 text-sm">{{ product.dimensions }}</p>
         </div>
         
-        <!-- Request quote button -->
+        <!-- Botão de orçamento -->
         <div class="shrink-0 self-center md:self-end mt-3 md:mt-0">
           <button class="bg-[#22c55e] hover:bg-[#16a34a] text-white font-medium px-4 py-2 rounded transition-colors">
             Solicitar Orçamento
@@ -66,7 +65,7 @@
       </div>
     </div>
 
-    <!-- See models button at the bottom -->
+    <!-- Botão para ver modelos -->
     <div class="flex justify-center mt-10">
       <button class="bg-black hover:bg-gray-800 text-white font-medium px-6 py-2 rounded transition-colors">
         Veja os modelos
@@ -78,45 +77,29 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-// Função para criar um produto com estado de carregamento padrão
-const createProduct = (id, title, description, dimensions, image) => {
-  return {
-    id,
-    title,
-    description,
-    dimensions,
-    image,
-    imageLoaded: false,
-    imageError: false
-  };
-};
+// Importando imagens locais da pasta assets
+import img1 from '@/assets/arquivos/1.png';
+import img2 from '@/assets/arquivos/2.png';
+import img3 from '@/assets/arquivos/3.png';
 
-// Sample product data - all start with imageLoaded: false
+const createProduct = (id, title, description, dimensions, image) => ({
+  id,
+  title,
+  description,
+  dimensions,
+  image,
+  imageLoaded: false,
+  imageError: false
+});
+
+// Lista de produtos com imagens importadas
 const products = ref([
-  createProduct(
-    1,
-    "Assoalho TG4 e Assoalho Tradicional",
-    "Piso de tábuas com comprimentos variados e encaixe macho e fêmea",
-    "Taco de Tauari: 7cm x 21cm",
-    "/placeholder.svg?height=150&width=200"
-  ),
-  createProduct(
-    2,
-    "Assoalho TG4 e Assoalho Tradicional",
-    "Piso de tábuas com comprimentos variados e encaixe macho e fêmea",
-    "Taco de Tauari: 7cm x 21cm",
-    "/placeholder.svg?height=150&width=200"
-  ),
-  createProduct(
-    3,
-    "Assoalho TG4 e Assoalho Tradicional",
-    "Piso de tábuas com comprimentos variados e encaixe macho e fêmea",
-    "Taco de Tauari: 7cm x 21cm",
-     "/placeholder.svg?height=150&width=200"
-  ),
+  createProduct(1, "Assoalho TG4 e Assoalho Tradicional", "Piso de tábuas com comprimentos variados e encaixe macho e fêmea", "Taco de Tauari: 7cm x 21cm", img1),
+  createProduct(2, "Assoalho TG4 e Assoalho Tradicional", "Piso de tábuas com comprimentos variados e encaixe macho e fêmea", "Taco de Tauari: 7cm x 21cm", img2),
+  createProduct(3, "Assoalho TG4 e Assoalho Tradicional", "Piso de tábuas com comprimentos variados e encaixe macho e fêmea", "Taco de Tauari: 7cm x 21cm", img3),
 ]);
 
-// Handle successful image load
+// Marcar imagem como carregada
 const handleImageLoaded = (productId) => {
   const product = products.value.find(p => p.id === productId);
   if (product) {
@@ -125,37 +108,26 @@ const handleImageLoaded = (productId) => {
   }
 };
 
-// Handle image loading error
+// Marcar erro ao carregar imagem
 const handleImageError = (productId) => {
   const product = products.value.find(p => p.id === productId);
   if (product) {
     product.imageError = true;
-    // We keep imageLoaded as false so the skeleton remains visible
   }
 };
 
-// Para demonstração - forçar alguns erros de carregamento
+// Simulação de erro em uma imagem
 onMounted(() => {
-  // Simular erro na segunda imagem após 2 segundos
   setTimeout(() => {
     if (products.value[1]) {
-      // Forçar um erro na segunda imagem alterando a URL para uma inválida
       products.value[1].image = "invalid-url.jpg";
     }
   }, 2000);
-  
-  // Para demonstração, podemos também forçar o carregamento da terceira imagem
-  // para mostrar como funciona quando a imagem carrega normalmente
-  setTimeout(() => {
-    if (products.value[2]) {
-      handleImageLoaded(products.value[2].id);
-    }
-  }, 3000);
 });
 </script>
 
 <style>
-/* Animação personalizada para o skeleton loading */
+/* Animação para efeito skeleton */
 @keyframes skeletonPulse {
   0% {
     background-color: rgba(226, 232, 240, 0.6);
