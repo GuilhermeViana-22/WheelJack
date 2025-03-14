@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-4xl mx-auto py-12 px-4">
+    <div class="max-w-7xl mx-auto px-4 py-16">
       <!-- Heading with gold underline -->
       <div class="flex flex-col items-left mb-12">
         <h2 class="text-4xl md:text-5xl font-bold text-black mb-2">Informações</h2>

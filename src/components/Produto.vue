@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-4xl mx-auto py-12 px-4">
+  <div class="max-w-7xl mx-auto px-4 py-16">
     <!-- Título principal com sublinhado dourado -->
     <div class="flex flex-col items-center mb-12">
       <h2 class="text-4xl md:text-5xl font-bold text-black mb-2">Nossos Produtos</h2>
@@ -79,7 +79,7 @@ import { ref, onMounted } from 'vue';
 
 // Importando imagens locais da pasta assets
 import img1 from '@/assets/arquivos/1.png';
-import img2 from '@/assets/arquivos/2.png';
+import img2 from '@/assets/arquivos/6.png';
 import img3 from '@/assets/arquivos/3.png';
 
 const createProduct = (id, title, description, dimensions, image) => ({
@@ -112,7 +112,9 @@ const handleImageLoaded = (productId) => {
 const handleImageError = (productId) => {
   const product = products.value.find(p => p.id === productId);
   if (product) {
+    product.image = img2; // Define a imagem de fallback
     product.imageError = true;
+    console.log(`Imagem do produto ${productId} substituída por fallback.`);
   }
 };
 
@@ -120,7 +122,7 @@ const handleImageError = (productId) => {
 onMounted(() => {
   setTimeout(() => {
     if (products.value[1]) {
-      products.value[1].image = "invalid-url.jpg";
+      products.value[1].image = "sem-imagem.png";
     }
   }, 2000);
 });

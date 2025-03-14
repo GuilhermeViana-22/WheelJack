@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-4xl mx-auto py-12 px-4">
+  <div class="max-w-7xl mx-auto px-4 py-16">
     <!-- Heading com linha dourada -->
     <div class="flex flex-col items-center mb-12">
       <h2 class="text-4xl md:text-5xl font-bold text-black mb-2">Nossos Serviços</h2>
@@ -7,7 +7,7 @@
     </div>
 
     <!-- Grid de imagens com Skeleton Loader -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       <div
         v-for="(image, index) in images"
         :key="index"

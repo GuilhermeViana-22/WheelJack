@@ -5,8 +5,7 @@
           <!-- Logo and company description -->
           <div class="company-info">
             <div class="logo">
-              <!-- <img src="/logo.svg" alt="Arte Nobre Logo" class="logo-img" /> -->
-               logo
+              <img src="../assets/arquivos//logo.png" alt="Arte Nobre Logo" class="logo-img" />
             </div>
             <p class="company-description">
               A Arte Nobre Services se destaca pela excelência, oferecendo soluções personalizadas com profissionalismo e compromisso para garantir a satisfação dos clientes.
@@ -17,9 +16,9 @@
           <div class="footer-links">
             <h3>Links rápidos</h3>
             <ul>
-              <li><a href="#">Início</a></li>
-              <li><a href="#">Serviços</a></li>
-              <li><a href="#">Produtos</a></li>
+              <li><a href="/">Início</a></li>
+              <li><a href="/">Serviços</a></li>
+              <li><a href="/produtos">Produtos</a></li>
             </ul>
           </div>
   
@@ -27,7 +26,7 @@
           <div class="footer-links">
             <h3>Termos de Serviços</h3>
             <ul>
-              <li><a href="#">Política de privacidade</a></li>
+              <li><a href="/privacidade">Política de privacidade</a></li>
             </ul>
           </div>
   
@@ -35,9 +34,9 @@
           <div class="footer-links">
             <h3>Redes</h3>
             <ul>
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Instagram</a></li>
-            </ul>
+  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+</ul>
           </div>
         </div>
   
@@ -46,20 +45,20 @@
           <div class="certificates">
             <h3>Selos e certificados</h3>
             <div class="certificate-logos">
-              <!-- <img src="/google-badge.svg" alt="Google Certificate" class="certificate-img" /> -->
-              logo
+              <img src="../assets/footer/google-badge.png" alt="Google Certificate" class="certificate-img" />
+  
             </div>
           </div>
   
           <div class="payment-methods">
             <h3>Formas de pagamento</h3>
             <div class="payment-logos">
-              <!-- <img src="/visa.svg" alt="Visa" class="payment-img" />
-              <img src="/mastercard.svg" alt="Mastercard" class="payment-img" />
-              <img src="/hipercard.svg" alt="Hipercard" class="payment-img" />
-              <img src="/amex.svg" alt="American Express" class="payment-img" />
-              <img src="/elo.svg" alt="Elo" class="payment-img" />
-              <img src="/pix.svg" alt="Pix" class="payment-img" /> -->
+              <img src="../assets/footer/visa-svgrepo-com.svg" alt="Visa" class="payment-img" />
+              <img src="../assets/footer/mastercard-svgrepo-com.svg" alt="Mastercard" class="payment-img" />
+              <img src="../assets/footer/hipercard-svgrepo-com.svg" alt="Hipercard" class="payment-img" />
+              <img src="../assets/footer/amex-svgrepo-com.svg" alt="American Express" class="payment-img" />
+              <img src="../assets/footer/elo-3-svgrepo-com.svg" alt="Elo" class="payment-img" />
+              <img src="../assets/footer/pix-svgrepo-com.svg" alt="Pix" class="payment-img" />
             </div>
           </div>
         </div>
