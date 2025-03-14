@@ -5,15 +5,18 @@
       class="relative w-full h-[60vh] flex items-center justify-center text-center px-4"
       :style="{ backgroundImage: `url(${banner})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }"
     >
-      <!-- Texto impactante e slogan -->
-      <div class="relative z-10 text-white max-w-3xl space-y-4">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-          Qualidade e Durabilidade <br>  
-          em Cada Detalhe da Madeira
-        </h1>
-        <!-- Slogan pequeno -->
-        <p class="text-lg sm:text-xl font-medium italic">Arte Nobre Service - Conectando Tradição e Inovação</p>
-      </div>
+      <!-- Animação de Fade-in -->
+      <Transition name="fade">
+        <div v-if="showText" class="relative z-10 text-white max-w-3xl space-y-4">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+            Qualidade e Durabilidade <br>  
+            em Cada Detalhe da Madeira
+          </h1>
+          <p class="text-lg sm:text-xl font-medium italic">
+            Arte Nobre Service - Conectando Tradição e Inovação
+          </p>
+        </div>
+      </Transition>
 
       <!-- Borda inferior dourada -->
       <div class="absolute bottom-0 left-0 w-full h-4 border-b-8 border-gold-gradient"></div>
@@ -29,7 +32,13 @@ export default {
   data() {
     return {
       banner,
+      showText: false,
     };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.showText = true;
+    }, 10); // Pequeno delay para ativar o efeito
   }
 };
 </script>
@@ -39,5 +48,13 @@ export default {
 .border-gold-gradient {
   border-image: linear-gradient(90deg, #d4af37, #f1c27d, #d4af37);
   border-image-slice: 1;
+}
+
+/* Fade-in */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1.5s ease-in-out;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
 }
 </style>

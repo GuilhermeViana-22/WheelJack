@@ -12,6 +12,7 @@
         v-for="product in products" 
         :key="product.id" 
         class="bg-white rounded-md p-4 md:p-6 shadow-md flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start"
+        data-anime="left"
       >
         <!-- Imagem do produto com skeleton loader -->
         <div class="shrink-0 relative w-[200px] h-[150px]">

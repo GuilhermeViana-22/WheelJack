@@ -7,7 +7,29 @@
       <!-- Menu Desktop -->
       <ul class="hidden md:flex space-x-6">
         <li v-for="item in menuItems" :key="item.text">
-          <a :href="item.link" class="hover:text-gold transition">{{ item.text }}</a>
+          <a
+            v-if="item.id"
+            href="#"
+            @click.prevent="scrollTo(item.id)"
+            class="hover:text-gold transition"
+          >
+            {{ item.text }}
+          </a>
+          <a
+            v-else-if="item.route"
+            :href="item.route"
+            class="hover:text-gold transition"
+          >
+            {{ item.text }}
+          </a>
+          <a
+            v-else-if="item.whatsapp"
+            :href="item.whatsapp"
+            target="_blank"
+            class="hover:text-gold transition"
+          >
+            {{ item.text }}
+          </a>
         </li>
       </ul>
 
@@ -27,7 +49,29 @@
       <div v-if="isMenuOpen" class="md:hidden bg-black py-2">
         <ul class="space-y-2 text-center">
           <li v-for="item in menuItems" :key="item.text">
-            <a :href="item.link" class="block py-2 hover:text-gold transition">{{ item.text }}</a>
+            <a
+              v-if="item.id"
+              href="#"
+              @click.prevent="scrollTo(item.id)"
+              class="block py-2 hover:text-gold transition"
+            >
+              {{ item.text }}
+            </a>
+            <a
+              v-else-if="item.route"
+              :href="item.route"
+              class="block py-2 hover:text-gold transition"
+            >
+              {{ item.text }}
+            </a>
+            <a
+              v-else-if="item.whatsapp"
+              :href="item.whatsapp"
+              target="_blank"
+              class="block py-2 hover:text-gold transition"
+            >
+              {{ item.text }}
+            </a>
           </li>
           <!-- Botão Contato (Aparece SOMENTE no Mobile) -->
           <li>
@@ -47,11 +91,11 @@ export default {
     return {
       isMenuOpen: false,
       menuItems: [
-        { text: "Início", link: "/" },
-        { text: "Missão", link: "#" },
-        { text: "Serviços", link: "#" },
-        { text: "Produtos", link: "#" },
-        { text: "Orçamento", link: "#" },
+        { text: "Início", id: "inicio" },
+        { text: "Missão", id: "missao" },
+        { text: "Serviços", id: "servicos" },
+        { text: "Produtos", route: "/produtos" }, // Redireciona para a rota /produtos
+        { text: "Orçamento", whatsapp: "https://wa.me/SEUNUMERO" }, // Link do WhatsApp
       ],
     };
   },
@@ -59,7 +103,14 @@ export default {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
-  },
+    scrollTo(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        this.isMenuOpen = false; // Fecha o menu no mobile após clicar
+      }
+    }
+  }
 };
 </script>
 

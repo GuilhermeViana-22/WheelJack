@@ -2,7 +2,7 @@
   <div class="bg-beige w-full py-20">
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center">
       <!-- Imagem à esquerda -->
-      <div class="flex-1 mb-8 md:mb-0">
+      <div class="flex-1 mb-8 md:mb-0"  data-anime="left">
         <img 
           src="../assets/arquivos/logo-2.png" 
           alt="Logo" 
@@ -11,7 +11,7 @@
       </div>
   
       <!-- Texto à direita -->
-      <div class="flex-1 text-left pl-8 md:pl-20">
+      <div class="flex-1 text-left pl-8 md:pl-20"  data-anime="left">
         <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-dark leading-tight">
           Arte Nobre Service
         </h1>

@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-7xl mx-auto px-4 py-16">
+    <div  id="missao" class="max-w-7xl mx-auto px-4 py-16">
       <!-- Heading with underline -->
       <div class="flex flex-col items-center mb-12">
         <h2 class="text-4xl md:text-5xl font-bold text-black mb-2">Nossos fundamentos</h2>
@@ -9,7 +9,7 @@
       <!-- Cards - Responsive grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Missão Card -->
-        <div class="bg-[#f5e8d3] p-8 rounded-lg shadow-md">
+        <div class="bg-[#f5e8d3] p-8 rounded-lg shadow-md"  data-anime="right">
           <div class="flex items-start mb-4">
             <div class="mr-4 text-amber-600">
               <i class="fas fa-bullseye fa-2x"></i>
@@ -22,10 +22,10 @@
         </div>
   
         <!-- Visão Card -->
-        <div class="bg-[#f5e8d3] p-8 rounded-lg shadow-md">
+        <div class="bg-[#f5e8d3] p-8 rounded-lg shadow-md"  data-anime="right">
           <div class="flex items-start mb-4">
             <div class="mr-4 text-amber-600">
-              <i class="fas fa-video fa-2x"></i>
+              <i class="fas fa-eye fa-2x"></i>
             </div>
             <h3 class="text-2xl font-semibold text-amber-700">Visão</h3>
           </div>
@@ -35,7 +35,7 @@
         </div>
   
         <!-- Valores Card -->
-        <div class="bg-[#f5e8d3] p-8 rounded-lg shadow-md">
+        <div class="bg-[#f5e8d3] p-8 rounded-lg shadow-md"  data-anime="right">
           <div class="flex items-start mb-4">
             <div class="mr-4 text-amber-600">
               <i class="fas fa-clipboard-list fa-2x"></i>

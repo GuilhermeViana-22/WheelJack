@@ -7,14 +7,14 @@
       </div>
   
       <!-- Grid de imagens com Skeleton Loader -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6"ss>
         <div
           v-for="(image, index) in images"
           :key="index"
           class="bg-white rounded-md overflow-hidden shadow-md"
         >
           <!-- Skeleton loader - sempre visível até a imagem carregar -->
-          <div v-show="!image.loaded && !image.error" class="relative w-full h-60 bg-gray-200 animate-pulse">
+          <div v-show="!image.loaded && !image.error" class="relative w-full h-60 bg-gray-200 animate-pulse" >
             <div class="absolute inset-0 flex items-center justify-center">
               <svg
                 class="w-10 h-10 text-gray-400"

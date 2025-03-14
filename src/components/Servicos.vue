@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-7xl mx-auto px-4 py-16">
+  <div id="servicos" class="max-w-7xl mx-auto px-4 py-16"s>
     <!-- Heading com linha dourada -->
     <div class="flex flex-col items-center mb-12">
       <h2 class="text-4xl md:text-5xl font-bold text-black mb-2">Nossos Serviços</h2>
@@ -8,14 +8,15 @@
 
     <!-- Grid de imagens com Skeleton Loader -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div
+      <div 
         v-for="(image, index) in images"
         :key="index"
         class="bg-white rounded-md overflow-hidden shadow-md"
+      
       >
         <!-- Skeleton enquanto a imagem carrega -->
         <div v-if="!image.loaded && !image.error" class="relative w-full h-60 bg-gray-200 animate-pulse">
-          <div class="absolute inset-0 flex items-center justify-center">
+          <div class="absolute inset-0 flex items-center justify-center" >
             <svg
               class="w-10 h-10 text-gray-400"
               fill="none"
@@ -42,6 +43,7 @@
           :class="{ 'opacity-0': !image.loaded, 'opacity-100': image.loaded }"
           @load="handleImageLoaded(index)"
           @error="handleImageError(index)"
+          
         />
 
         <!-- Fallback se a imagem falhar -->
