@@ -4,7 +4,7 @@ import Privacidade from '../views/Privacidade.vue';
 import Produtos from '../views/Produtos.vue';
 
 const routes = [
-  { path: '/', component: Home },
+  { path: '/', name: 'home', component: Home }, // Nome da rota para facilitar a navegação programática
   { path: '/privacidade', component: Privacidade },
   { path: '/produtos', component: Produtos },
 ];

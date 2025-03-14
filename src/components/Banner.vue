@@ -8,11 +8,11 @@
       <!-- Animação de Fade-in -->
       <Transition name="fade">
         <div v-if="showText" class="relative z-10 text-white max-w-3xl space-y-4">
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight" style="letter-spacing: -3px; font-weight: 700;">
             Qualidade e Durabilidade <br>  
             em Cada Detalhe da Madeira
           </h1>
-          <p class="text-lg sm:text-xl font-medium italic">
+          <p class="text-lg sm:text-xl font-medium italic" style="letter-spacing: -2px;">
             Arte Nobre Service - Conectando Tradição e Inovação
           </p>
         </div>

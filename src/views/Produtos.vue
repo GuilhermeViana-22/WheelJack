@@ -3,7 +3,7 @@
 
 <script setup>
 import Navbar from '@/components/Navbar.vue';
-import Banner from '@/components/Banner.vue';
+import BannerCatalogo from '@/components/BannerCatalogo.vue';
 import Catalogo from '@/components/Catalogo.vue';
 import Footer from '@/components/Footer.vue';
 
@@ -12,7 +12,7 @@ import Footer from '@/components/Footer.vue';
 <template>
   <header>
     <Navbar />
-    <Banner />
+    <BannerCatalogo />
     <Catalogo />
     <Footer />
   </header>

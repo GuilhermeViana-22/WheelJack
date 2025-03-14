@@ -16,9 +16,9 @@
           <div class="footer-links">
             <h3>Links rápidos</h3>
             <ul>
-              <li><a href="/">Início</a></li>
-              <li><a href="/">Serviços</a></li>
-              <li><a href="/produtos">Produtos</a></li>
+              <li><router-link to="/">Início</router-link></li>
+              <li><router-link to="/">Serviços</router-link></li>
+              <li><router-link to="/produtos">Produtos</router-link></li>
             </ul>
           </div>
   
@@ -26,7 +26,7 @@
           <div class="footer-links">
             <h3>Termos de Serviços</h3>
             <ul>
-              <li><a href="/privacidade">Política de privacidade</a></li>
+              <li><router-link to="/privacidade">Política de privacidade</router-link></li>
             </ul>
           </div>
   

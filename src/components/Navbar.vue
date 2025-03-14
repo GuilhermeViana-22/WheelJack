@@ -1,27 +1,27 @@
 <template>
   <nav class="bg-black text-white py-4 px-6 shadow-lg border-b-8 border-gold-gradient">
     <div class="container mx-auto flex justify-between items-center">
-      <!-- Logo -->
-      <div class="text-xl font-bold text-gold">Arte Nobre Service</div>
+      <!-- Logo Alinhada à Esquerda -->
+      <div class="text-xl font-bold text-gold ml-4">Arte Nobre Service</div>
 
       <!-- Menu Desktop -->
-      <ul class="hidden md:flex space-x-6">
+      <ul class="hidden md:flex space-x-6 flex-grow justify-center">
         <li v-for="item in menuItems" :key="item.text">
-          <a
+          <router-link
             v-if="item.id"
-            href="#"
+            to="#"
             @click.prevent="scrollTo(item.id)"
             class="hover:text-gold transition"
           >
             {{ item.text }}
-          </a>
-          <a
+          </router-link>
+          <router-link
             v-else-if="item.route"
-            :href="item.route"
+            :to="item.route"
             class="hover:text-gold transition"
           >
             {{ item.text }}
-          </a>
+          </router-link>
           <a
             v-else-if="item.whatsapp"
             :href="item.whatsapp"
@@ -49,21 +49,21 @@
       <div v-if="isMenuOpen" class="md:hidden bg-black py-2">
         <ul class="space-y-2 text-center">
           <li v-for="item in menuItems" :key="item.text">
-            <a
+            <router-link
               v-if="item.id"
-              href="#"
+              to="#"
               @click.prevent="scrollTo(item.id)"
               class="block py-2 hover:text-gold transition"
             >
               {{ item.text }}
-            </a>
-            <a
+            </router-link>
+            <router-link
               v-else-if="item.route"
-              :href="item.route"
+              :to="item.route"
               class="block py-2 hover:text-gold transition"
             >
               {{ item.text }}
-            </a>
+            </router-link>
             <a
               v-else-if="item.whatsapp"
               :href="item.whatsapp"
@@ -91,7 +91,7 @@ export default {
     return {
       isMenuOpen: false,
       menuItems: [
-        { text: "Início", id: "inicio" },
+        { text: "Início", route: "/" },
         { text: "Missão", id: "missao" },
         { text: "Serviços", id: "servicos" },
         { text: "Produtos", route: "/produtos" }, // Redireciona para a rota /produtos
@@ -122,6 +122,26 @@ export default {
 .border-gold-gradient {
   border-image: linear-gradient(90deg, #d4af37, #f1c27d, #d4af37);
   border-image-slice: 1;
+}
+
+/* Ajuste para garantir que a logo e o menu fiquem bem distribuídos */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+}
+
+.ml-4 {
+  margin-left: 16px; /* Ajusta o espaçamento da logo à esquerda */
+}
+
+.flex-grow {
+  flex-grow: 1; /* Faz o menu ocupar o máximo de espaço disponível */
+}
+
+.justify-center {
+  justify-content: center; /* Centraliza os itens do menu no desktop */
 }
 
 /* Transições do menu */
