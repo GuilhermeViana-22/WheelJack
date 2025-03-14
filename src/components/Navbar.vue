@@ -92,8 +92,8 @@ export default {
       isMenuOpen: false,
       menuItems: [
         { text: "Início", route: "/" },
-        { text: "Missão", id: "missao" },
-        { text: "Serviços", id: "servicos" },
+        { text: "Missão", id: "/" },
+        { text: "Serviços", id: "/" },
         { text: "Produtos", route: "/produtos" }, // Redireciona para a rota /produtos
         { text: "Orçamento", whatsapp: "https://wa.me/SEUNUMERO" }, // Link do WhatsApp
       ],
