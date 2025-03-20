@@ -1,6 +1,3 @@
-
-
-
 <template>
   <div class="max-w-7xl mx-auto px-4 py-16">
     <!-- Título principal com sublinhado dourado -->
@@ -46,7 +43,7 @@
 
     <!-- Modal -->
     <div v-if="modalOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div class="bg-white p-6 rounded-md shadow-lg w-96">
+      <div class="bg-white p-6 rounded-md shadow-lg w-96 mx-5 my-4">
         <h2 class="text-xl font-semibold">{{ selectedProduct.title }}</h2>
         <p>{{ selectedProduct.description }}</p>
         <p>{{ selectedProduct.dimensions }}</p>
