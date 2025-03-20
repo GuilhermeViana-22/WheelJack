@@ -11,7 +11,7 @@
       <div 
         v-for="(image, index) in images"
         :key="index"
-        class="bg-white rounded-md overflow-hidden shadow-md"
+        class="bg-white rounded-md overflow-hidden shadow-md item" v-scroll-reveal
       
       >
         <!-- Skeleton enquanto a imagem carrega -->

@@ -73,7 +73,6 @@
               {{ item.text }}
             </a>
           </li>
-          <!-- Botão Contato (Aparece SOMENTE no Mobile) -->
           <li>
             <a href="#" class="block bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition mx-4">
               Contato

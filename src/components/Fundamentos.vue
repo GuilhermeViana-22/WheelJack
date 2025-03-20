@@ -9,7 +9,7 @@
       <!-- Cards - Responsive grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Missão Card -->
-        <div class="bg-[#f5e8d3] p-8 rounded-lg shadow-md" >
+        <div class="bg-[#f5e8d3] p-8 rounded-lg shadow-md  item" v-scroll-reveal >
           <div class="flex items-start mb-4">
             <div class="mr-4 text-amber-600">
               <i class="fas fa-bullseye fa-2x"></i>
@@ -22,7 +22,7 @@
         </div>
   
         <!-- Visão Card -->
-        <div class="bg-[#f5e8d3] p-8 rounded-lg shadow-md" >
+        <div class="bg-[#f5e8d3] p-8 rounded-lg shadow-md  item" v-scroll-reveal >
           <div class="flex items-start mb-4">
             <div class="mr-4 text-amber-600">
               <i class="fas fa-eye fa-2x"></i>
@@ -35,7 +35,7 @@
         </div>
   
         <!-- Valores Card -->
-        <div class="bg-[#f5e8d3] p-8 rounded-lg shadow-md" >
+        <div class="bg-[#f5e8d3] p-8 rounded-lg shadow-md  item" v-scroll-reveal >
           <div class="flex items-start mb-4">
             <div class="mr-4 text-amber-600">
               <i class="fas fa-clipboard-list fa-2x"></i>

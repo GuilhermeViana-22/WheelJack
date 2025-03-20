@@ -16,7 +16,7 @@
         <div
           v-for="(product, index) in products"
           :key="index"
-          class="border border-gray-200 rounded p-4 flex flex-col md:flex-row"
+          class="border border-gray-200 rounded p-4 flex flex-col md:flex-row   item" v-scroll-reveal
         >
           <div class="md:w-1/4 mb-4 md:mb-0">
             <img :src="product.image" :alt="product.title" class="w-full h-auto" />

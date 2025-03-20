@@ -11,8 +11,7 @@
       <div 
         v-for="(textGroup, index) in textGroups" 
         :key="index" 
-        class="bg-primary rounded shadow-md overflow-hidden"
-      >
+        class="bg-primary rounded shadow-md overflow-hidden item" v-scroll-reveal>
         <div class="bg-secondary p-3 flex justify-center items-center h-48">
           <img 
             src="../assets/arquivos/logo-2.png" 

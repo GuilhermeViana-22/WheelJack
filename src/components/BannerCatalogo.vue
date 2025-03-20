@@ -18,7 +18,7 @@
         </Transition>
   
         <!-- Borda inferior dourada -->
-        <div class="absolute bottom-0 left-0 w-full h-4 border-b-8 border-gold-gradient"></div>
+        <div class="absolute bottom-0 left-0 w-full h-4 border-b-8 border-gold-gradient item" v-scroll-reveal></div>
       </div>
     </div>
   </template>

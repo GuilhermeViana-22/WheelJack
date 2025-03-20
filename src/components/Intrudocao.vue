@@ -6,16 +6,16 @@
         <img 
           src="../assets/arquivos/logo-2.png" 
           alt="Logo" 
-          class="w-full ml-0"
+          class="w-full ml-0  item" v-scroll-reveal
         />
       </div>
   
       <!-- Texto à direita -->
       <div class="flex-1 text-left pl-8 md:pl-20"  >
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-dark leading-tight">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-dark leading-tight item" v-scroll-reveal>
           Arte Nobre Service
         </h1>
-        <p class="mt-6 text-base sm:text-lg md:text-2xl text-dark leading-relaxed">
+        <p class="mt-6 text-base sm:text-lg md:text-2xl text-dark leading-relaxe item" v-scroll-reveal>
           A <strong>Arte Nobre Service</strong> é uma empresa especializada na venda e instalação de assoalhos, tacos, decks e forros, oferecendo soluções de alto padrão para residências, empresas e espaços comerciais. Nosso compromisso é garantir qualidade, durabilidade e sofisticação em cada projeto, utilizando materiais nobres e técnicas avançadas de instalação.
         </p>
       </div>
