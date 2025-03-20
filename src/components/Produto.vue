@@ -1,3 +1,6 @@
+
+
+
 <template>
   <div class="max-w-7xl mx-auto px-4 py-16">
     <!-- Título principal com sublinhado dourado -->
@@ -12,41 +15,13 @@
         v-for="product in products" 
         :key="product.id" 
         class="bg-white rounded-md p-4 md:p-6 shadow-md flex flex-col md:flex-row gap-4 md:gap-6 items-center md:items-start"
-    
       >
-        <!-- Imagem do produto com skeleton loader -->
+        <!-- Imagem do produto -->
         <div class="shrink-0 relative w-[200px] h-[150px]">
-          <div 
-            v-show="!product.imageLoaded" 
-            class="absolute inset-0 rounded-md bg-gray-200 animate-pulse"
-          >
-            <div class="h-full w-full flex items-center justify-center">
-              <svg 
-                v-if="product.imageError" 
-                class="w-10 h-10 text-gray-400" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24" 
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path 
-                  stroke-linecap="round" 
-                  stroke-linejoin="round" 
-                  stroke-width="2" 
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                ></path>
-              </svg>
-            </div>
-          </div>
-          
-          <!-- Imagem real -->
           <img
             :src="product.image"
             :alt="product.title"
-            class="rounded-md object-cover w-full h-full transition-opacity duration-300"
-            :class="{ 'opacity-0': !product.imageLoaded, 'opacity-100': product.imageLoaded }"
-            @load="handleImageLoaded(product.id)"
-            @error="handleImageError(product.id)"
+            class="rounded-md object-cover w-full h-full"
           />
         </div>
         
@@ -57,20 +32,55 @@
           <p class="text-gray-600 text-sm">{{ product.dimensions }}</p>
         </div>
         
-        <!-- Botão de orçamento -->
+        <!-- Botão de abrir o modal -->
         <div class="shrink-0 self-center md:self-end mt-3 md:mt-0">
-          <button class="bg-[#22c55e] hover:bg-[#16a34a] text-white font-medium px-4 py-2 rounded transition-colors">
+          <button 
+            @click="openModal(product)" 
+            class="bg-[#22c55e] hover:bg-[#16a34a] text-white font-medium px-4 py-2 rounded transition-colors"
+          >
             Solicitar Orçamento
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Botão para ver modelos -->
-    <div class="flex justify-center mt-10">
-      <button class="bg-black hover:bg-gray-800 text-white font-medium px-6 py-2 rounded transition-colors">
-        Veja os modelos
-      </button>
+    <!-- Modal -->
+    <div v-if="modalOpen" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+      <div class="bg-white p-6 rounded-md shadow-lg w-96">
+        <h2 class="text-xl font-semibold">{{ selectedProduct.title }}</h2>
+        <p>{{ selectedProduct.description }}</p>
+        <p>{{ selectedProduct.dimensions }}</p>
+        
+        <!-- Formulário para nome e e-mail -->
+        <div class="mt-4">
+          <input
+            v-model="userName"
+            type="text"
+            placeholder="Seu Nome"
+            class="w-full p-2 border rounded-md mb-2"
+            :class="{'border-red-500': nameError}"
+          />
+          <input
+            v-model="userEmail"
+            type="email"
+            placeholder="Seu E-mail"
+            class="w-full p-2 border rounded-md mb-2"
+            :class="{'border-red-500': emailError}"
+          />
+          <div v-if="nameError" class="text-red-500 text-sm">Nome é obrigatório.</div>
+          <div v-if="emailError" class="text-red-500 text-sm">E-mail é obrigatório.</div>
+        </div>
+        
+        <!-- Botões -->
+        <div class="flex justify-between mt-4">
+          <button @click="closeModal" class="bg-gray-500 hover:bg-gray-700 text-white font-medium px-4 py-2 rounded">
+            Fechar
+          </button>
+          <button @click="sendToWhatsApp" class="bg-[#22c55e] hover:bg-[#16a34a] text-white font-medium px-4 py-2 rounded">
+            Enviar para WhatsApp
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -100,50 +110,65 @@ const products = ref([
   createProduct(3, "Assoalho TG4 e Assoalho Tradicional", "Piso de tábuas com comprimentos variados e encaixe macho e fêmea", "Taco de Tauari: 7cm x 21cm", img3),
 ]);
 
-// Marcar imagem como carregada
-const handleImageLoaded = (productId) => {
-  const product = products.value.find(p => p.id === productId);
-  if (product) {
-    product.imageLoaded = true;
-    product.imageError = false;
-  }
+// Dados do modal
+const modalOpen = ref(false);
+const selectedProduct = ref(null);
+const userName = ref('');
+const userEmail = ref('');
+const nameError = ref(false);
+const emailError = ref(false);
+
+// Abrir o modal
+const openModal = (product) => {
+  selectedProduct.value = product;
+  modalOpen.value = true;
+  userName.value = '';
+  userEmail.value = '';
+  nameError.value = false;
+  emailError.value = false;
 };
 
-// Marcar erro ao carregar imagem
-const handleImageError = (productId) => {
-  const product = products.value.find(p => p.id === productId);
-  if (product) {
-    product.image = img2; // Define a imagem de fallback
-    product.imageError = true;
-    console.log(`Imagem do produto ${productId} substituída por fallback.`);
-  }
+// Fechar o modal
+const closeModal = () => {
+  modalOpen.value = false;
 };
 
-// Simulação de erro em uma imagem
-onMounted(() => {
-  setTimeout(() => {
-    if (products.value[1]) {
-      products.value[1].image = "sem-imagem.png";
-    }
-  }, 2000);
-});
+// Validar campos
+const validateFields = () => {
+  nameError.value = !userName.value.trim();
+  emailError.value = !userEmail.value.trim();
+  return !(nameError.value || emailError.value);
+};
+
+// Gerar link para WhatsApp
+const generateWhatsAppLink = () => {
+  if (!validateFields()) return;
+
+  const phone = "5511954509504"; // Número com DDD (Brasil = 55)
+  const message = `👋 Olá, sou ${userName.value}, gostaria de saber mais sobre o produto: ${selectedProduct.value.title}.\n\nDescrição: ${selectedProduct.value.description}\nDimensões: ${selectedProduct.value.dimensions}\nEmail: ${userEmail.value}\n\n👷‍♂️💬 Arte Nobre Service - Atendimento ao cliente`;
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+};
+
+// Enviar para o WhatsApp
+const sendToWhatsApp = () => {
+  if (validateFields()) {
+    const link = generateWhatsAppLink();
+    window.location.href = link;
+  }
+};
 </script>
 
-<style>
-/* Animação para efeito skeleton */
-@keyframes skeletonPulse {
-  0% {
-    background-color: rgba(226, 232, 240, 0.6);
-  }
-  50% {
-    background-color: rgba(226, 232, 240, 0.8);
-  }
-  100% {
-    background-color: rgba(226, 232, 240, 0.6);
-  }
-}
-
-.animate-pulse {
-  animation: skeletonPulse 1.5s ease-in-out infinite;
+<style scoped>
+/* Estilo para o fundo do modal */
+.bg-black.bg-opacity-50 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
 }
 </style>
