@@ -2,8 +2,7 @@
   <div>
     <!-- WhatsApp Button with Badge -->
     <div
-      v-show="showChat"
-      @click="openChat"
+      @click="toggleChat"
       class="whatsapp-btn fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg cursor-pointer flex items-center justify-center relative"
     >
       <i class="fab fa-whatsapp fa-2x"></i>
@@ -40,18 +39,17 @@
 <script setup>
 import { ref } from 'vue';
 
-const showChat = ref(true); // Exibe o botão do WhatsApp
-const showForm = ref(false); // Exibe o painel de chat
+const showForm = ref(false); // Controla a visibilidade do chat
 const showBadge = ref(true); // Exibe o badge de notificação
 const message = ref(''); // Armazena a mensagem digitada
 
-// Função para abrir o chat
-const openChat = () => {
-  showForm.value = true;
-  showBadge.value = false; // Esconde o badge ao abrir o chat
+// Alterna entre abrir e fechar o chat
+const toggleChat = () => {
+  showForm.value = !showForm.value;
+  if (showForm.value) showBadge.value = false; // Esconde o badge ao abrir o chat
 };
 
-// Função para enviar a mensagem para o WhatsApp
+// Enviar mensagem para o WhatsApp
 const sendMessage = () => {
   if (message.value.trim()) {
     const phoneNumber = '5511954509504'; // Substitua pelo número desejado
@@ -130,7 +128,5 @@ textarea {
 
 .whatsapp-btn:hover {
   animation: bounce 0.5s ease-in-out infinite;
-  
 }
-
 </style>
