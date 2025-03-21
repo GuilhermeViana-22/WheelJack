@@ -11,7 +11,7 @@
       <!-- Main heading -->
       <h1 class="text-2xl font-medium text-gray-700 mb-6">Assoalhos</h1>
   
-      <!-- Product list -->
+      <!-- listgaem de produtso -->
       <div class="space-y-6">
         <div
           v-for="(product, index) in products"

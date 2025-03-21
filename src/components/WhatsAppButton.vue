@@ -130,5 +130,7 @@ textarea {
 
 .whatsapp-btn:hover {
   animation: bounce 0.5s ease-in-out infinite;
+  
 }
+
 </style>
