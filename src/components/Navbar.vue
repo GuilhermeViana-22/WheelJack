@@ -34,9 +34,12 @@
       </ul>
 
       <!-- Botão Contato (Aparece no Desktop) -->
-      <a href="#" class="hidden md:block bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
-        Contato
-      </a>
+      <a 
+  href="https://wa.me/11970419195" 
+  target="_blank" 
+  class="hidden md:block bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
+  Contato
+</a>
 
       <!-- Botão Mobile -->
       <button @click="toggleMenu" class="md:hidden text-white focus:outline-none">
@@ -94,7 +97,7 @@ export default {
         { text: "Missão", id: "/" },
         { text: "Serviços", id: "/" },
         { text: "Produtos", route: "/produtos" }, // Redireciona para a rota /produtos
-        { text: "Orçamento", whatsapp: "https://wa.me/SEUNUMERO" }, // Link do WhatsApp
+        { text: "Orçamento", whatsapp: "https://wa.me/11970419195" }, // Link do WhatsApp
       ],
     };
   },

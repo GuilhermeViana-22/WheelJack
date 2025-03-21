@@ -52,7 +52,7 @@ const toggleChat = () => {
 // Enviar mensagem para o WhatsApp
 const sendMessage = () => {
   if (message.value.trim()) {
-    const phoneNumber = '5511954509504'; // Substitua pelo número desejado
+    const phoneNumber = '5511970419195'; // Substitua pelo número desejado
     const encodedMessage = encodeURIComponent(message.value);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');

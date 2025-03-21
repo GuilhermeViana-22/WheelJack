@@ -141,7 +141,7 @@ const validateFields = () => {
 const generateWhatsAppLink = () => {
   if (!validateFields()) return;
 
-  const phone = "5511954509504"; // Número com DDD (Brasil = 55)
+  const phone = "5511970419195"; // Número com DDD (Brasil = 55)
   const message = `👋 Olá, sou ${userName.value}, gostaria de saber mais sobre o produto: ${selectedProduct.value.title}.\n\nDescrição: ${selectedProduct.value.description}\nDimensões: ${selectedProduct.value.dimensions}\nEmail: ${userEmail.value}\n\n👷‍♂️💬 Arte Nobre Service - Atendimento ao cliente`;
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 };
