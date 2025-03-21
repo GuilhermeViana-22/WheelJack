@@ -16,7 +16,8 @@
         <div
           v-for="(product, index) in products"
           :key="index"
-          class="border border-gray-200 rounded p-4 flex flex-col md:flex-row   item" v-scroll-reveal
+          class="border border-gray-200 rounded p-4 flex flex-col md:flex-row item"
+          v-scroll-reveal
         >
           <div class="md:w-1/4 mb-4 md:mb-0">
             <img :src="product.image" :alt="product.title" class="w-full h-auto" />
@@ -36,10 +37,10 @@
                   <span class="font-medium">Comprimentos:</span> {{ product.length }}
                 </p>
               </div>
-              <button class="bg-black text-white text-sm px-4 py-1 rounded"> Saiba Mais </button>
+              <button @click="openWhatsApp(product)" class="bg-black text-white text-sm px-4 py-1 rounded"> Saiba Mais </button>
             </div>
             <div class="mt-6">
-              <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded">
+              <button @click="openWhatsApp(product)" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded">
                 Solicitar Orçamento
               </button>
             </div>
@@ -52,7 +53,7 @@
   <script setup>
   import { ref } from "vue";
   import { useRouter, useRoute } from "vue-router";
-  import img6 from "@/assets/arquivos/6.png"; // Importação otimizada da imagem
+  import img6 from "@/assets/arquivos/6.png";
   
   const router = useRouter();
   const route = useRoute();
@@ -101,14 +102,20 @@
   
   const goToHome = () => {
     if (route.path === "/") {
-      location.reload(); // Se já estiver na home, recarrega a página
+      location.reload();
     } else {
-      router.push("/"); // Se estiver em outra página, apenas navega para a home
+      router.push("/");
     }
+  };
+  
+  const openWhatsApp = (product) => {
+    const phone = "5511954509504"; // Substitua pelo número correto
+    const message = `Olá, gostaria de saber mais sobre o produto: ${product.title}`;
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
   };
   </script>
   
   <style>
   /* Adicione estilos personalizados aqui, se necessário */
   </style>
-  
