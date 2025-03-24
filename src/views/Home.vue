@@ -8,6 +8,7 @@ import Produtos from '@/components/Produto.vue';
 import Footer from '@/components/Footer.vue';
 import Informacoes from '@/components/Informacoes.vue';
 import WhatsAppButton from '@/components/WhatsAppButton.vue';
+import Embesed from '@/components/embesed/Embesed.vue';
 </script>
 
 <template>
@@ -19,6 +20,7 @@ import WhatsAppButton from '@/components/WhatsAppButton.vue';
     <Fundamentos />
     <Servicos />
     <Produtos />
+    <Embesed />
     <Informacoes />
     <WhatsAppButton />
     <Footer />
