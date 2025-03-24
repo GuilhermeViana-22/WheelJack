@@ -97,7 +97,7 @@ export default {
   { text: "Missão", id: "missao" },  // Corrigido
   { text: "Serviços", id: "servicos" },
   { text: "Produtos", route: "/produtos" },
-  { text: "Orçamento", whatsapp: "https://wa.me/11970419195" },
+  { text: "Orçamento", whatsapp: "https://wa.me/5511970419195" },
       ],
     };
   },
