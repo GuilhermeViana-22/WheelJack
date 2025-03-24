@@ -93,26 +93,43 @@ export default {
     return {
       isMenuOpen: false,
       menuItems: [
-        { text: "Início", route: "/" },
-        { text: "Missão", id: "/" },
-        { text: "Serviços", id: "/" },
-        { text: "Produtos", route: "/produtos" }, // Redireciona para a rota /produtos
-        { text: "Orçamento", whatsapp: "https://wa.me/11970419195" }, // Link do WhatsApp
+      { text: "Início", id: "inicio" },
+  { text: "Missão", id: "missao" },  // Corrigido
+  { text: "Serviços", id: "servicos" },
+  { text: "Produtos", route: "/produtos" },
+  { text: "Orçamento", whatsapp: "https://wa.me/11970419195" },
       ],
     };
   },
   methods: {
-    toggleMenu() {
-      this.isMenuOpen = !this.isMenuOpen;
-    },
-    scrollTo(sectionId) {
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  },
+  scrollTo(sectionId) {
+    if (this.$route.path !== "/") {
+      // Navega para a Home ("/") e, após a navegação, faz o scroll
+      this.$router.push("/").then(() => {
+        this.$nextTick(() => {
+          this.smoothScroll(sectionId);
+        });
+      });
+    } else {
+      // Se já estiver na Home, apenas faz o scroll
+      this.smoothScroll(sectionId);
+    }
+    
+    this.isMenuOpen = false; // Fecha o menu no mobile após clicar
+  },
+  smoothScroll(sectionId) {
+    setTimeout(() => { // Pequeno delay para garantir que a home carregou
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
-        this.isMenuOpen = false; // Fecha o menu no mobile após clicar
       }
-    }
+    }, 200);
   }
+}
+  
 };
 </script>
 
