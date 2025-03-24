@@ -16,7 +16,7 @@
           Arte Nobre Service
         </h1>
         <p class="mt-6 text-base sm:text-lg md:text-2xl text-dark leading-relaxe item" v-scroll-reveal>
-          A <strong>Arte Nobre Service</strong> é uma empresa especializada na venda e instalação de assoalhos, tacos, decks e forros, oferecendo soluções de alto padrão para residências, empresas e espaços comerciais. Nosso compromisso é garantir qualidade, durabilidade e sofisticação em cada projeto, utilizando materiais nobres e técnicas avançadas de instalação.
+          A <strong>Arte Nobre Service</strong> é uma empresa especializada na venda e instalação de assoalhos, tacos, decks, forros, painéis e outros produtos, além de oferecer serviços de acabamento final, como raspagem, lixamento e aplicação de vernizes ecológicos. Nossa missão é fornecer soluções de alto padrão para residências, empresas e espaços comerciais, garantindo qualidade, durabilidade e sofisticação em cada projeto. Trabalhamos com materiais nobres e utilizamos técnicas avançadas de instalação para assegurar os melhores resultados.
         </p>
       </div>
     </div>
