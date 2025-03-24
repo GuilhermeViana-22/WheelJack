@@ -53,46 +53,50 @@
   <script setup>
   import { ref } from "vue";
   import { useRouter, useRoute } from "vue-router";
-  import img6 from "@/assets/arquivos/6.png";
+  import img1 from "@/assets/catalogo/assoalho_garapa.jpg";
+  import img2 from "@/assets/catalogo/assoalho_jatoba.webp";
+  import img3 from "@/assets/catalogo/assoalho_sucupira_amarela.jpg";
+  import img4 from "@/assets/arquivos/6.png";
+  import img5 from "@/assets/catalogo/forro.jpg";
   
   const router = useRouter();
   const route = useRoute();
   
   const products = ref([
     {
-      title: "Assoalho de Cumarú 6,5cm TG4",
-      image: img6,
-      thickness: "1,8cm",
-      width: "6,5cm",
-      length: "30cm a 210cm",
+      title: "Assoalho Garapa Extra",
+      image: img1,
+      thickness: "5,5cm",
+      width: "5,5cm",
+      length: "5,5cm",
     },
     {
-      title: "Assoalho de Cumarú 10cm TG4",
-      image: img6,
-      thickness: "1,8cm",
+      title: "Assoalho Jatobá Extra",
+      image: img2,
+      thickness: "15cm",
+      width: "15cm",
+      length: "2cm a 15cm",
+    },
+    {
+      title: "Assoalho Sucupira Amarela Extra 10cm Curto",
+      image: img3,
+      thickness: "10cm",
       width: "10cm",
-      length: "30cm a 210cm",
-    },
-    {
-      title: "Assoalho de Cumarú 13cm TG4",
-      image: img6,
-      thickness: "1,8cm",
-      width: "13cm",
-      length: "30cm a 210cm",
+      length: "3cm a 10cm",
     },
     {
       title: "Assoalho de Cumarú Envernizado 6cm TG4",
-      image: img6,
+      image: img4,
       thickness: "1,8cm",
       width: "6cm",
       length: "30cm a 210cm",
     },
     {
-      title: "Assoalho de Cumarú Envernizado 10cm TG4",
-      image: img6,
-      thickness: "1,8cm",
-      width: "10cm",
-      length: "30cm a 210cm",
+      title: "Forro de Cedrinho Mesclado 4,00mt",
+      image: img5,
+      thickness: "1 cm",
+      width: "10 cm",
+      length: "4,00 m",
     },
   ]);
   
