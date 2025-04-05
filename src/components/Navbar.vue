@@ -8,34 +8,35 @@
       <ul class="hidden md:flex space-x-6 flex-grow justify-center relative">
         <li v-for="item in menuItems" :key="item.text" class="relative group">
           <template v-if="item.text === 'Produtos'">
-            <span class="cursor-pointer hover:text-gold transition">
-              {{ item.text }}
-            </span>
-            <!-- Dropdown -->
-            <ul class="absolute hidden group-hover:block bg-black text-white mt-2 py-2 rounded shadow-lg z-50 min-w-[200px] md:top-4">
-              <template v-for="cat in parentCategories" :key="cat.id">
-                <li>
-                  <router-link
-                    class="block px-4 py-2 hover:bg-gold hover:text-gold transition"
-                    :to="`/produtos?category=${cat.route}`"
-                  >
-                    {{ cat.title }}
-                  </router-link>
+            <details>
+              <summary class="cursor-pointer text-white hover:text-gold">Produtos</summary>
+              
+              <!-- Dropdown -->
+              <ul class="absolute hidden group-hover:block bg-black text-white mt-2 py-2 rounded shadow-lg z-50 min-w-[200px] top-4">
+                <template v-for="cat in parentCategories" :key="cat.id">
+                  <li>
+                    <router-link
+                      class="block px-4 py-2 hover:bg-gold hover:text-gold transition"
+                      :to="`/produtos?category=${cat.route}`"
+                    >
+                      {{ cat.title }}
+                    </router-link>
 
-                  <!-- Subcategorias -->
-                  <ul v-if="getChildren(cat.id).length" class="pl-4">
-                    <li v-for="child in getChildren(cat.id)" :key="child.id">
-                      <router-link
-                        class="block px-4 py-1 hover:bg-gold hover:text-gold transition"
-                        :to="`/produtos?category=${child.route}`"
-                      >
-                        {{ child.title }}
-                      </router-link>
-                    </li>
-                  </ul>
-                </li>
-              </template>
-            </ul>
+                    <!-- Subcategorias -->
+                    <ul v-if="getChildren(cat.id).length" class="pl-4">
+                      <li v-for="child in getChildren(cat.id)" :key="child.id">
+                        <router-link
+                          class="block px-4 py-1 hover:bg-gold hover:text-gold transition"
+                          :to="`/produtos?category=${child.route}`"
+                        >
+                          {{ child.title }}
+                        </router-link>
+                      </li>
+                    </ul>
+                  </li>
+                </template>
+              </ul>
+            </details>
           </template>
 
           <router-link
