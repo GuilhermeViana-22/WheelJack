@@ -158,7 +158,7 @@ const goToHome = () => {
 };
 
 const openWhatsApp = (product) => {
-  const phone = ""; // Substitua pelo número correto
+  const phone = "5511970419195"; // Substitua pelo número correto
   const message = `Olá, gostaria de saber mais sobre o produto: ${product.title}`;
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
