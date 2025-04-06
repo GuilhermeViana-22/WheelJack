@@ -75,6 +75,17 @@ import img3 from "@/assets/catalogo/assoalho_sucupira_amarela.jpg";
 import img4 from "@/assets/arquivos/6.png";
 import img5 from "@/assets/catalogo/forro.jpg";
 
+import img6 from "@/assets/catalogo/1.png";
+import img7 from "@/assets/catalogo/2.png";
+import img8 from "@/assets/catalogo/3.png";
+import img9 from "@/assets/catalogo/5.png";
+import img10 from "@/assets/catalogo/8.png";
+import img11 from "@/assets/catalogo/9.png";
+import img12 from "@/assets/catalogo/10.png";
+import img13 from "@/assets/catalogo/11.png";
+import img14 from "@/assets/catalogo/12.png";
+import img15 from "@/assets/catalogo/14.png";
+
 const router = useRouter();
 const route = useRoute();
 
@@ -97,6 +108,18 @@ const products = ref([
   { title: "Assoalho Sucupira Amarela Extra 10cm Curto", image: img3, thickness: "10cm", width: "10cm", length: "3cm a 10cm", category_id: 1 },
   { title: "Assoalho de Cumarú Envernizado 6cm TG4", image: img4, thickness: "1,8cm", width: "6cm", length: "30cm a 210cm", category_id: 1 },
   { title: "Forro de Cedrinho Mesclado 4,00mt", image: img5, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 10 },
+
+  /// esses itens estão com as categorias erradas e informações erradas, ajustar
+  { title: "Painel", image: img6, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 3 },
+  { title: "Escada", image: img7, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 8 },
+  { title: "Painel", image: img8, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 4 },
+  { title: "Revestimento de Banheira", image: img9, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 9 },
+  { title: "Assoalho", image: img10, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 1 },
+  { title: "Assoalho", image: img11, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 1 },
+  { title: "Tacão", image: img12, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 5 },
+  { title: "Tacão Palito", image: img13, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 6 },
+  { title: "Assoalho", image: img14, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 1 },
+  { title: "Assoalho", image: img15, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 1 }
 ]);
 
 // Agrupa as categorias
