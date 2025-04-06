@@ -3,12 +3,9 @@
     <!-- Carrossel de imagens de fundo -->
     <div class="relative w-full h-full">
       <Transition name="fade" mode="out-in">
-        <div 
-          v-if="images.length > 0"
-          :key="currentImage"
+        <div v-if="images.length > 0" :key="currentImage"
           class="absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-1000"
-          :style="{ backgroundImage: `url(${images[currentImage]})` }"
-        ></div>
+          :style="{ backgroundImage: `url(${images[currentImage]})` }"></div>
       </Transition>
 
       <!-- Overlay com gradiente preto mais suave -->
@@ -17,28 +14,27 @@
 
     <!-- Conteúdo do banner -->
     <div class="absolute inset-0 flex items-center justify-center z-10">
-  <div class="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 flex justify-start">
-    <Transition name="slide-up">
-      <div v-if="showContent" class="text-left space-y-6 max-w-4xl">
-        <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-snug">
-          <span class="block mb-2">Catálogo de produtos</span>
-          <span class="text-amber-300 px-2 rounded-lg">conheça nossos produtos</span>
-        </h1>
+      <div class="container max-w-7xl mx-auto px-4 sm:px-6 flex justify-start">
+        <Transition name="slide-up">
+          <div v-if="showContent" class="text-left space-y-6 max-w-4xl">
+            <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-snug">
+              <span class="block mb-2">Catálogo de produtos</span>
+              <span class="text-amber-300 rounded-lg">Conheça nossos produtos</span>
+            </h1>
+
+
+
+          </div>
+        </Transition>
       </div>
-    </Transition>
-  </div>
-</div>
+    </div>
 
     <!-- Indicadores do carrossel -->
     <div class="absolute bottom-8 left-0 right-0 z-10 flex justify-center space-x-2">
-      <button 
-        v-for="(image, index) in images" 
-        :key="index"
-        @click="setCurrentImage(index)"
+      <button v-for="(image, index) in images" :key="index" @click="setCurrentImage(index)"
         class="w-3 h-3 rounded-full transition-all duration-300"
         :class="currentImage === index ? 'bg-amber-500 w-6' : 'bg-white bg-opacity-50'"
-        aria-label="Ir para slide"
-      ></button>
+        aria-label="Ir para slide"></button>
     </div>
 
     <!-- Borda decorativa -->
@@ -97,28 +93,27 @@ export default {
 </script>
 
 <style scoped>
-
 .gold-polish-line {
   height: 40px;
   width: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    #f5e78d 15%,
-    #fff9d6 25%,
-    #fff 50%,
-    #fff9d6 75%,
-    #f5e78d 85%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      #f5e78d 15%,
+      #fff9d6 25%,
+      #fff 50%,
+      #fff9d6 75%,
+      #f5e78d 85%,
+      rgba(255, 255, 255, 0) 100%);
   border-radius: 9999px;
   opacity: 1;
 }
+
 /* Efeitos de transição suavizados */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 1.2s ease-in-out;
 }
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
@@ -127,6 +122,7 @@ export default {
 .slide-up-enter-active {
   transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 .slide-up-enter-from {
   opacity: 0;
   transform: translateY(30px);

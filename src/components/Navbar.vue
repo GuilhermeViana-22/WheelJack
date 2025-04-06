@@ -78,7 +78,7 @@
       </div>
 
       <!-- Menu Mobile -->
-      <div v-show="isMenuOpen" class="md:hidden bg-gray-900/95 mt-3 rounded-lg px-4 py-4 backdrop-blur-sm transition-all duration-300 ease-in-out">
+      <div v-show="isMenuOpen" class="md:hidden  mt-3 rounded-lg px-4 py-4 transition-all duration-300 ease-in-out">
         <ul class="space-y-3">
           <li v-for="item in menuItems" :key="item.text">
             <template v-if="item.text === 'Produtos'">
