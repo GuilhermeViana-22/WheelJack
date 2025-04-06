@@ -2,7 +2,7 @@
   <!-- Container principal com margin-top de 20vh -->
   <div class="absolute w-full z-50 top-[2vh] flex justify-center px-4">
     <!-- Navbar com padding interno melhorado -->
-    <nav class="bg-black/70 backdrop-blur-sm text-white shadow-xl rounded-lg border-b-4 border-gold-gradient max-w-6xl w-full transition-all duration-300 hover:bg-black/95  px-6">
+    <nav class="bg-black/70 backdrop-blur-sm text-white shadow-xl rounded-lg border-b-4 border-gold-gradient max-w-7xl w-full transition-all duration-300 hover:bg-black/95  px-6">
       <div class="flex justify-between items-center">
         <!-- Logo com padding ajustado -->
         <div class="logo">
