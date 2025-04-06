@@ -19,8 +19,8 @@
         <Transition name="slide-up">
           <div v-if="showContent" class="text-left space-y-6 mt-[-80px] md:mt-0 max-w-4xl sm:max-w-3xl">
             <h1 class="text-5xl text-center md:text-left md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-snug">
-              <span class="block mb-2">Qualidade e Durabilidade</span>
-              <span class="text-amber-300 rounded-lg">Em Cada Detalhe da Madeira</span>
+              <span class="block mb-2 text-golden-effect">Qualidade e Durabilidade</span>
+              <span class="text-amber-300 rounded-lg text-golden-effect">Em Cada Detalhe da Madeira</span>
             </h1>
 
             <p class="text-base text-center md:text-left sm:text-lg md:text-xl text-white font-medium italic opacity-90">
@@ -142,5 +142,21 @@ export default {
     min-height: calc(100vh - 70px);
     /* Ajuste baseado na altura do navbar */
   }
+}
+
+.text-golden-effect{
+   font-weight: bolder;
+   background-image: linear-gradient(
+	to right,
+	#f6f2c0 0,
+       	#cb9b51 22%, 
+	#f6e27a 45%,
+	#f6f2c0 50%,
+	#f6e27a 55%,
+	#cb9b51 78%,
+	#f6e27a 100%
+	);
+   color:transparent;
+   -webkit-background-clip:text;
 }
 </style>
