@@ -6,7 +6,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <!-- Imagem com efeito flutuante e sombra -->
           <div class="relative max-w-lg mx-auto lg:mx-0">
-            <div class="absolute -inset-4 bg-[#6e451d] bg-opacity-10 rounded-3xl blur-lg transform rotate-1"></div>
+            <div class="absolute -inset-4  bg-opacity-10 rounded-3xl blur-lg transform rotate-1"></div>
             <img 
               src="../assets/arquivos/logo-2.png" 
               alt="Logo Arte Nobre Service" 
@@ -31,12 +31,12 @@
             </h1>
             
             <p class="text-lg md:text-xl text-[#183614] leading-relaxed">
-              A <strong class="font-semibold text-[#6e451d]">Arte Nobre Service</strong> é uma empresa especializada na venda e instalação de assoalhos, tacos, decks, forros, painéis e outros produtos, além de oferecer serviços de acabamento final, como raspagem, lixamento e aplicação de vernizes ecológicos.
-            </p>
-            
-            <p class="text-lg md:text-xl text-[#183614] leading-relaxed">
-              Nossa missão é fornecer soluções de alto padrão para residências, empresas e espaços comerciais, garantindo qualidade, durabilidade e sofisticação em cada projeto.
-            </p>
+  A <strong class="font-semibold text-[#6e451d]">Arte Nobre Service</strong> é resultado de uma trajetória sólida e inovadora iniciada em 1994, quando os primeiros conhecimentos e experiências na área de madeiras nobres e serviços de acabamento começaram a ser desenvolvidos. Com base nesse alicerce técnico e prático, a empresa foi oficialmente estruturada em 2000, evoluindo constantemente para atender às exigências do mercado com excelência.
+</p>
+
+<p class="text-lg md:text-xl text-[#183614] leading-relaxed">
+  Hoje, a <strong class="font-semibold text-[#6e451d]">Arte Nobre Service</strong> atua com foco em soluções especializadas para ambientes residenciais, corporativos e comerciais, oferecendo instalação de assoalhos, tacos, decks, forros e painéis, além de acabamento refinado, como raspagem, lixamento e aplicação de vernizes ecológicos. Nosso compromisso é unir tradição, inovação e qualidade em cada projeto entregue.
+</p>
             
             <!-- Botão CTA com as cores especificadas -->
             <div class="pt-4">
