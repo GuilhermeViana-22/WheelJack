@@ -21,9 +21,6 @@
               <span class="block mb-2 text-golden-effect">Catálogo de produtos</span>
               <span class="text-amber-300 rounded-lg text-golden-effect">Conheça nossos produtos</span>
             </h1>
-
-
-
           </div>
         </Transition>
       </div>
