@@ -1,124 +1,272 @@
 <template>
-  <div id="servicos" class="max-w-7xl mx-auto px-4 py-16"s>
-    <!-- Heading com linha dourada -->
-    <div class="flex flex-col items-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-black mb-2">Nossos Serviços</h2>
-      <div class="h-1 w-full max-w-md bg-amber-500"></div>
-    </div>
+  <section id="servicos" class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <!-- Cabeçalho estilizado -->
+      <div class="flex flex-col items-center mb-16">
+        <span class="text-sm font-semibold tracking-wider text-[#6e451d] uppercase mb-2">O que fazemos</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center">
+          <span class="relative">
+            Nossos Serviços
+            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-[#183614] mt-2"></span>
+          </span>
+        </h2>
+      </div>
 
-    <!-- Grid de imagens com Skeleton Loader -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      <div 
-        v-for="(image, index) in images"
-        :key="index"
-        class="bg-white rounded-md overflow-hidden shadow-md item" v-scroll-reveal
-      
-      >
-        <!-- Skeleton enquanto a imagem carrega -->
-        <div v-if="!image.loaded && !image.error" class="relative w-full h-60 bg-gray-200 animate-pulse">
-          <div class="absolute inset-0 flex items-center justify-center" >
-            <svg
-              class="w-10 h-10 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-              ></path>
+      <!-- Grid de serviços -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div 
+          v-for="(service, index) in services"
+          :key="index"
+          class="service-card relative overflow-hidden rounded-xl bg-gray-50 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
+          :data-index="index"
+          @mouseenter="handleMouseEnter(index)"
+          @mouseleave="handleMouseLeave(index)"
+        >
+          <!-- Skeleton loader -->
+          <div 
+            v-if="!service.loaded && !service.error"
+            class="skeleton-loader w-full h-72 bg-gradient-to-r from-gray-200 via-[#6e451d]/10 to-gray-200 animate-pulse"
+          ></div>
+
+          <!-- Imagem -->
+          <img
+            v-show="service.loaded && !service.error"
+            :src="service.image"
+            :alt="service.title"
+            class="service-image w-full h-72 object-cover transition-all duration-500"
+            :class="{ 
+              'scale-105': activeIndex === index,
+              'brightness-90': activeIndex === index
+            }"
+            @load="handleImageLoad(index)"
+            @error="handleImageError(index)"
+            loading="lazy"
+          />
+
+          <!-- Fallback para erro -->
+          <div 
+            v-if="service.error"
+            class="w-full h-72 bg-gradient-to-br from-[#183614]/10 to-[#6e451d]/10 flex items-center justify-center"
+          >
+            <svg class="w-12 h-12 text-[#6e451d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
           </div>
-        </div>
 
-        <!-- Imagem carregada -->
-        <img
-          v-show="image.loaded && !image.error"
-          :src="image.src"
-          :alt="'Imagem do Serviço ' + (index + 1)"
-          class="w-full h-60 object-cover transition-opacity duration-300"
-          :class="{ 'opacity-0': !image.loaded, 'opacity-100': image.loaded }"
-          @load="handleImageLoaded(index)"
-          @error="handleImageError(index)"
-          
-        />
-
-        <!-- Fallback se a imagem falhar -->
-        <div v-if="image.error" class="relative w-full h-60 bg-gray-200 animate-pulse">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <svg
-              class="w-10 h-10 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-              ></path>
-            </svg>
+          <!-- Overlay de informações -->
+          <div 
+            class="service-overlay absolute inset-0 bg-gradient-to-t from-[#183614]/90 via-transparent to-transparent opacity-0 transition-opacity duration-300 flex items-end p-6"
+            :class="{ 'opacity-100': activeIndex === index }"
+          >
+            <div class="transform translate-y-4 transition-transform duration-300" :class="{ 'translate-y-0': activeIndex === index }">
+              <h3 class="text-xl font-bold text-white mb-2">{{ service.title }}</h3>
+              <p class="text-gray-200 text-sm">{{ service.description }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script>
+// Importe suas imagens diretamente (se estiver usando Vue CLI ou Vite)
+import img1 from '../assets/arquivos/1.png'
+import img2 from '../assets/arquivos/2.png'
+import img3 from '../assets/arquivos/3.png'
+import img4 from '../assets/arquivos/4.png'
+import img5 from '../assets/arquivos/5.png'
+import img6 from '../assets/arquivos/6.png'
 
-// Importação direta das imagens
-import img1 from '../assets/arquivos/1.png';
-import img2 from '../assets/arquivos/2.png';
-import img3 from '../assets/arquivos/3.png';
-import img4 from '../assets/arquivos/4.png';
-import img5 from '../assets/arquivos/5.png';
-import img6 from '../assets/arquivos/6.png';
+export default {
+  name: 'ServicosGallery',
+  data() {
+    return {
+      activeIndex: null,
+      services: [
+        {
+          title: 'Assoalhos Nobres',
+          description: 'Instalação profissional de assoalhos de madeira de alta qualidade',
+          image: img1, // Usando a importação direta
+          loaded: false,
+          error: false
+        },
+        {
+          title: 'Decks Personalizados',
+          description: 'Criação de decks sob medida para áreas externas',
+          image: img2,
+          loaded: false,
+          error: false
+        },
+        {
+          title: 'Tacos Artesanais',
+          description: 'Tacos de madeira maciça com acabamento perfeito',
+          image: img3,
+          loaded: false,
+          error: false
+        },
+        {
+          title: 'Forros Elegantes',
+          description: 'Forros em madeira para um acabamento sofisticado',
+          image: img4,
+          loaded: false,
+          error: false
+        },
+        {
+          title: 'Painéis Decorativos',
+          description: 'Painéis de madeira para divisórias e revestimentos',
+          image: img5,
+          loaded: false,
+          error: false
+        },
+        {
+          title: 'Acabamentos Finos',
+          description: 'Serviços de lixamento e aplicação de vernizes ecológicos',
+          image: img6,
+          loaded: false,
+          error: false
+        }
+      ],
+      observers: []
+    }
+  },
+  methods: {
+    handleImageLoad(index) {
+      this.services[index].loaded = true
+      this.services[index].error = false
+    },
+    handleImageError(index) {
+      this.services[index].error = true
+      this.services[index].loaded = false
+    },
+    handleMouseEnter(index) {
+      this.activeIndex = index
+    },
+    handleMouseLeave() {
+      this.activeIndex = null
+    },
+    initIntersectionObserver() {
+      if (typeof window === 'undefined') return
 
-// Lista das imagens com status de carregamento
-const images = ref([
-  { src: img1, loaded: false, error: false },
-  { src: img2, loaded: false, error: false },
-  { src: img3, loaded: false, error: false },
-  { src: img4, loaded: false, error: false },
-  { src: img5, loaded: false, error: false },
-  { src: img6, loaded: false, error: false }
-]);
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      }
 
-// Quando a imagem carregar, marca como carregada
-const handleImageLoaded = (index) => {
-  images.value[index].loaded = true;
-  images.value[index].error = false;
-};
+      const callback = (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = entry.target.dataset.index
+            setTimeout(() => {
+              if (!this.services[index].loaded && !this.services[index].error) {
+                this.services[index].loaded = true
+              }
+            }, 150 * index)
+          }
+        })
+      }
 
-// Se a imagem falhar, exibe o skeleton
-const handleImageError = (index) => {
-  images.value[index].error = true;
-  images.value[index].loaded = false;
-};
+      this.observers = []
+      const cards = document.querySelectorAll('.service-card')
+      if (cards) {
+        cards.forEach(card => {
+          const observer = new IntersectionObserver(callback, options)
+          observer.observe(card)
+          this.observers.push(observer)
+        })
+      }
+    },
+    animateCards() {
+      if (typeof window === 'undefined') return
+
+      const cards = document.querySelectorAll('.service-card')
+      if (cards) {
+        cards.forEach((card, index) => {
+          card.style.opacity = '0'
+          card.style.transform = 'translateY(20px)'
+          card.style.transition = `all 0.5s ease ${index * 0.1}s`
+          
+          setTimeout(() => {
+            card.style.opacity = '1'
+            card.style.transform = 'translateY(0)'
+          }, 100)
+        })
+      }
+    }
+  },
+  mounted() {
+    this.animateCards()
+    this.initIntersectionObserver()
+    
+    // Verifica se AOS está disponível (caso esteja usando)
+    if (typeof window !== 'undefined' && window.AOS) {
+      window.AOS.init({
+        once: true,
+        duration: 800
+      })
+    }
+  },
+  beforeUnmount() {
+    if (this.observers.length > 0) {
+      this.observers.forEach(observer => {
+        observer.disconnect()
+      })
+    }
+  }
+}
 </script>
 
-<style>
-/* Animação personalizada para skeleton loader */
-@keyframes skeletonPulse {
-  0% {
-    background-color: rgba(226, 232, 240, 0.6);
+<style scoped>
+.service-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.service-image {
+  transform-origin: center;
+  backface-visibility: hidden;
+}
+
+.service-overlay {
+  will-change: opacity, transform;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  50% {
-    background-color: rgba(226, 232, 240, 0.8);
-  }
-  100% {
-    background-color: rgba(226, 232, 240, 0.6);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+.animate-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.6; }
+}
+
 .animate-pulse {
-  animation: skeletonPulse 1.5s ease-in-out infinite;
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background-size: 200% 100%;
+}
+
+.service-card,
+.service-image,
+.service-overlay {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Efeito de gradiente sutil no hover */
+.service-card:hover .service-image:not(.error) {
+  filter: brightness(0.95);
 }
 </style>

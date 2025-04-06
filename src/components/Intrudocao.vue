@@ -1,40 +1,121 @@
 <template>
-  <div class="bg-beige w-full py-20">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center">
-      <!-- Imagem à esquerda -->
-      <div class="flex-1 mb-8 md:mb-0"  >
-        <img 
-          src="../assets/arquivos/logo-2.png" 
-          alt="Logo" 
-          class="w-full ml-0  item" v-scroll-reveal
-        />
-      </div>
-  
-      <!-- Texto à direita -->
-      <div class="flex-1 text-left pl-8 md:pl-20"  >
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-dark leading-tight item" v-scroll-reveal>
-          Arte Nobre Service
-        </h1>
-        <p class="mt-6 text-base sm:text-lg md:text-2xl text-dark leading-relaxe item" v-scroll-reveal>
-          A <strong>Arte Nobre Service</strong> é uma empresa especializada na venda e instalação de assoalhos, tacos, decks, forros, painéis e outros produtos, além de oferecer serviços de acabamento final, como raspagem, lixamento e aplicação de vernizes ecológicos. Nossa missão é fornecer soluções de alto padrão para residências, empresas e espaços comerciais, garantindo qualidade, durabilidade e sofisticação em cada projeto. Trabalhamos com materiais nobres e utilizamos técnicas avançadas de instalação para assegurar os melhores resultados.
-        </p>
+  <div class="relative overflow-hidden">
+    <!-- Seção principal com a cor de fundo especificada -->
+    <div class="bg-[#e0cdaf] w-full py-24 lg:py-32">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <!-- Imagem com efeito flutuante e sombra -->
+          <div class="relative max-w-lg mx-auto lg:mx-0">
+            <div class="absolute -inset-4 bg-[#6e451d] bg-opacity-10 rounded-3xl blur-lg transform rotate-1"></div>
+            <img 
+              src="../assets/arquivos/logo-2.png" 
+              alt="Logo Arte Nobre Service" 
+              class="relative w-full h-auto object-contain transition-all duration-700 ease-out hover:scale-105"
+              data-aos="fade-right"
+              data-aos-delay="100"
+              data-aos-duration="800"
+            />
+          </div>
+          
+          <!-- Conteúdo de texto com animação -->
+          <div 
+            class="space-y-8"
+            data-aos="fade-left"
+            data-aos-delay="300"
+            data-aos-duration="800"
+          >
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+              <span class="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#6e451d] to-[#183614]">
+                Arte Nobre Service
+              </span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-[#183614] leading-relaxed">
+              A <strong class="font-semibold text-[#6e451d]">Arte Nobre Service</strong> é uma empresa especializada na venda e instalação de assoalhos, tacos, decks, forros, painéis e outros produtos, além de oferecer serviços de acabamento final, como raspagem, lixamento e aplicação de vernizes ecológicos.
+            </p>
+            
+            <p class="text-lg md:text-xl text-[#183614] leading-relaxed">
+              Nossa missão é fornecer soluções de alto padrão para residências, empresas e espaços comerciais, garantindo qualidade, durabilidade e sofisticação em cada projeto.
+            </p>
+            
+            <!-- Botão CTA com as cores especificadas -->
+            <div class="pt-4">
+              <button class="px-8 py-3 bg-[#6e451d] hover:bg-[#183614] text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                Saiba mais sobre nossos serviços
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    
+    <!-- Onda personalizada com gradiente das cores -->
+    <div class="w-full h-24 sm:h-32 md:h-40 overflow-hidden">
+      <svg 
+        viewBox="0 0 1200 120" 
+        preserveAspectRatio="none" 
+        class="w-full h-full"
+      >
+        <path 
+          d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" 
+          opacity=".25" 
+          class="fill-[#e0cdaf]"
+        ></path>
+        <path 
+          d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" 
+          opacity=".5" 
+          class="fill-[#e0cdaf]"
+        ></path>
+        <path 
+          d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" 
+          class="fill-[#e0cdaf]"
+        ></path>
+      </svg>
+    </div>
   </div>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-    <path fill="#e0cdaf" fill-opacity="1" d="M0,288L48,256C96,224,192,160,288,144C384,128,480,160,576,176C672,192,768,192,864,192C960,192,1056,192,1152,186.7C1248,181,1344,171,1392,165.3L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
-  </svg>
 </template>
 
 <script>
 export default {
-  name: 'ResponsiveLogoText'
+  name: 'HeroSection',
+  mounted() {
+    // Verifica se está no lado do cliente
+    if (typeof window !== 'undefined') {
+      import('aos/dist/aos.css').then(() => {
+        import('aos').then((AOS) => {
+          AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-out-quart',
+          });
+        });
+      });
+    }
+  }
 };
 </script>
 
 <style scoped>
-/* Cor bege clara */
-.bg-beige {
-  background-color: #e0cdaf;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+
+/* Tipografia melhorada */
+h1 {
+  font-family: 'Playfair Display', serif;
+}
+
+p, button {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Transições suaves */
+button, img {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Efeito de hover no botão */
+button:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 </style>

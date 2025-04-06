@@ -10,23 +10,21 @@ import Informacoes from '@/components/Informacoes.vue';
 import WhatsAppButton from '@/components/WhatsAppButton.vue';
 import Embesed from '@/components/embesed/Embesed.vue';
 </script>
-
 <template>
-  <header>
+  <div class="relative">
     <Navbar />
-    
     <Banner />
-    <Intrudocao />
-    <Fundamentos />
-    <Servicos />
-    <Produtos />
-    <Embesed />
-    <Informacoes />
+    
+    <div class="relative z-10">
+      <Intrudocao />
+      <Fundamentos />
+      <Servicos />
+      <Produtos />
+      <Embesed />
+      <Informacoes />
+    </div>
+    
     <WhatsAppButton />
     <Footer />
-  </header>
-
-  <main>
-    <router-view />
-  </main>
+  </div>
 </template>

@@ -1,28 +1,39 @@
 <template>
-  <div class="max-w-7xl mx-auto px-4 py-16">
-    <!-- Heading -->
-    <div class="flex flex-col items-left mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-black mb-2">Informações</h2>
-      <hr>
+  <div class="max-w-7xl mx-auto px-4 py-16 bg-white">
+    <!-- Título simplificado -->
+    <div class="mb-12">
+      <h2 class="text-3xl md:text-4xl font-semibold text-[#5C2E00]">Informações</h2>
+      <div class="w-16 h-1 bg-[#5C2E00] mt-2"></div>
     </div>
 
-    <!-- Grid de imagens -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Grid de imagens completo -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div 
         v-for="(textGroup, index) in textGroups" 
         :key="index" 
-        class="bg-primary rounded shadow-md overflow-hidden item" v-scroll-reveal>
-        <div class="bg-secondary p-3 flex justify-center items-center h-48">
+        class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+      >
+        <!-- Container da imagem completa -->
+        <div class="h-48 overflow-hidden bg-gray-100 flex items-center justify-center">
           <img 
             src="../assets/arquivos/logo-2.png" 
-            alt="Logo" 
-            class="w-full ml-0"
+            alt="Informações" 
+            class="w-full h-full object-contain p-4"
           />
         </div>
-        <div class="p-6 space-y-2">
-          <p v-for="(text, i) in textGroup" :key="i" class="text-secondary font-medium">
-            {{ text }}
-          </p>
+        
+        <!-- Lista de itens -->
+        <div class="p-6">
+          <ul class="space-y-3">
+            <li 
+              v-for="(text, i) in textGroup" 
+              :key="i" 
+              class="text-[#5C2E00] flex items-start"
+            >
+              <span class="inline-block mr-2 text-[#5C2E00]">•</span>
+              {{ text }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -54,18 +65,18 @@ const textGroups = ref([
 ]);
 </script>
 
-<style>
-@keyframes skeletonPulse {
-  0% { background-color: rgba(226, 232, 240, 0.6); }
-  50% { background-color: rgba(226, 232, 240, 0.8); }
-  100% { background-color: rgba(226, 232, 240, 0.6); }
+<style scoped>
+/* Estilo mínimo para melhorar a legibilidade */
+li {
+  line-height: 1.5;
 }
 
-.animate-pulse {
-  animation: skeletonPulse 1.5s ease-in-out infinite;
+/* Efeito hover sutil */
+img {
+  transition: transform 0.3s ease;
 }
 
-.bg-primary { background-color: #e0cdaf; }
-.bg-secondary { background-color: #e0cdaf; }
-.text-secondary { color: #5C2E00; }
+div:hover img {
+  transform: scale(1.02);
+}
 </style>
