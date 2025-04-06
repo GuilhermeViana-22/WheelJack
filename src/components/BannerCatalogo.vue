@@ -147,5 +147,6 @@ export default {
 	);
    color:transparent;
    -webkit-background-clip:text;
+   background-clip:text;
 }
 </style>
