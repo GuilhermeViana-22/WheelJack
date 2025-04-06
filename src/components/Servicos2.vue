@@ -139,7 +139,7 @@
   </template>
   
   <script>
-  // Importação completa das 22 imagens
+  // Importação completa das 22 imagens alguns ajustes
   import img1 from '../assets/servicos/1.png'
   import img2 from '../assets/servicos/2.png'
   import img3 from '../assets/servicos/3.png'
