@@ -9,66 +9,55 @@
       </p>
     </div>
 
-    <div class="flex flex-col md:flex-row md:px-4">
+    <div class="flex flex-col md:flex-row md:px-4 md:pr-0">
 
       <!-- Listagem de categorias -->
-      <div class="flex flex-col space-y-4 mb-6 mr-24 p-4 md:pl-0 rounded h-auto border border-gray-200 md:border-0 w-full md:w-auto">
-        <h2 class="text-gray-700 font-bold whitespace-nowrap text-lg">Categorias Relacionadas</h2>
+      <div
+        class="flex flex-col space-y-4 mb-6 mr-24 p-4 md:pl-0 rounded h-auto border border-gray-200 md:border-0 w-full md:w-auto">
+        <h2 class="text-xl text-gray-700 font-bold whitespace-nowrap text-lg">Categorias</h2>
 
         <div v-for="group in groupedCategories" :key="group.parent.id">
           <!-- Categoria Pai -->
-          <router-link
-            :to="{ path: $route.path, query: { category: group.parent.route } }"
-            class="cursor-pointer hover:underline whitespace-nowrap font-medium text-gray-700 text-md"
-          >
-            {{ group.parent.title }}
+          <router-link :to="{ path: $route.path, query: { category: group.parent.route } }"
+            class="cursor-pointer hover:underline whitespace-nowrap font-medium text-gray-700 text-md">
+            <i class="fa fa-bars fa-sm" aria-hidden="true"></i> {{ group.parent.title }}
           </router-link>
 
           <!-- Categorias Filhas -->
-          <div
-            v-for="child in group.children"
-            :key="child.id"
-            class="md:pl-6 font-normal md:border-l md:border-l-gray-200 md:ml-1 text-gray-700 text-sm"
-          >
-            <router-link
-              :to="{ path: $route.path, query: { category: child.route } }"
-              class="cursor-pointer hover:underline whitespace-nowrap"
-            >
-              {{ child.title }}
+          <div v-for="child in group.children" :key="child.id"
+            class="md:pl-6 font-normal md:border-l md:border-l-gray-200 md:ml-1 text-gray-700 text-sm mt-4">
+            <router-link :to="{ path: $route.path, query: { category: child.route } }"
+              class="cursor-pointer hover:underline whitespace-nowrap">
+              <i class="fa fa-sort-asc rotate-90 mr-2" aria-hidden="true"></i> {{ child.title }}
             </router-link>
           </div>
         </div>
       </div>
-      
 
       <!-- Listagem de produtos filtrados -->
-      <div class="space-y-6 mt-4">
-        <div v-for="(product, index) in filteredProducts" :key="index" class="border border-gray-200 rounded p-4 flex flex-col md:flex-row item" v-scroll-reveal>
-          <div class="md:w-1/4 mb-4 md:mb-0">
-            <img :src="product.image" :alt="product.title" class="w-full h-auto" />
+      <div class="w-full bg-gray-100 p-4 grid md:grid-cols-2 md:gap-4 grid-cols-1 gap-4">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all" v-for="(product, index) in filteredProducts" :key="index">
+          <div class="relative">
+            <img :src="product.image" :alt="product.title" class="w-full h-52 object-cover" />
+            
+            <button @click="openWhatsApp(product)" class="absolute hover:bg-blue-600 top-3 right-3 bg-blue-500 rounded-full text-white text-sm px-4 py-1 rounded"> Saiba Mais
+            </button>
           </div>
-          <div class="md:w-3/4 md:pl-6 flex flex-col justify-between">
+          <div class="p-5 space-y-4">
             <div>
-              <h2 class="text-xl text-gray-700 mb-2">{{ product.title }}</h2>
-              <div class="mb-4">
-                <p class="uppercase text-sm font-medium text-gray-600 mb-1">MEDIDAS</p>
-                <p class="text-sm text-gray-600">
-                  <span class="font-medium">Espessura:</span> {{ product.thickness }}
-                </p>
-                <p class="text-sm text-gray-600">
-                  <span class="font-medium">Largura:</span> {{ product.width }}
-                </p>
-                <p class="text-sm text-gray-600">
-                  <span class="font-medium">Comprimentos:</span> {{ product.length }}
-                </p>
-              </div>
-              <button @click="openWhatsApp(product)" class="bg-black text-white text-sm px-4 py-1 rounded"> Saiba Mais </button>
+              <h3 class="text-xl font-bold text-gray-900">{{ product.title }}</h3>
+
+              <h6 class="text-sm font-bold text-gray-600 mt-4">Medidas:</h6>
+              <p class="text-gray-500 mt-1">Espessura: {{ product.thickness }}</p>
+              <p class="text-gray-500 mt-1">Largura: {{ product.width }}</p>
+              <p class="text-gray-500 mt-1">Comprimentos: {{ product.length }}</p>
             </div>
-            <div class="mt-6">
-              <button @click="openWhatsApp(product)" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded">
-                Solicitar Orçamento
-              </button>
-            </div>
+
+            <button
+               @click="openWhatsApp(product)"
+              class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 rounded-lg transition-colors">
+              Solicitar Orçamento
+            </button>
           </div>
         </div>
       </div>
@@ -85,6 +74,17 @@ import img2 from "@/assets/catalogo/assoalho_jatoba.webp";
 import img3 from "@/assets/catalogo/assoalho_sucupira_amarela.jpg";
 import img4 from "@/assets/arquivos/6.png";
 import img5 from "@/assets/catalogo/forro.jpg";
+
+import img6 from "@/assets/catalogo/1.png";
+import img7 from "@/assets/catalogo/2.png";
+import img8 from "@/assets/catalogo/3.png";
+import img9 from "@/assets/catalogo/5.png";
+import img10 from "@/assets/catalogo/8.png";
+import img11 from "@/assets/catalogo/9.png";
+import img12 from "@/assets/catalogo/10.png";
+import img13 from "@/assets/catalogo/11.png";
+import img14 from "@/assets/catalogo/12.png";
+import img15 from "@/assets/catalogo/14.png";
 
 const router = useRouter();
 const route = useRoute();
@@ -108,6 +108,18 @@ const products = ref([
   { title: "Assoalho Sucupira Amarela Extra 10cm Curto", image: img3, thickness: "10cm", width: "10cm", length: "3cm a 10cm", category_id: 1 },
   { title: "Assoalho de Cumarú Envernizado 6cm TG4", image: img4, thickness: "1,8cm", width: "6cm", length: "30cm a 210cm", category_id: 1 },
   { title: "Forro de Cedrinho Mesclado 4,00mt", image: img5, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 10 },
+
+  /// esses itens estão com as categorias erradas e informações erradas, ajustar
+  { title: "Painel", image: img6, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 3 },
+  { title: "Escada", image: img7, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 8 },
+  { title: "Painel", image: img8, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 4 },
+  { title: "Revestimento de Banheira", image: img9, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 9 },
+  { title: "Assoalho", image: img10, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 1 },
+  { title: "Assoalho", image: img11, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 1 },
+  { title: "Tacão", image: img12, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 5 },
+  { title: "Tacão Palito", image: img13, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 6 },
+  { title: "Assoalho", image: img14, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 1 },
+  { title: "Assoalho", image: img15, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 1 }
 ]);
 
 // Agrupa as categorias

@@ -24,7 +24,7 @@
             data-aos-delay="300"
             data-aos-duration="800"
           >
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
+            <h1 class="text-center md:text-left text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
               <span class="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#6e451d] to-[#183614]">
                 Arte Nobre Service
               </span>
@@ -39,8 +39,8 @@
 </p>
             
             <!-- Botão CTA com as cores especificadas -->
-            <div class="pt-4">
-              <button class="px-8 py-3 bg-[#6e451d] hover:bg-[#183614] text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <div class="pt-2 md:pt-4 flex flex-row w-full">
+              <button class="mx-auto md:mx-0 px-8 py-3 bg-[#6e451d] hover:bg-[#183614] text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                 Saiba mais sobre nossos serviços
               </button>
             </div>

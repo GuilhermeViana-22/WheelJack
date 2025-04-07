@@ -42,7 +42,8 @@
         <!-- Detalhes do Produto -->
         <div class="p-6 space-y-3">
           <h3 class="text-xl font-bold text-gray-900">{{ product.title }}</h3>
-          <p class="text-gray-600">{{ product.description }}</p>
+          
+          <div class="min-h-[100px] max-h-[100px] overflow-y-auto"><p class="text-gray-600">{{ product.description }}</p></div>
           
           <!-- Botão de Ação -->
           <button 
