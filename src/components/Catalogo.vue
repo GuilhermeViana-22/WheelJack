@@ -1,101 +1,94 @@
 <template>
-  <div class="container mx-auto px-4 py-8 max-w-7xl">
+  <div class="container mx-auto px-4 py-6 max-w-6xl">
 
     <!-- Breadcrumb navigation -->
-    <nav class="bg-amber-100 bg-opacity-60 px-5 py-3 rounded mb-8 text-sm text-gray-800">
-      <span @click="goToHome" class="cursor-pointer hover:underline">Início</span>
-      <span class="mx-2">/</span>
-      <span @click="reloadPage" class="cursor-pointer hover:underline">Catálogo de Produtos</span>
-    </nav>
+    <div class="bg-amber-100 bg-opacity-50 py-2 px-4 md:mb-6 mb-2 rounded">
+      <p class="text-gray-700 text-sm">
+        <span @click="goToHome" class="cursor-pointer hover:underline"> Início </span> /
+        <span @click="reloadPage" class="cursor-pointer hover:underline"> Catálogo  </span>
+      </p>
+    </div>
 
-    <div class="flex flex-col md:flex-row gap-8">
-      
-      <!-- Sidebar: Categorias -->
-      <aside class="w-full md:w-1/4 bg-white border border-gray-200 rounded-xl p-5 shadow space-y-4">
-        <h2 class="text-xl font-semibold text-gray-800">Categorias</h2>
+    <div class="flex flex-col md:flex-row md:px-4 md:pr-0">
+
+      <!-- Listagem de categorias -->
+      <div
+        class="flex flex-col space-y-4 mb-6 mr-24 p-4 md:pl-0 rounded h-auto border border-gray-200 md:border-0 w-full md:w-auto">
+        <h2 class="text-xl text-gray-700 font-bold whitespace-nowrap text-lg">Categorias</h2>
 
         <div v-for="group in groupedCategories" :key="group.parent.id">
-          <div v-if="group.children.length > 0">
-            <details class="mb-3">
-              <summary class="cursor-pointer flex items-center gap-2 text-gray-700 font-medium hover:underline">
-                <i class="fa fa-folder text-yellow-500"></i> {{ group.parent.title }}
-              </summary>
-              <div class="ml-5 mt-2 space-y-1">
-                <router-link
-                  v-for="child in group.children"
-                  :key="child.id"
-                  :to="{ path: $route.path, query: { category: child.route } }"
-                  class="flex items-center text-sm text-gray-600 hover:text-blue-600 transition">
-                  <i class="fa fa-file text-blue-400 mr-1"></i> {{ child.title }}
-                </router-link>
-              </div>
-            </details>
-          </div>
-          <div v-else>
-            <router-link
-              :to="{ path: $route.path, query: { category: group.parent.route } }"
-              class="flex items-center gap-2 text-gray-700 font-medium hover:text-blue-600 mb-2 transition">
-              <i class="fa fa-link text-green-500"></i> {{ group.parent.title }}
+          <!-- Categoria Pai -->
+          <router-link :to="{ path: $route.path, query: { category: group.parent.route } }"
+            class="cursor-pointer hover:underline whitespace-nowrap font-medium text-gray-700 text-md">
+            <i class="fa fa-bars fa-sm" aria-hidden="true"></i> {{ group.parent.title }}
+          </router-link>
+
+          <!-- Categorias Filhas -->
+          <div v-for="child in group.children" :key="child.id"
+            class="md:pl-6 font-normal md:border-l md:border-l-gray-200 md:ml-1 text-gray-700 text-sm mt-4">
+            <router-link :to="{ path: $route.path, query: { category: child.route } }"
+              class="cursor-pointer hover:underline whitespace-nowrap">
+              <i class="fa fa-sort-asc rotate-90 mr-2" aria-hidden="true"></i> {{ child.title }}
             </router-link>
           </div>
         </div>
-      </aside>
+      </div>
 
-      <!-- Produtos -->
-      <section class="w-full md:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          v-for="(product, index) in filteredProducts"
-          :key="index"
-          class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden">
-          
-          <!-- Imagem + botão flutuante -->
+      <!-- Listagem de produtos filtrados -->
+      <div class="w-full bg-gray-100 p-4 grid md:grid-cols-2 md:gap-4 grid-cols-1 gap-4">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all" v-for="(product, index) in filteredProducts" :key="index">
           <div class="relative">
-            <img :src="product.image" :alt="product.title" class="w-full h-52 object-cover rounded-t-2xl" />
-            <button
-              @click="openWhatsApp(product)"
-              class="absolute top-3 right-3 text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white transition px-3 py-1 text-xs rounded-full font-medium">
-              Saiba Mais
+            <img :src="product.image" :alt="product.title" class="w-full h-52 object-cover" />
+            
+            <button @click="openWhatsApp(product)" class="absolute hover:bg-blue-600 top-3 right-3 bg-blue-500 rounded-full text-white text-sm px-4 py-1 rounded"> Saiba Mais
             </button>
           </div>
+          <div class="p-5 space-y-4">
+            <div>
+              <h3 class="text-xl font-bold text-gray-900">{{ product.title }}</h3>
 
-          <!-- Info do produto -->
-          <div class="p-5 flex flex-col gap-2 flex-1">
-            <h3 class="text-lg font-bold text-gray-800">{{ product.title }}</h3>
-            <div class="text-sm text-gray-600 leading-snug">
-              <p><strong>Espessura:</strong> {{ product.thickness }}</p>
-              <p><strong>Largura:</strong> {{ product.width }}</p>
-              <p><strong>Comprimento:</strong> {{ product.length }}</p>
+              <p class="text-gray-700 text-sm mt-2">Medidas e demais infomrações após orçamento</p>
             </div>
 
             <button
-              @click="openWhatsApp(product)"
-              class="mt-auto bg-green-600 hover:bg-green-700 transition text-white py-2 rounded-md text-sm font-semibold w-full">
+               @click="openWhatsApp(product)"
+              class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 rounded-lg transition-colors">
               Solicitar Orçamento
             </button>
           </div>
         </div>
-      </section>
-
+      </div>
     </div>
+
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
 import { useRouter, useRoute } from "vue-router";
+
+//assolaho
+
 import img1 from "@/assets/catalogo/assoalho_garapa.jpg";
 import img2 from "@/assets/catalogo/assoalho_jatoba.webp";
+import img_servico2 from "@/assets/servicos/2.png";
+import img_servico4 from "@/assets/servicos/4.png";
 import img3 from "@/assets/catalogo/assoalho_sucupira_amarela.jpg";
-import img4 from "@/assets/arquivos/6.png";
-import img5 from "@/assets/catalogo/forro.jpg";
 
-import img6 from "@/assets/catalogo/1.png";
+import img4 from "@/assets/arquivos/6.png";
+
+import img5 from "@/assets/servicos/5.png";
+
+
+
+import img6 from "@/assets/servicos/7.png";
 import img7 from "@/assets/catalogo/2.png";
 import img8 from "@/assets/catalogo/3.png";
 import img9 from "@/assets/catalogo/5.png";
 import img10 from "@/assets/catalogo/8.png";
 import img11 from "@/assets/catalogo/9.png";
 import img12 from "@/assets/catalogo/10.png";
+import img_servico12 from "@/assets/servicos/12.png";
 import img13 from "@/assets/servicos/16.png";
 import img14 from "@/assets/catalogo/12.png";
 import img15 from "@/assets/catalogo/14.png";
@@ -126,22 +119,28 @@ const products = ref([
   { title: "Assoalho Jatobá Extra", image: img2, thickness: "15cm", width: "15cm", length: "2cm a 15cm", category_id: 1 },
   { title: "Assoalho Sucupira Amarela Extra 10cm Curto", image: img3, thickness: "10cm", width: "10cm", length: "3cm a 10cm", category_id: 1 },
   { title: "Assoalho de Cumarú Envernizado 6cm TG4", image: img4, thickness: "1,8cm", width: "6cm", length: "30cm a 210cm", category_id: 1 },
-  { title: "Forro de Madeira Cumaru Extra", image: img23, thickness: ": 2m a 6m réguas longas", width: "10 cm", length: "4,00 m", category_id: 10 },
+  { title: "Assoalho", image: img_servico4, thickness: "1,8cm", width: "6cm", length: "30cm a 210cm", category_id: 1 },
+  { title: "Assoalho", image: img4, thickness: "1,8cm", width: "6cm", length: "30cm a 210cm", category_id: 1 },
+  { title: "Assoalho", image: img5, thickness: "1,8cm", width: "6cm", length: "30cm a 210cm", category_id: 1 },
+  { title: "Assoalho", image: img_servico2, thickness: "1,8cm", width: "6cm", length: "30cm a 210cm", category_id: 1 },
+  
 
   /// esses itens estão com as categorias erradas e informações erradas, ajustar
   { title: "Painel", image: img6, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 3 },
   { title: "Escada de madeira", image: img26, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 8 },
   { title: "Escada de madeira", image: img27, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 8 },
   { title: "Escada", image: img7, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 8 },
-  { title: "Painel", image: img8, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 4 },
-  { title: "Revestimento de Banheira", image: img9, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 9 },
-  { title: "Assoalho", image: img10, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 1 },
-  { title: "Assoalho", image: img11, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 1 },
+  { title: "Painel", image: img_servico12, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 4 },
+  { title: "Revestimento de Banheira", image: img25, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 9 },
+
   { title: "Tacão", image: img12, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 5 },
   { title: "Tacão Palito", image: img13, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 6 },
   
-  { title: "Assoalho", image: img14, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 1 },
-  { title: "Assoalho", image: img15, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 1 }
+
+
+
+  { title: "Forro de Madeira Cumaru Extra", image: img23, thickness: ": 2m a 6m réguas longas", width: "10 cm", length: "4,00 m", category_id: 10 },
+
 ]);
 
 // Agrupa as categorias
