@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-7xl mx-auto px-4 py-16">
- <!-- Cabeçalho Elegante -->
- <div class="flex flex-col items-center mb-16 relative">
+    <!-- Cabeçalho Elegante -->
+    <div class="flex flex-col items-center mb-16 relative">
       <span class="text-sm font-semibold tracking-wider text-[#6e451d] uppercase mb-2">Nossas Criações</span>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center">
         <span class="relative">
@@ -27,6 +27,7 @@
           <img
             :src="product.image"
             :alt="product.title"
+            :title="product.title"
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
@@ -42,9 +43,10 @@
         <!-- Detalhes do Produto -->
         <div class="p-6 space-y-3">
           <h3 class="text-xl font-bold text-gray-900">{{ product.title }}</h3>
-          
-          <div class="min-h-[100px] max-h-[100px] overflow-y-auto"><p class="text-gray-600">{{ product.description }}</p></div>
-          
+          <div class="min-h-[100px] max-h-[100px] overflow-y-auto">
+            <p class="text-gray-600">{{ product.description }}</p>
+          </div>
+
           <!-- Botão de Ação -->
           <button 
             @click="openModal(product)"
@@ -62,27 +64,23 @@
     <!-- Modal Elegante -->
     <transition name="fade">
       <div v-if="modalOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4">
-        <!-- Overlay -->
         <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" @click="closeModal"></div>
         
-        <!-- Conteúdo do Modal -->
         <div class="relative bg-white rounded-xl shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto">
-          <!-- Imagem do Produto -->
           <div class="h-48 bg-gray-100 overflow-hidden">
             <img 
               :src="selectedProduct?.image" 
               :alt="selectedProduct?.title" 
+              :title="selectedProduct?.title"
               class="w-full h-full object-cover"
             />
           </div>
           
-          <!-- Detalhes -->
           <div class="p-6 space-y-4">
             <h3 class="text-2xl font-bold text-gray-900">{{ selectedProduct?.title }}</h3>
             <p class="text-gray-700">{{ selectedProduct?.description }}</p>
             <p class="text-sm text-gray-500">{{ selectedProduct?.dimensions }}</p>
-            
-            <!-- Formulário -->
+
             <div class="mt-6 space-y-4">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Seu Nome</label>
@@ -108,8 +106,7 @@
                 <p v-if="emailError" class="mt-1 text-sm text-red-600">Por favor, insira um e-mail válido</p>
               </div>
             </div>
-            
-            <!-- Botões -->
+
             <div class="flex flex-col sm:flex-row gap-3 pt-4">
               <button 
                 @click="closeModal"
@@ -133,38 +130,37 @@
     </transition>
   </div>
 </template>
+
 <script setup>
 import { ref } from 'vue';
-import img1 from '@/assets/arquivos/1.png';
-import img2 from '@/assets/arquivos/6.png';
-import img3 from '@/assets/arquivos/3.png';
+import img1 from '@/assets/servicos/25.png';
+import img2 from '@/assets/servicos/6.png';
+import img3 from '@/assets/servicos/3.png';
 
-// Dados dos produtos
 const products = ref([
   {
     id: 1,
-    title: "Assoalho TG4",
-    description: "Piso de tábuas com comprimentos variados e encaixe macho e fêmea, perfeito para ambientes clássicos",
-    dimensions: "Taco de Tauari: 7cm x 21cm",
+    title: 'Revestimento Banheiras',
+    description: "Transformamos banheiros em verdadeiros espaços de relaxamento e estilo, com acabamentos em madeira de alta qualidade que combinam charme clássico e conforto.",
+    dimensions: "Revestimento Banheiras",
     image: img1
   },
   {
     id: 2,
-    title: "Assoalho Tradicional",
-    description: "Piso artesanal com acabamento rústico, ideal para quem busca autenticidade e durabilidade",
-    dimensions: "Taco de Tauari: 7cm x 21cm",
+    title: "Painel Ripado",
+    description: "Com linhas contínuas e acabamento impecável, os painéis ripados da Arte Nobre Service elevam a estética e o aconchego dos ambientes com um toque moderno e sofisticado.",
+    dimensions: "Painel Ripado",
     image: img2
   },
   {
     id: 3,
     title: "Tacos Artesanais",
-    description: "Peças selecionadas manualmente para garantir padrão de qualidade excepcional",
-    dimensions: "Taco de Tauari: 7cm x 21cm",
+    description: "Cada peça é escolhida e montada manualmente, garantindo um padrão único de qualidade. Ideal para quem busca exclusividade e a beleza dos detalhes em pisos que contam histórias.",
+    dimensions: "Tacos Artesanais",
     image: img3
   }
 ]);
 
-// Estado do modal
 const modalOpen = ref(false);
 const selectedProduct = ref(null);
 const userName = ref('');
@@ -172,7 +168,6 @@ const userEmail = ref('');
 const nameError = ref(false);
 const emailError = ref(false);
 
-// Abrir modal
 const openModal = (product) => {
   selectedProduct.value = product;
   modalOpen.value = true;
@@ -182,64 +177,38 @@ const openModal = (product) => {
   emailError.value = false;
 };
 
-// Fechar modal
 const closeModal = () => {
   modalOpen.value = false;
 };
 
-// Validar formulário
 const validateForm = () => {
   nameError.value = !userName.value.trim();
   emailError.value = !userEmail.value.trim() || !/^\S+@\S+\.\S+$/.test(userEmail.value);
   return !nameError.value && !emailError.value;
 };
 
-// Enviar para WhatsApp
 const sendToWhatsApp = () => {
   if (!validateForm()) return;
-  
+
   const phone = "5511970419195";
   const message = `👋 Olá, sou ${userName.value}, gostaria de saber mais sobre:\n\n*${selectedProduct.value.title}*\n${selectedProduct.value.description}\nDimensões: ${selectedProduct.value.dimensions}\n\nE-mail: ${userEmail.value}\n\n👷‍♂️💬 Arte Nobre Service`;
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-  
+
   window.open(url, '_blank');
   closeModal();
 };
 </script>
 
 <style scoped>
-/* Animação do modal */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
 }
-
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }
-
-/* Efeito de zoom na imagem */
 .group:hover img {
   transform: scale(1.05);
-}
-
-/* Estilo personalizado para scrollbar no modal */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 0 10px 10px 0;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
 }
 </style>
