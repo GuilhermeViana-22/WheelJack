@@ -31,18 +31,22 @@
             </h1>
             
             <p class="text-lg md:text-xl text-[#183614] leading-relaxed">
-  A <strong class="font-semibold text-[#6e451d]">Arte Nobre Service</strong> é resultado de uma trajetória sólida e inovadora iniciada em 1994, quando os primeiros conhecimentos e experiências na área de madeiras nobres e serviços de acabamento começaram a ser desenvolvidos. Com base nesse alicerce técnico e prático, a empresa foi oficialmente estruturada em 2000, evoluindo constantemente para atender às exigências do mercado com excelência.
-</p>
+              A <strong class="font-semibold text-[#6e451d]">Arte Nobre Service</strong> é resultado de uma trajetória sólida e inovadora iniciada em 1994, quando os primeiros conhecimentos e experiências na área de madeiras nobres e serviços de acabamento começaram a ser desenvolvidos. Com base nesse alicerce técnico e prático, a empresa foi oficialmente estruturada em 2000, evoluindo constantemente para atender às exigências do mercado com excelência.
+            </p>
 
-<p class="text-lg md:text-xl text-[#183614] leading-relaxed">
-  Hoje, a <strong class="font-semibold text-[#6e451d]">Arte Nobre Service</strong> atua com foco em soluções especializadas para ambientes residenciais, corporativos e comerciais, oferecendo instalação de assoalhos, tacos, decks, forros e painéis, além de acabamento refinado, como raspagem, lixamento e aplicação de vernizes ecológicos. Nosso compromisso é unir tradição, inovação e qualidade em cada projeto entregue.
-</p>
+            <p class="text-lg md:text-xl text-[#183614] leading-relaxed">
+              Hoje, a <strong class="font-semibold text-[#6e451d]">Arte Nobre Service</strong> atua com foco em soluções especializadas para ambientes residenciais, corporativos e comerciais, oferecendo instalação de assoalhos, tacos, decks, forros e painéis, além de acabamento refinado, como raspagem, lixamento e aplicação de vernizes ecológicos. Nosso compromisso é unir tradição, inovação e qualidade em cada projeto entregue.
+            </p>
             
-            <!-- Botão CTA com as cores especificadas -->
+            <!-- Botão CTA com as cores especificadas - AGORA COM LINK PARA WHATSAPP -->
             <div class="pt-2 md:pt-4 flex flex-row w-full">
-              <button class="mx-auto md:mx-0 px-8 py-3 bg-[#6e451d] hover:bg-[#183614] text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                Saiba mais sobre nossos serviços
-              </button>
+              <a 
+                href="https://wa.me/5511970419195" 
+                target="_blank"
+                class="mx-auto md:mx-0 px-8 py-3 bg-[#6e451d] hover:bg-[#183614] text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Fale conosco pelo WhatsApp
+              </a>
             </div>
           </div>
         </div>
@@ -103,19 +107,19 @@ h1 {
   font-family: 'Playfair Display', serif;
 }
 
-p, button {
+p, a {
   font-family: 'Inter', sans-serif;
 }
 
 /* Transições suaves */
-button, img {
+a, img {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
 }
 
 /* Efeito de hover no botão */
-button:hover {
+a:hover {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 </style>
