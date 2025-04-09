@@ -17,22 +17,46 @@
         <div class="footer-links">
           <h3 class="text-white font-bold mb-6 text-lg">Links rápidos</h3>
           <ul class="space-y-3">
-            <li><router-link to="/" class="text-white/70 hover:text-white transition-colors duration-300 flex items-center">
-              <span class="inline-block w-2 h-2 bg-white/70 mr-2 rounded-full"></span>
-              Início
-            </router-link></li>
-            <li><router-link to="/servicos" class="text-white/70 hover:text-white transition-colors duration-300 flex items-center">
-              <span class="inline-block w-2 h-2 bg-white/70 mr-2 rounded-full"></span>
-              Serviços
-            </router-link></li>
-            <li><router-link to="/produtos" class="text-white/70 hover:text-white transition-colors duration-300 flex items-center">
-              <span class="inline-block w-2 h-2 bg-white/70 mr-2 rounded-full"></span>
-              Produtos
-            </router-link></li>
-            <li><router-link to="/contato" class="text-white/70 hover:text-white transition-colors duration-300 flex items-center">
-              <span class="inline-block w-2 h-2 bg-white/70 mr-2 rounded-full"></span>
-              Contato
-            </router-link></li>
+            <li>
+              <router-link 
+                to="/" 
+                class="text-white/70 hover:text-white transition-colors duration-300 flex items-center"
+                @click="smoothScroll"
+              >
+                <span class="inline-block w-2 h-2 bg-white/70 mr-2 rounded-full"></span>
+                Início
+              </router-link>
+            </li>
+            <li>
+              <router-link 
+              to="/"  
+                class="text-white/70 hover:text-white transition-colors duration-300 flex items-center"
+                @click="smoothScroll"
+              >
+                <span class="inline-block w-2 h-2 bg-white/70 mr-2 rounded-full"></span>
+                Serviços
+              </router-link>
+            </li>
+            <li>
+              <router-link 
+              to="/" 
+                class="text-white/70 hover:text-white transition-colors duration-300 flex items-center"
+                @click="smoothScroll"
+              >
+                <span class="inline-block w-2 h-2 bg-white/70 mr-2 rounded-full"></span>
+                Produtos
+              </router-link>
+            </li>
+            <li>
+              <router-link 
+                to="/contato" 
+                class="text-white/70 hover:text-white transition-colors duration-300 flex items-center"
+                @click="smoothScroll"
+              >
+                <span class="inline-block w-2 h-2 bg-white/70 mr-2 rounded-full"></span>
+                Contato
+              </router-link>
+            </li>
           </ul>
         </div>
 
@@ -47,8 +71,7 @@
                 </svg>
               </div>
               <div>
-                <p class="group-hover:text-white transition-colors duration-300">(11) 4191-2805</p>
-                <p class="group-hover:text-white transition-colors duration-300">(11) 94475-5888</p>
+                <p class="group-hover:text-white transition-colors duration-300">(11) 99257-8060</p>
               </div>
             </li>
             <li class="text-white/70 flex items-start group mt-4">
@@ -57,7 +80,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
               </div>
-              <span class="group-hover:text-white transition-colors duration-300">contato@artenobre.com</span>
+              <span class="group-hover:text-white transition-colors duration-300">thonycarlos2000@gmail.com</span>
             </li>
             <li class="text-white/70 flex items-start group mt-4">
               <div class="icon-container mr-3 mt-0.5">
@@ -66,7 +89,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
               </div>
-              <span class="group-hover:text-white transition-colors duration-300">Av. Exemplo, 123 - São Paulo/SP</span>
+             
             </li>
           </ul>
         </div>
@@ -165,7 +188,7 @@
 </template>
 
 <script setup>
-// Nenhum script adicional necessário para este componente
+
 </script>
 
 <style scoped>
