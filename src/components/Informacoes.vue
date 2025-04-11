@@ -86,7 +86,7 @@ const topics = ref([
   },
   {
     text: 'Qual o prazo médio para instalação?',
-    answer: 'O prazo varia conforme a metragem e complexidade. Um ambiente de 50m² leva em média 3-5 dias para instalação completa, incluindo acabamento. Projetos maiores ou com padrões especiais podem levar 1-2 semanas.'
+    answer: 'O prazo de execução pode variar de acordo com a metragem e a complexidade do serviço. Realizamos uma avaliação detalhada e, a partir disso, informamos o prazo estimado com precisão..'
   },
   {
     text: 'Como solicitar um orçamento?',

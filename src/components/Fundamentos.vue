@@ -34,7 +34,7 @@
             <h3 class="text-2xl font-bold text-gray-800">Missão</h3>
           </div>
           <p class="text-gray-600 leading-relaxed">
-            Oferecer soluções de alto padrão em pisos de madeira, tacos, assoalhos e decks, garantindo qualidade, durabilidade e sofisticação para cada ambiente.
+            Nossa missão é transformar espaços com autenticidade, elegância e excelência em cada detalhe. Acreditamos que a madeira, quando trabalhada com dedicação e alto padrão, é capaz de imprimir personalidade e sofisticação a qualquer ambiente.
           </p>
         </div>
 

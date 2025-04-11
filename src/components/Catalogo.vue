@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 py-6 max-w-6xl">
+  <div class="container mx-auto px-2 py-2 max-w-7xl">
 
     <!-- Breadcrumb navigation -->
     <div class="bg-amber-100 bg-opacity-50 py-2 px-4 md:mb-6 mb-2 rounded">
@@ -38,7 +38,7 @@
       <div class="w-full bg-gray-100 p-4 grid md:grid-cols-2 md:gap-4 grid-cols-1 gap-4">
         <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all" v-for="(product, index) in filteredProducts" :key="index">
           <div class="relative">
-            <img :src="product.image" :alt="product.title" class="w-full h-52 object-cover" />
+            <img :src="product.image" :alt="product.title" class="w-full h-76 object-cover" />
             
             <button @click="openWhatsApp(product)" class="absolute hover:bg-blue-600 top-3 right-3 bg-blue-500 rounded-full text-white text-sm px-4 py-1 rounded"> Saiba Mais
             </button>
@@ -110,7 +110,7 @@ const categories = ref([
   { id: 6, title: 'Taco Palito', route: 'TacoPalito' },
   { id: 7, title: 'Escadas', route: 'Escadas' },
   { id: 8, title: 'Escadas Estruturais', father_id: 7, route: 'EscadasEstruturais' },
-  { id: 9, title: 'Revestimentos de Banheiras', route: 'RevestimentosDeBanheiras' },
+  { id: 9, title: 'Revestimentos ', route: 'RevestimentosDeBanheiras' },
   { id: 10, title: 'Forros', route: 'Forros' },
 ]);
 

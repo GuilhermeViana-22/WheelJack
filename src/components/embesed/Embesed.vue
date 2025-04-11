@@ -10,8 +10,7 @@
     </span>
   </h2>
   <p class="mt-6 text-gray-600 max-w-3xl text-center">
-    Trabalhamos com marcas reconhecidas pela excelência e durabilidade. Cada projeto é construído com materiais e tecnologias que garantem o melhor resultado.
-    De tintas premium a ferramentas profissionais, cada detalhe reflete o nosso compromisso com a qualidade.
+    Trabalhamos com marcas reconhecidas pela excelência e durabilidade. Cada projeto é realizado com materiais de alta performance e tecnologias que garantem um acabamento superior. Utilizamos vernizes profissionais e importados, que destacam a beleza da madeira, aumentam sua proteção e asseguram um resultado sofisticado e duradouro — sempre com o compromisso de entregar o melhor.
   </p>
 </div>
 

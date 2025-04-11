@@ -116,7 +116,7 @@
         { id: 6, title: 'Taco Palito', route: 'TacoPalito' },
         { id: 7, title: 'Escadas', route: 'Escadas' },
         { id: 8, title: 'Escadas Estruturais', father_id: 7, route: 'EscadasEstruturais' },
-        { id: 9, title: 'Revestimentos de Banheiras', route: 'RevestimentosDeBanheiras' },
+        { id: 9, title: 'Revestimentos ', route: 'RevestimentosDeBanheiras' },
         { id: 10, title: 'Forros', route: 'Forros' },
       ]);
   

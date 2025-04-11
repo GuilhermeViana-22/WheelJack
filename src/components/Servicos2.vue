@@ -118,10 +118,10 @@
           </div>
         </div>
 
-        <!-- Serviço 8: Revestimentos de Banheiras -->
+        <!-- Serviço 8: Revestimentos  -->
         <div class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
           <img 
-            :src="getImageUrl(8)" 
+            :src="getImageUrl(23)" 
             alt="Revestimento de Banheiras"
             class="w-full h-auto object-cover"
           />
@@ -162,6 +162,8 @@ import img20 from '../assets/servicos/20.png'
 import img21 from '../assets/servicos/21.png'
 import img22 from '../assets/servicos/22.png'
 
+import img23 from '@/assets/catalogo/escadas/1.jpeg'
+
 export default {
   data() {
     return {
@@ -187,7 +189,8 @@ export default {
         19: img19,
         20: img20,
         21: img21,
-        22: img22
+        22: img22,
+        23: img23
       },
       // Mantive o array de serviços caso precise usá-lo em outra parte
       services: [

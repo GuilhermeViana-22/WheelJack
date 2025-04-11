@@ -136,28 +136,29 @@ import { ref } from 'vue';
 import img1 from '@/assets/servicos/25.png';
 import img2 from '@/assets/servicos/6.png';
 import img3 from '@/assets/servicos/3.png';
+import img4 from '@/assets/catalogo/tacos/3.jpeg'
 
 const products = ref([
   {
     id: 1,
-    title: 'Revestimento Banheiras',
-    description: "Transformamos banheiros em verdadeiros espaços de relaxamento e estilo, com acabamentos em madeira de alta qualidade que combinam charme clássico e conforto.",
-    dimensions: "Revestimento Banheiras",
+    title: 'Revestimentos',
+    description: "Elevamos o padrão de espaços como spas, ofurôs e áreas de relaxamento com acabamentos em madeira nobre, trazendo mais conforto, estilo e funcionalidade ao seu ambiente. Cada detalhe é pensado para transformar o seu cotidiano em uma experiência de bem-estar.",
+    dimensions: "",
     image: img1
   },
   {
     id: 2,
     title: "Painel Ripado",
     description: "Com linhas contínuas e acabamento impecável, os painéis ripados da Arte Nobre Service elevam a estética e o aconchego dos ambientes com um toque moderno e sofisticado.",
-    dimensions: "Painel Ripado",
+    dimensions: "",
     image: img2
   },
   {
     id: 3,
-    title: "Tacos Artesanais",
+    title: "Tacos",
     description: "Cada peça é escolhida e montada manualmente, garantindo um padrão único de qualidade. Ideal para quem busca exclusividade e a beleza dos detalhes em pisos que contam histórias.",
-    dimensions: "Tacos Artesanais",
-    image: img3
+    dimensions: "",
+    image: img4
   }
 ]);
 
