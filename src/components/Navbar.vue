@@ -154,17 +154,15 @@ export default {
     const showMobileProducts = ref(false);
     
     const categories = ref([
-      { id: 1, title: 'Assoalhos', route: 'Assoalhos' },
-      { id: 2, title: 'Painéis', route: 'Paineis' },
-      { id: 3, title: 'Painéis Ripados', father_id: 2, route: 'PaineisRipados' },
-      { id: 4, title: 'Painéis Demolição', father_id: 2, route: 'PaineisDemolicao' },
-      { id: 5, title: 'Tacão', route: 'Tacao' },
-      { id: 6, title: 'Taco Palito', route: 'TacoPalito' },
-      { id: 7, title: 'Escadas', route: 'Escadas' },
-      { id: 8, title: 'Escadas Estruturais', father_id: 7, route: 'EscadasEstruturais' },
-      { id: 9, title: 'Revestimentos ', route: 'RevestimentosDeBanheiras' },
-      { id: 10, title: 'Forros', route: 'Forros' },
-      { id: 11, title: 'Pergolados', route: 'Pergolados' },
+    { id: 1, title: 'Assoalhos', route: 'Assoalhos' },
+    { id: 2, title: 'Tacos', route: 'Tacos' },
+    { id: 3, title: 'Paineis', route: 'Paineis' },
+
+    { id: 5, title: 'Paineis Ripados', father_id: 3, route: 'PaineisDemolicao' },
+    { id: 6, title: 'Escadas', route: 'Escadas' },
+    { id: 7, title: 'Revestimentos', route: 'Revestimentos' },
+    { id: 8, title: 'Forros', route: 'Forros' },
+    { id: 9, title: 'Decks', route: 'Decks' },  // Alterado de Pergolados para Decks
     ]);
 
     const menuItems = [

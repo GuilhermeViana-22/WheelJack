@@ -35,10 +35,10 @@
       </div>
 
       <!-- Listagem de produtos filtrados -->
-      <div class="w-full bg-gray-100 p-4 grid md:grid-cols-2 md:gap-4 grid-cols-1 gap-4">
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all" v-for="(product, index) in filteredProducts" :key="index">
+      <div class="w-full bg-gray-100 p-4 grid lg:grid-cols-3 md:grid-cols-2 lg:gap-4 grid-cols-1 gap-4">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all group" v-for="(product, index) in filteredProducts" :key="index">
           <div class="relative">
-            <img :src="product.image" :alt="product.title" class="w-full h-76 object-cover" />
+            <img :src="product.image" :alt="product.title" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105" />
             
             <button @click="openWhatsApp(product)" class="absolute hover:bg-blue-600 top-3 right-3 bg-blue-500 rounded-full text-white text-sm px-4 py-1 rounded"> Saiba Mais
             </button>
