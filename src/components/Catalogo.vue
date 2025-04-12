@@ -67,81 +67,529 @@
 import { ref, computed } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
-//assolaho
+// ======================
+// IMPORTAÇÃO DE IMAGENS
+// Organizadas por tipo de produto conforme estrutura de pastas
+// ======================
 
-import img1 from "@/assets/catalogo/assoalho_garapa.jpg";
-import img2 from "@/assets/catalogo/assoalho_jatoba.webp";
-import img_servico2 from "@/assets/servicos/2.png";
-import img_servico4 from "@/assets/servicos/4.png";
-import img3 from "@/assets/catalogo/assoalho_sucupira_amarela.jpg";
+// Assoalhos
+import assoalhoGarapa from "@/assets/catalogo/assoalhos/assoalho_garapa.jpg";
+import assoalhoJatoba from "@/assets/catalogo/assoalhos/assoalho_jatoba.webp";
+import assoalhoSucupira from "@/assets/catalogo/assoalhos/assoalho_sucupira.jpg";
+import assoalho1 from "@/assets/catalogo/assoalhos/1.jpeg";
+import assoalho4 from "@/assets/catalogo/assoalhos/4.png";
+import assoalho18 from "@/assets/catalogo/assoalhos/18.png";
+import assoalho19 from "@/assets/catalogo/assoalhos/19.png";
+import assoalho23 from "@/assets/catalogo/assoalhos/23.png";
+import assoalho24 from "@/assets/catalogo/assoalhos/32.png";
+import assoalho25 from "@/assets/catalogo/assoalhos/33.png";
 
-import img4 from "@/assets/arquivos/6.png";
+// Tacos
+import taco1jpeg from "@/assets/catalogo/tacos/27.png";
+import taco1png from "@/assets/catalogo/tacos/1.png";
+import taco2jpeg from "@/assets/catalogo/tacos/28.png";
+import taco2png from "@/assets/catalogo/tacos/2.png";
+import taco3jpeg from "@/assets/catalogo/tacos/30.png";
+import taco3png from "@/assets/catalogo/tacos/3.png";
+import taco4jpeg from "@/assets/catalogo/tacos/4.jpeg";
+import taco5jpeg from "@/assets/catalogo/tacos/5.jpeg";
+import taco5png from "@/assets/catalogo/tacos/5.png";
 
-import img5 from "@/assets/servicos/5.png";
+import taco9png from "@/assets/catalogo/tacos/9.png";
+import taco10png from "@/assets/catalogo/tacos/10.png";
+
+import taco12png from "@/assets/catalogo/tacos/31.png";
+
+import taco15png from "@/assets/catalogo/tacos/15.png";
+import taco16png from "@/assets/catalogo/tacos/16.png";
+import taco17png from "@/assets/catalogo/tacos/17.png";
+
+// Painéis
+import painel1 from "@/assets/catalogo/paineis/1.png";
+import painel3 from "@/assets/catalogo/paineis/3.png";
+import painel6 from "@/assets/catalogo/paineis/6.png";
+import painel7 from "@/assets/catalogo/paineis/7.png";
+import painel12 from "@/assets/catalogo/paineis/12.png";
+
+// Painéis Ripados
+import painelRipado1 from "@/assets/catalogo/paineis/1.png";
+import painelRipado2 from "@/assets/catalogo/paineis/3.png";
+
+// Painéis Demolição
+import painelDemolicao1 from "@/assets/catalogo/paineis/6.png";
+import painelDemolicao2 from "@/assets/catalogo/paineis/7.png";
+
+// Escadas
+import escada1 from "@/assets/catalogo/escadas/1.jpeg";
+import escada2 from "@/assets/catalogo/escadas/2.png";
 
 
+import escada10 from "@/assets/catalogo/escadas/10.png";
+import escada11 from "@/assets/catalogo/escadas/11.png";
+import escada13 from "@/assets/catalogo/escadas/13.png";
+import escada27 from "@/assets/catalogo/escadas/27.png";
 
-import img6 from "@/assets/servicos/7.png";
-import img7 from "@/assets/catalogo/2.png";
-import img8 from "@/assets/catalogo/3.png";
-import img9 from "@/assets/catalogo/5.png";
-import img10 from "@/assets/catalogo/8.png";
-import img11 from "@/assets/catalogo/9.png";
-import img12 from "@/assets/catalogo/10.png";
-import img_servico12 from "@/assets/servicos/12.png";
-import img13 from "@/assets/servicos/16.png";
-import img14 from "@/assets/catalogo/12.png";
-import img15 from "@/assets/catalogo/14.png";
-import img23 from "@/assets/servicos/23.png";
-import img25 from "@/assets/servicos/25.png";
-//escadas
-import img26 from "@/assets/servicos/13.png";
-import img27 from "@/assets/servicos/11.png";
+// Forros
+import forro21 from "@/assets/catalogo/forros/21.png";
+
+// Revestimentos
+import revestimento5 from "@/assets/catalogo/espacos/5.png";
+import revestimento25 from "@/assets/catalogo/espacos/25.png";
+
+// Decks (antigos pergolados)
+import deck1 from "@/assets/catalogo/deck/1.jpeg";
+import deck2 from "@/assets/catalogo/deck/2.jpeg";
+import deck25 from "@/assets/catalogo/deck/25.png";
+import deck26 from "@/assets/catalogo/deck/26.png";
 
 const router = useRouter();
 const route = useRoute();
 
+// ======================
+// CATEGORIAS
+// Refletindo a estrutura de pastas
+// ======================
 const categories = ref([
   { id: 1, title: 'Assoalhos', route: 'Assoalhos' },
-  { id: 2, title: 'Painéis', route: 'Paineis' },
-  { id: 3, title: 'Painéis Ripados', father_id: 2, route: 'PaineisRipados' },
-  { id: 4, title: 'Painéis Demolição', father_id: 2, route: 'PaineisDemolicao' },
-  { id: 5, title: 'Tacão', route: 'Tacao' },
-  { id: 6, title: 'Taco Palito', route: 'TacoPalito' },
-  { id: 7, title: 'Escadas', route: 'Escadas' },
-  { id: 8, title: 'Escadas Estruturais', father_id: 7, route: 'EscadasEstruturais' },
-  { id: 9, title: 'Revestimentos ', route: 'RevestimentosDeBanheiras' },
-  { id: 10, title: 'Forros', route: 'Forros' },
+  { id: 2, title: 'Tacos', route: 'Tacos' },
+  { id: 3, title: 'Paineis', route: 'Paineis' },
+
+  { id: 5, title: 'Paineis Ripados', father_id: 3, route: 'PaineisDemolicao' },
+  { id: 6, title: 'Escadas', route: 'Escadas' },
+  { id: 7, title: 'Revestimentos', route: 'Revestimentos' },
+  { id: 8, title: 'Forros', route: 'Forros' },
+  { id: 9, title: 'Decks', route: 'Decks' },  // Alterado de Pergolados para Decks
 ]);
 
+// ======================
+// PRODUTOS
+// Organizados por categoria com informações completas
+// ======================
 const products = ref([
-  { title: "Assoalho Garapa Extra", image: img1, thickness: "5,5cm", width: "5,5cm", length: "5,5cm", category_id: 1 },
-  { title: "Assoalho Jatobá Extra", image: img2, thickness: "15cm", width: "15cm", length: "2cm a 15cm", category_id: 1 },
-  { title: "Assoalho Sucupira Amarela Extra 10cm Curto", image: img3, thickness: "10cm", width: "10cm", length: "3cm a 10cm", category_id: 1 },
-  { title: "Assoalho de Cumarú Envernizado 6cm TG4", image: img4, thickness: "1,8cm", width: "6cm", length: "30cm a 210cm", category_id: 1 },
-  { title: "Assoalho", image: img_servico4, thickness: "1,8cm", width: "6cm", length: "30cm a 210cm", category_id: 1 },
-  { title: "Assoalho", image: img4, thickness: "1,8cm", width: "6cm", length: "30cm a 210cm", category_id: 1 },
-  { title: "Assoalho", image: img5, thickness: "1,8cm", width: "6cm", length: "30cm a 210cm", category_id: 1 },
-  { title: "Assoalho", image: img_servico2, thickness: "1,8cm", width: "6cm", length: "30cm a 210cm", category_id: 1 },
-  
+  // ASSOALHOS
+  { 
+    title: "Modelo Assoalho ", 
+    image: assoalhoGarapa, 
+    description: "Assoalho em madeira Garapa de alta qualidade, peças selecionadas",
+    dimensions: "5,5cm x 5,5cm x comprimentos variados",
+    woodType: "Garapa",
+    finish: "Natural",
+    category_id: 1 
+  },
+  { 
+    title: "Modelo Assoalho ", 
+    image: assoalhoJatoba, 
+    description: "Assoalho em Jatobá com excelente durabilidade",
+    dimensions: "15cm x 15cm x 2cm-15cm",
+    woodType: "Jatobá",
+    finish: "Natural",
+    category_id: 1 
+  },
+  { 
+    title: "Modelo Assoalho ", 
+    image: assoalhoSucupira, 
+    description: "Assoalho em Sucupira Amarela, tons quentes e marcantes",
+    dimensions: "10cm x 10cm x 3cm-10cm",
+    woodType: "Sucupira Amarela",
+    finish: "Natural",
+    category_id: 1 
+  },
+  { 
+    title: "Modelo Assoalho ", 
+    image: assoalho1, 
+    description: "Assoalho em madeira nobre com acabamento premium",
+    dimensions: "6cm x 1,8cm x 30cm-210cm",
+    woodType: "Ipê",
+    finish: "Envernizado",
+    category_id: 1 
+  },
+  { 
+    title: "Modelo Assoalho ", 
+    image: assoalho4, 
+    description: "Assoalho em madeira resistente para alto tráfego",
+    dimensions: "6cm x 1,8cm x 30cm-210cm",
+    woodType: "Cumarú",
+    finish: "Envernizado",
+    category_id: 1 
+  },
+  { 
+    title: "Modelo Assoalho ", 
+    image: assoalho18, 
+    description: "Assoalho rústico com acabamento natural",
+    dimensions: "6cm x 1,8cm x 30cm-210cm",
+    woodType: "Garapa",
+    finish: "Natural",
+    category_id: 1 
+  },
+  { 
+    title: "Modelo Assoalho ", 
+    image: assoalho19, 
+    description: "Assoalho premium para ambientes sofisticados",
+    dimensions: "6cm x 1,8cm x 30cm-210cm",
+    woodType: "Jatobá",
+    finish: "Polido",
+    category_id: 1 
+  },
+  { 
+    title: "Modelo Assoalho ", 
+    image: assoalho23, 
+    description: "Assoalho com tratamento especial para áreas externas",
+    dimensions: "6cm x 1,8cm x 30cm-210cm",
+    woodType: "Cumarú",
+    finish: "Impermeabilizado",
+    category_id: 1 
+  },
+  { 
+    title: "Modelo Assoalho ", 
+    image: assoalho24, 
+    description: "Assoalho com tratamento especial para áreas externas",
+    dimensions: "6cm x 1,8cm x 30cm-210cm",
+    woodType: "Cumarú",
+    finish: "Impermeabilizado",
+    category_id: 1 
+  },
 
-  /// esses itens estão com as categorias erradas e informações erradas, ajustar
-  { title: "Painel", image: img6, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 3 },
-  { title: "Escada de madeira", image: img26, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 8 },
-  { title: "Escada de madeira", image: img27, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 8 },
-  { title: "Escada", image: img7, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 8 },
-  { title: "Painel", image: img_servico12, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 4 },
-  { title: "Revestimento de Banheira", image: img25, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 9 },
+  { 
+    title: "Modelo Assoalho ", 
+    image: assoalho25, 
+    description: "Assoalho com tratamento especial para áreas externas",
+    dimensions: "6cm x 1,8cm x 30cm-210cm",
+    woodType: "Cumarú",
+    finish: "Impermeabilizado",
+    category_id: 1 
+  },
 
-  { title: "Tacão", image: img12, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 5 },
-  { title: "Tacão Palito", image: img13, thickness: "1 cm", width: "10 cm", length: "4,00 m", category_id: 6 },
-  
+  // TACOS
+  { 
+    title: "Modelo Taco", 
+    image: taco1jpeg, 
+    description: "Taco em madeira maciça para pisos resistentes",
+    dimensions: "4cm x 12cm x comprimentos variados",
+    woodType: "Ipê",
+    finish: "Lixado",
+    category_id: 2 
+  },
+  { 
+    title: "Modelo Taco", 
+    image: taco1png, 
+    description: "Taco em madeira nobre com acabamento diferenciado",
+    dimensions: "4cm x 12cm x comprimentos variados",
+    woodType: "Cumarú",
+    finish: "Envernizado",
+    category_id: 2 
+  },
+  { 
+    title: "Modelo Taco ", 
+    image: taco2jpeg, 
+    description: "Taco padrão para instalação profissional",
+    dimensions: "3cm x 10cm x comprimentos variados",
+    woodType: "Garapa",
+    finish: "Natural",
+    category_id: 2 
+  },
+  { 
+    title: "Modelo Taco", 
+    image: taco2png, 
+    description: "Taco com tratamento especial para durabilidade",
+    dimensions: "3cm x 10cm x comprimentos variados",
+    woodType: "Ipê",
+    finish: "Impermeabilizado",
+    category_id: 2 
+  },
+  { 
+    title: "Modelo Taco ", 
+    image: taco3jpeg, 
+    description: "Taco em madeira de demolição, aspecto rústico",
+    dimensions: "5cm x 15cm x comprimentos variados",
+    woodType: "Demolição",
+    finish: "Rústico",
+    category_id: 2 
+  },
+  { 
+    title: "Modelo Taco ", 
+    image: taco3png, 
+    description: "Taco premium para ambientes sofisticados",
+    dimensions: "5cm x 15cm x comprimentos variados",
+    woodType: "Jatobá",
+    finish: "Polido",
+    category_id: 2 
+  },
+  { 
+    title: "Modelo Taco ", 
+    image: taco4jpeg, 
+    description: "Taco resistente para alto tráfego",
+    dimensions: "4cm x 10cm x comprimentos variados",
+    woodType: "Cumarú",
+    finish: "Natural",
+    category_id: 2 
+  },
+  { 
+    title: "Modelo Taco", 
+    image: taco5jpeg, 
+    description: "Taco com design moderno e acabamento premium",
+    dimensions: "3cm x 8cm x comprimentos variados",
+    woodType: "Ipê",
+    finish: "Envernizado",
+    category_id: 2 
+  },
+  { 
+    title: "Modelo Taco", 
+    image: taco5png, 
+    description: "Taco para instalação em áreas úmidas",
+    dimensions: "3cm x 8cm x comprimentos variados",
+    woodType: "Cumarú",
+    finish: "Impermeabilizado",
+    category_id: 2 
+  },
 
+  { 
+    title: "Modelo Taco ", 
+    image: taco9png, 
+    description: "Taco em madeira nobre com acabamento natural",
+    dimensions: "4cm x 10cm x comprimentos variados",
+    woodType: "Jatobá",
+    finish: "Natural",
+    category_id: 2 
+  },
+  { 
+    title: "Modelo Taco ", 
+    image: taco10png, 
+    description: "Taco para pisos de alto padrão",
+    dimensions: "3cm x 9cm x comprimentos variados",
+    woodType: "Ipê",
+    finish: "Polido",
+    category_id: 2 
+  },
 
+  { 
+    title: "Modelo Taco ", 
+    image: taco12png, 
+    description: "Taco para ambientes internos e externos",
+    dimensions: "3cm x 10cm x comprimentos variados",
+    woodType: "Garapa",
+    finish: "Natural",
+    category_id: 2 
+  },
 
-  { title: "Forro de Madeira Cumaru Extra", image: img23, thickness: ": 2m a 6m réguas longas", width: "10 cm", length: "4,00 m", category_id: 10 },
+  { 
+    title: "Modelo Taco ", 
+    image: taco15png, 
+    description: "Taco premium com acabamento exclusivo",
+    dimensions: "4cm x 12cm x comprimentos variados",
+    woodType: "Jatobá",
+    finish: "Envernizado",
+    category_id: 2 
+  },
+  { 
+    title: "Modelo Taco ", 
+    image: taco16png, 
+    description: "Taco premium com acabamento exclusivo",
+    dimensions: "4cm x 12cm x comprimentos variados",
+    woodType: "Jatobá",
+    finish: "Envernizado",
+    category_id: 2 
+  },
+  { 
+    title: "Modelo Taco ", 
+    image: taco17png, 
+    description: "Taco premium com acabamento exclusivo",
+    dimensions: "4cm x 12cm x comprimentos variados",
+    woodType: "Jatobá",
+    finish: "Envernizado",
+    category_id: 2 
+  },
 
+  // PAINÉIS
+  { 
+    title: "Modelo Painel 1", 
+    image: painel1, 
+    description: "Painel em madeira nobre para revestimento",
+    dimensions: "1cm x 10cm x 4m",
+    woodType: "Ipê",
+    finish: "Natural",
+    category_id: 3 
+  },
+  { 
+    title: "Modelo Painel 3", 
+    image: painel3, 
+    description: "Painel com design moderno para ambientes contemporâneos",
+    dimensions: "1.2cm x 12cm x 3.5m",
+    woodType: "Cumarú",
+    finish: "Envernizado",
+    category_id: 3 
+  },
+  { 
+    title: "Modelo Painel 6", 
+    image: painel6, 
+    description: "Painel rústico para decoração de interiores",
+    dimensions: "1.5cm x 15cm x comprimentos variados",
+    woodType: "Demolição",
+    finish: "Rústico",
+    category_id: 3 
+  },
+  { 
+    title: "Modelo Painel 7", 
+    image: painel7, 
+    description: "Painel em madeira resistente para áreas externas",
+    dimensions: "2cm x 12cm x 4m",
+    woodType: "Garapa",
+    finish: "Impermeabilizado",
+    category_id: 3 
+  },
+  { 
+    title: "Modelo Painel 12", 
+    image: painel12, 
+    description: "Painel premium para projetos especiais",
+    dimensions: "1cm x 8cm x 5m",
+    woodType: "Jatobá",
+    finish: "Polido",
+    category_id: 3 
+  },
+
+  // PAINÉIS RIPADOS
+  { 
+    title: "Modelo Painel Ripado 1", 
+    image: painelRipado1, 
+    description: "Painel ripado em madeira Ipê para revestimentos",
+    dimensions: "1cm x 10cm x 4m",
+    woodType: "Ipê",
+    finish: "Natural",
+    category_id: 4 
+  },
+  { 
+    title: "Modelo Painel Ripado 2", 
+    image: painelRipado2, 
+    description: "Painel ripado com design diferenciado",
+    dimensions: "1.2cm x 12cm x 3.5m",
+    woodType: "Cumarú",
+    finish: "Natural",
+    category_id: 4 
+  },
+
+  // PAINÉIS DEMOLIÇÃO
+  { 
+    title: "Modelo Painel", 
+    image: painelDemolicao1, 
+    description: "Painel com madeira, aspecto vintage",
+    dimensions: "1.5cm x 15cm x comprimentos variados",
+    woodType: "Mista (demolição)",
+    finish: "Rústico",
+    category_id: 5 
+  },
+  { 
+    title: "Modelo Painel", 
+    image: painelDemolicao2, 
+    description: "Painel com características únicas",
+    dimensions: "1.8cm x 18cm x comprimentos variados",
+    woodType: "Mista (demolição)",
+    finish: "Rústico",
+    category_id: 5 
+  },
+
+  // ESCADAS
+  { 
+    title: "Modelo Escada", 
+    image: escada1, 
+    description: "Escada em madeira maciça com design clássico",
+    dimensions: "Degraus: 3cm x 25cm x comprimentos variados",
+    woodType: "Ipê",
+    finish: "Natural",
+    category_id: 6 
+  },
+
+  { 
+    title: "Modelo Esca", 
+    image: escada10, 
+    description: "Escada para ambientes internos com acabamento refinado",
+    dimensions: "Degraus: 3cm x 26cm x comprimentos variados",
+    woodType: "Garapa",
+    finish: "Natural",
+    category_id: 6 
+  },
+  { 
+    title: "Modelo Esca", 
+    image: escada11, 
+    description: "Escada estrutural com tratamento especial",
+    dimensions: "Degraus: 3.2cm x 27cm x comprimentos variados",
+    woodType: "Ipê",
+    finish: "Impermeabilizado",
+    category_id: 6 
+  },
+  { 
+    title: "Modelo Esca", 
+    image: escada13, 
+    description: "Escada em madeira nobre para projetos especiais",
+    dimensions: "Degraus: 3.5cm x 29cm x comprimentos variados",
+    woodType: "Jatobá",
+    finish: "Envernizado",
+    category_id: 6 
+  },
+ 
+  // REVESTIMENTOS
+
+  { 
+    title: "Modelo Revestimento", 
+    image: revestimento25, 
+    description: "Revestimento premium para projetos especiais",
+    dimensions: "2.5cm x 12cm x comprimentos variados",
+    woodType: "Ipê",
+    finish: "Polido",
+    category_id: 7 
+  },
+
+  // FORROS
+  { 
+    title: "Modelo Forro 21", 
+    image: forro21, 
+    description: "Forro em madeira nobre para instalação contínua",
+    dimensions: "10cm x 2cm x 2m-6m",
+    woodType: "Cumarú",
+    finish: "Natural",
+    category_id: 8 
+  },
+
+  // DECKS
+  { 
+    title: "Modelo Deck 1", 
+    image: deck1, 
+    description: "Deck em madeira resistente para áreas externas",
+    dimensions: "Estrutura: 10cm x 10cm, comprimentos variados",
+    woodType: "Ipê",
+    finish: "Impermeabilizado",
+    category_id: 9 
+  },
+  { 
+    title: "Modelo Deck 2", 
+    image: deck2, 
+    description: "Deck com design moderno e acabamento premium",
+    dimensions: "Estrutura: 12cm x 12cm, comprimentos variados",
+    woodType: "Cumarú",
+    finish: "Envernizado",
+    category_id: 9 
+  },
+  { 
+    title: "Modelo Deck 25", 
+    image: deck25, 
+    description: "Deck rústico com madeira de demolição",
+    dimensions: "Estrutura: 15cm x 15cm, comprimentos variados",
+    woodType: "Demolição",
+    finish: "Rústico",
+    category_id: 9 
+  },
+  { 
+    title: "Modelo Deck 26", 
+    image: deck26, 
+    description: "Deck premium para projetos sofisticados",
+    dimensions: "Estrutura: 10cm x 10cm, comprimentos variados",
+    woodType: "Jatobá",
+    finish: "Polido",
+    category_id: 9 
+  }
 ]);
+
+// ======================
+// LÓGICA DE FILTROS E NAVEGAÇÃO
+// ======================
 
 // Agrupa as categorias
 const groupedCategories = computed(() => {
@@ -191,7 +639,7 @@ const goToHome = () => {
 };
 
 const openWhatsApp = (product) => {
-  const phone = "5511970419195"; // Substitua pelo número correto
+  const phone = "5511970419195";
   const message = `Olá, gostaria de saber mais sobre o produto: ${product.title}`;
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");

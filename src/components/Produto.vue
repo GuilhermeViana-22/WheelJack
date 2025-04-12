@@ -133,10 +133,10 @@
 
 <script setup>
 import { ref } from 'vue';
-import img1 from '@/assets/servicos/25.png';
-import img2 from '@/assets/servicos/6.png';
-import img3 from '@/assets/servicos/3.png';
-import img4 from '@/assets/catalogo/tacos/3.jpeg'
+import img1 from '../assets/catalogo/espacos/25.png'
+import img2 from '@/assets/catalogo/paineis/6.png';
+import img3 from '@/assets/catalogo/tacos/3.jpeg';    
+   
 
 const products = ref([
   {
@@ -158,7 +158,7 @@ const products = ref([
     title: "Tacos",
     description: "Cada peça é escolhida e montada manualmente, garantindo um padrão único de qualidade. Ideal para quem busca exclusividade e a beleza dos detalhes em pisos que contam histórias.",
     dimensions: "",
-    image: img4
+    image: img3
   }
 ]);
 
