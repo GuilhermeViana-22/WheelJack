@@ -21,7 +21,7 @@
             class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="w-full text-white">
               <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">Excelência em cada detalhe, transformando madeira em arte</p>
+              <p class="text-sm mb-3">{{ getPraisePhrase(1) }}</p>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
             class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="w-full text-white">
               <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">Inovação e tradição trabalhando juntas para seu lar</p>
+              <p class="text-sm mb-3">{{ getPraisePhrase(2) }}</p>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
             class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="w-full text-white">
               <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">Qualidade que impressiona em cada projeto</p>
+              <p class="text-sm mb-3">{{ getPraisePhrase(3) }}</p>
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@
             class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="w-full text-white">
               <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">O melhor acabamento para sua residência</p>
+              <p class="text-sm mb-3">{{ getPraisePhrase(4) }}</p>
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@
             class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="w-full text-white">
               <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">Trabalho artesanal com precisão de máquina</p>
+              <p class="text-sm mb-3">{{ getPraisePhrase(5) }}</p>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
             class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="w-full text-white">
               <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">Elevando o padrão de acabamentos em madeira</p>
+              <p class="text-sm mb-3">{{ getPraisePhrase(6) }}</p>
             </div>
           </div>
         </div>
@@ -99,12 +99,12 @@
             class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="w-full text-white">
               <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">Soluções criativas para seu espaço</p>
+              <p class="text-sm mb-3">{{ getPraisePhrase(7) }}</p>
             </div>
           </div>
         </div>
 
-        <!-- Serviço 8: Revestimentos  -->
+        <!-- Serviço 8: Revestimentos -->
         <div
           class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
           <img :src="getImageUrl(8)" alt="Revestimento de Banheiras" class="w-full h-auto object-cover" />
@@ -112,13 +112,12 @@
             class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="w-full text-white">
               <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">O toque nobre que sua casa merece</p>
+              <p class="text-sm mb-3">{{ getPraisePhrase(8) }}</p>
             </div>
           </div>
         </div>
 
-
-        <!-- Serviço 9: Revestimentos  -->
+        <!-- Serviço 9: Revestimentos -->
         <div
           class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
           <img :src="getImageUrl(9)" alt="Revestimento de Banheiras" class="w-full h-auto object-cover" />
@@ -126,12 +125,12 @@
             class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="w-full text-white">
               <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">O toque nobre que sua casa merece</p>
+              <p class="text-sm mb-3">{{ getPraisePhrase(9) }}</p>
             </div>
           </div>
         </div>
 
-        <!-- Serviço 10: Revestimentos  -->
+        <!-- Serviço 10: Revestimentos -->
         <div
           class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
           <img :src="getImageUrl(10)" alt="Revestimento de Banheiras" class="w-full h-auto object-cover" />
@@ -139,35 +138,33 @@
             class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="w-full text-white">
               <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">O toque nobre que sua casa merece</p>
+              <p class="text-sm mb-3">{{ getPraisePhrase(10) }}</p>
             </div>
           </div>
         </div>
 
-
-            <!-- Serviço 11: Revestimentos  -->
-            <div
+        <!-- Serviço 11: Revestimentos -->
+        <div
           class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
           <img :src="getImageUrl(11)" alt="Revestimento de Banheiras" class="w-full h-auto object-cover" />
           <div
             class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="w-full text-white">
               <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">O toque nobre que sua casa merece</p>
+              <p class="text-sm mb-3">{{ getPraisePhrase(11) }}</p>
             </div>
           </div>
         </div>
 
-
-            <!-- Serviço 12: Revestimentos  -->
-            <div
+        <!-- Serviço 12: Revestimentos -->
+        <div
           class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
           <img :src="getImageUrl(12)" alt="Revestimento de Banheiras" class="w-full h-auto object-cover" />
           <div
             class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div class="w-full text-white">
               <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">O toque nobre que sua casa merece</p>
+              <p class="text-sm mb-3">{{ getPraisePhrase(12) }}</p>
             </div>
           </div>
         </div>
@@ -191,7 +188,6 @@ import img10 from '../assets/catalogo/deck/25.png'
 import img11 from '../assets/catalogo/deck/26.png'
 import img12 from '../assets/catalogo/tacos/15.png'
 
-
 export default {
   data() {
     return {
@@ -208,13 +204,7 @@ export default {
         10: img10,
         11: img11,
         12: img12
-
       },
-      // Mantive o array de serviços caso precise usá-lo em outra parte
-      services: [
-        // ... (o array de serviços permanece o mesmo)
-      ],
-      // Adicionei um array com as frases elogiosas
       praisePhrases: [
         "Excelência em cada detalhe, transformando madeira em arte",
         "Inovação e tradição trabalhando juntas para seu lar",
@@ -246,7 +236,7 @@ export default {
       return this.images[index]
     },
     getPraisePhrase(index) {
-      // Retorna uma frase elogiosa baseada no índice (usando módulo para garantir que não saia do array)
+      // Retorna uma frase elogiosa baseada no índice
       return this.praisePhrases[(index - 1) % this.praisePhrases.length]
     }
   }
@@ -254,10 +244,8 @@ export default {
 </script>
 
 <style scoped>
-/* O estilo permanece exatamente o mesmo */
 .service-item {
   aspect-ratio: 1/1.5;
-  /* Proporção similar ao WhatsApp */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 

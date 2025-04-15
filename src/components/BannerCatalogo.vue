@@ -13,18 +13,19 @@
     </div>
 
     <!-- Conteúdo do banner -->
-    <div class="absolute inset-0 flex items-center justify-center z-10">
-      <div class="container max-w-7xl mx-auto px-4 sm:px-6 flex justify-start">
-        <Transition name="slide-up">
-          <div v-if="showContent" class="text-left space-y-6 max-w-4xl">
-            <h1 class="text-5xl text-center md:text-left sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-snug">
-              <span class="block mb-2 text-golden-effect">Catálogo de produtos</span>
-              <span class="text-amber-300 rounded-lg text-golden-effect">Conheça nossos produtos</span>
-            </h1>
-          </div>
-        </Transition>
+<!-- Conteúdo do banner -->
+<div class="absolute inset-0 flex items-center justify-center z-10">
+  <div class="container max-w-7xl mx-auto px-4 sm:px-6 flex justify-start">
+    <Transition name="slide-up">
+      <div v-if="showContent" class="text-left space-y-6 max-w-4xl">
+        <h1 class="text-5xl text-center md:text-left sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight pb-2">
+          <span class="block mb-8 text-golden-effect" style="line-height: 1.2; margin-bottom: 20px; padding-bottom: 20px;">Catálogo de produtos</span>
+          <span class="text-amber-300 rounded-lg text-golden-effect" style="line-height: 1.3">Conheça nossos produtos</span>
+        </h1>
       </div>
-    </div>
+    </Transition>
+  </div>
+</div>
 
     <!-- Indicadores do carrossel -->
     <div class="absolute bottom-8 left-0 right-0 z-10 flex justify-center space-x-2">
