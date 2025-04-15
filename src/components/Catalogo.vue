@@ -124,7 +124,7 @@ import escada1 from "@/assets/catalogo/escadas/1.jpeg";
 import escada2 from "@/assets/catalogo/escadas/2.png";
 
 
-import escada10 from "@/assets/catalogo/escadas/10.png";
+import escada10 from "@/assets/catalogo/escadas/28.png";
 import escada11 from "@/assets/catalogo/escadas/11.png";
 import escada13 from "@/assets/catalogo/escadas/13.png";
 import escada27 from "@/assets/catalogo/escadas/27.png";
@@ -498,7 +498,7 @@ const products = ref([
   },
 
   { 
-    title: "Modelo Esca", 
+    title: "Modelo Escada", 
     image: escada10, 
     description: "Escada para ambientes internos com acabamento refinado",
     dimensions: "Degraus: 3cm x 26cm x comprimentos variados",
@@ -506,17 +506,9 @@ const products = ref([
     finish: "Natural",
     category_id: 6 
   },
+ 
   { 
-    title: "Modelo Esca", 
-    image: escada11, 
-    description: "Escada estrutural com tratamento especial",
-    dimensions: "Degraus: 3.2cm x 27cm x comprimentos variados",
-    woodType: "Ipê",
-    finish: "Impermeabilizado",
-    category_id: 6 
-  },
-  { 
-    title: "Modelo Esca", 
+    title: "Modelo Escada", 
     image: escada13, 
     description: "Escada em madeira nobre para projetos especiais",
     dimensions: "Degraus: 3.5cm x 29cm x comprimentos variados",
@@ -550,7 +542,7 @@ const products = ref([
 
   // DECKS
   { 
-    title: "Modelo Deck 1", 
+    title: "Modelo Deck", 
     image: deck1, 
     description: "Deck em madeira resistente para áreas externas",
     dimensions: "Estrutura: 10cm x 10cm, comprimentos variados",
@@ -559,7 +551,7 @@ const products = ref([
     category_id: 9 
   },
   { 
-    title: "Modelo Deck 2", 
+    title: "Modelo Deck", 
     image: deck2, 
     description: "Deck com design moderno e acabamento premium",
     dimensions: "Estrutura: 12cm x 12cm, comprimentos variados",
@@ -567,24 +559,7 @@ const products = ref([
     finish: "Envernizado",
     category_id: 9 
   },
-  { 
-    title: "Modelo Deck 25", 
-    image: deck25, 
-    description: "Deck rústico com madeira de demolição",
-    dimensions: "Estrutura: 15cm x 15cm, comprimentos variados",
-    woodType: "Demolição",
-    finish: "Rústico",
-    category_id: 9 
-  },
-  { 
-    title: "Modelo Deck 26", 
-    image: deck26, 
-    description: "Deck premium para projetos sofisticados",
-    dimensions: "Estrutura: 10cm x 10cm, comprimentos variados",
-    woodType: "Jatobá",
-    finish: "Polido",
-    category_id: 9 
-  }
+
 ]);
 
 // ======================
