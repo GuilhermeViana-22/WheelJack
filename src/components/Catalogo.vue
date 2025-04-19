@@ -83,6 +83,7 @@ import assoalho19 from "@/assets/catalogo/assoalhos/19.png";
 import assoalho23 from "@/assets/catalogo/assoalhos/23.png";
 import assoalho24 from "@/assets/catalogo/assoalhos/32.png";
 import assoalho25 from "@/assets/catalogo/assoalhos/33.png";
+import assoalho26 from "@/assets/catalogo/assoalhos/assoalhos_19.jpeg";
 
 // Tacos
 import taco1jpeg from "@/assets/catalogo/tacos/27.png";
@@ -118,7 +119,7 @@ import painelRipado2 from "@/assets/catalogo/paineis/3.png";
 // Painéis Demolição
 import painelDemolicao1 from "@/assets/catalogo/paineis/6.png";
 import painelDemolicao2 from "@/assets/catalogo/paineis/7.png";
-
+import painelDemolicao3 from "@/assets/catalogo/forros/21.png";
 // Escadas
 import escada1 from "@/assets/catalogo/escadas/1.jpeg";
 import escada2 from "@/assets/catalogo/escadas/2.png";
@@ -142,6 +143,10 @@ import deck2 from "@/assets/catalogo/deck/2.jpeg";
 import deck25 from "@/assets/catalogo/deck/25.png";
 import deck26 from "@/assets/catalogo/deck/26.png";
 
+
+// Brises (antigos pergolados)
+import brise1 from "@/assets/catalogo/brises/1.png";
+
 const router = useRouter();
 const route = useRoute();
 
@@ -159,6 +164,7 @@ const categories = ref([
   { id: 7, title: 'Revestimentos', route: 'Revestimentos' },
   { id: 8, title: 'Forros', route: 'Forros' },
   { id: 9, title: 'Decks', route: 'Decks' },  // Alterado de Pergolados para Decks
+  { id: 10, title: 'Brises', route: 'Brises' },  // Alterado de Pergolados para Decks
 ]);
 
 // ======================
@@ -230,15 +236,7 @@ const products = ref([
     finish: "Polido",
     category_id: 1 
   },
-  { 
-    title: "Modelo Assoalho ", 
-    image: assoalho23, 
-    description: "Assoalho com tratamento especial para áreas externas",
-    dimensions: "6cm x 1,8cm x 30cm-210cm",
-    woodType: "Cumarú",
-    finish: "Impermeabilizado",
-    category_id: 1 
-  },
+
   { 
     title: "Modelo Assoalho ", 
     image: assoalho24, 
@@ -247,6 +245,16 @@ const products = ref([
     woodType: "Cumarú",
     finish: "Impermeabilizado",
     category_id: 1 
+  },
+
+  { 
+    title: "Modelo Assoalho", 
+    image: taco1png, 
+    description: "Taco em madeira nobre com acabamento diferenciado",
+    dimensions: "4cm x 12cm x comprimentos variados",
+    woodType: "Cumarú",
+    finish: "Envernizado",
+    category_id: 1
   },
 
   { 
@@ -259,6 +267,35 @@ const products = ref([
     category_id: 1 
   },
 
+  { 
+    title: "Modelo Assoalho ", 
+    image: assoalho26, 
+    description: "Assoalho com tratamento especial para áreas externas",
+    dimensions: "6cm x 1,8cm x 30cm-210cm",
+    woodType: "Cumarú",
+    finish: "Impermeabilizado",
+    category_id: 1 
+  },
+  { 
+    title: "Modelo Assoalho", 
+    image: taco2png, 
+    description: "Taco com tratamento especial para durabilidade",
+    dimensions: "3cm x 10cm x comprimentos variados",
+    woodType: "Ipê",
+    finish: "Impermeabilizado",
+    category_id: 1
+  },
+
+  { 
+    title: "Modelo Assoalho Demolição", 
+    image: taco5png, 
+    description: "Taco para instalação em áreas úmidas",
+    dimensions: "3cm x 8cm x comprimentos variados",
+    woodType: "Cumarú",
+    finish: "Impermeabilizado",
+    category_id: 1
+  },
+
   // TACOS
   { 
     title: "Modelo Taco", 
@@ -269,15 +306,7 @@ const products = ref([
     finish: "Lixado",
     category_id: 2 
   },
-  { 
-    title: "Modelo Taco", 
-    image: taco1png, 
-    description: "Taco em madeira nobre com acabamento diferenciado",
-    dimensions: "4cm x 12cm x comprimentos variados",
-    woodType: "Cumarú",
-    finish: "Envernizado",
-    category_id: 2 
-  },
+
   { 
     title: "Modelo Taco ", 
     image: taco2jpeg, 
@@ -287,15 +316,7 @@ const products = ref([
     finish: "Natural",
     category_id: 2 
   },
-  { 
-    title: "Modelo Taco", 
-    image: taco2png, 
-    description: "Taco com tratamento especial para durabilidade",
-    dimensions: "3cm x 10cm x comprimentos variados",
-    woodType: "Ipê",
-    finish: "Impermeabilizado",
-    category_id: 2 
-  },
+
   { 
     title: "Modelo Taco ", 
     image: taco3jpeg, 
@@ -315,7 +336,7 @@ const products = ref([
     category_id: 2 
   },
   { 
-    title: "Modelo Taco ", 
+    title: "Modelo Taco  ", 
     image: taco4jpeg, 
     description: "Taco resistente para alto tráfego",
     dimensions: "4cm x 10cm x comprimentos variados",
@@ -332,15 +353,7 @@ const products = ref([
     finish: "Envernizado",
     category_id: 2 
   },
-  { 
-    title: "Modelo Taco", 
-    image: taco5png, 
-    description: "Taco para instalação em áreas úmidas",
-    dimensions: "3cm x 8cm x comprimentos variados",
-    woodType: "Cumarú",
-    finish: "Impermeabilizado",
-    category_id: 2 
-  },
+ 
 
   { 
     title: "Modelo Taco ", 
@@ -371,24 +384,7 @@ const products = ref([
     category_id: 2 
   },
 
-  { 
-    title: "Modelo Taco ", 
-    image: taco15png, 
-    description: "Taco premium com acabamento exclusivo",
-    dimensions: "4cm x 12cm x comprimentos variados",
-    woodType: "Jatobá",
-    finish: "Envernizado",
-    category_id: 2 
-  },
-  { 
-    title: "Modelo Taco ", 
-    image: taco16png, 
-    description: "Taco premium com acabamento exclusivo",
-    dimensions: "4cm x 12cm x comprimentos variados",
-    woodType: "Jatobá",
-    finish: "Envernizado",
-    category_id: 2 
-  },
+
   { 
     title: "Modelo Taco ", 
     image: taco17png, 
@@ -466,6 +462,7 @@ const products = ref([
     category_id: 4 
   },
 
+
   // PAINÉIS DEMOLIÇÃO
   { 
     title: "Modelo Painel", 
@@ -486,9 +483,19 @@ const products = ref([
     category_id: 5 
   },
 
+  { 
+    title: "Modelo Painel", 
+    image: painelDemolicao3, 
+    description: "Forro em madeira nobre para instalação contínua",
+    dimensions: "10cm x 2cm x 2m-6m",
+    woodType: "Cumarú",
+    finish: "Natural",
+    category_id: 5
+  },
+
   // ESCADAS
   { 
-    title: "Modelo Escada", 
+    title: "Modelo Escada Estrutural", 
     image: escada1, 
     description: "Escada em madeira maciça com design clássico",
     dimensions: "Degraus: 3cm x 25cm x comprimentos variados",
@@ -508,7 +515,7 @@ const products = ref([
   },
  
   { 
-    title: "Modelo Escada", 
+    title: "Modelo Escada Estrutural", 
     image: escada13, 
     description: "Escada em madeira nobre para projetos especiais",
     dimensions: "Degraus: 3.5cm x 29cm x comprimentos variados",
@@ -531,14 +538,17 @@ const products = ref([
 
   // FORROS
   { 
-    title: "Modelo Forro 21", 
-    image: forro21, 
+    title: "Modelo Forro", 
+    image: assoalho23, 
     description: "Forro em madeira nobre para instalação contínua",
     dimensions: "10cm x 2cm x 2m-6m",
     woodType: "Cumarú",
     finish: "Natural",
     category_id: 8 
   },
+
+  
+
 
   // DECKS
   { 
@@ -558,6 +568,36 @@ const products = ref([
     woodType: "Cumarú",
     finish: "Envernizado",
     category_id: 9 
+  },
+
+  { 
+    title: "Modelo Deck ", 
+    image: taco15png, 
+    description: "Taco premium com acabamento exclusivo",
+    dimensions: "4cm x 12cm x comprimentos variados",
+    woodType: "Jatobá",
+    finish: "Envernizado",
+    category_id: 9 
+  },
+  { 
+    title: "Modelo Deck ", 
+    image: taco16png, 
+    description: "Taco premium com acabamento exclusivo",
+    dimensions: "4cm x 12cm x comprimentos variados",
+    woodType: "Jatobá",
+    finish: "Envernizado",
+    category_id: 9
+  },
+
+   // Brises
+   { 
+    title: "Modelo Brise", 
+    image: brise1, 
+    description: "Taco premium com acabamento exclusivo",
+    dimensions: "4cm x 12cm x comprimentos variados",
+    woodType: "Jatobá",
+    finish: "Envernizado",
+    category_id: 10
   },
 
 ]);

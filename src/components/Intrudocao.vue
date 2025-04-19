@@ -35,7 +35,7 @@
             </p>
 
             <p class="text-lg md:text-xl text-[#183614] leading-relaxed">
-              Hoje, a <strong class="font-semibold text-[#6e451d]">Arte Nobre Service</strong> atua com foco em soluções especializadas para ambientes residenciais, corporativos e comerciais, oferecendo instalação de assoalhos, tacos, decks, forros e painéis, além de acabamento refinado, como raspagem, lixamento e aplicação de vernizes ecológicos. Nosso compromisso é unir tradição, inovação e qualidade em cada projeto entregue.
+              Hoje, a <strong class="font-semibold text-[#6e451d]">Arte Nobre Service</strong> atua com foco em soluções especializadas para ambientes residenciais, corporativos e comerciais, oferecendo instalação de assoalhos, tacos, decks, forros, painéis, brises e outros além de acabamento refinado, como raspagem, lixamento e aplicação de vernizes ecológicos. Nosso compromisso é unir tradição, inovação e qualidade em cada projeto entregue.
             </p>
             
             <!-- Botão CTA com as cores especificadas - AGORA COM LINK PARA WHATSAPP -->

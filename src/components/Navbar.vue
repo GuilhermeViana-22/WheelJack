@@ -163,6 +163,7 @@ export default {
     { id: 7, title: 'Revestimentos', route: 'Revestimentos' },
     { id: 8, title: 'Forros', route: 'Forros' },
     { id: 9, title: 'Decks', route: 'Decks' },  // Alterado de Pergolados para Decks
+    { id: 10, title: 'Brises', route: 'Brises' },  // Alterado de Pergolados para Decks
     ]);
 
     const menuItems = [

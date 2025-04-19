@@ -71,7 +71,7 @@
                 </svg>
               </div>
               <div>
-                <p class="group-hover:text-white transition-colors duration-300">(11) 99257-8060</p>
+                <p class="group-hover:text-white transition-colors duration-300">(11) 97041-9195</p>
               </div>
             </li>
             <li class="text-white/70 flex items-start group mt-4">
@@ -96,7 +96,7 @@
 
         <!-- Redes sociais e horário -->
         <div class="footer-links">
-          <h3 class="text-white font-bold mb-6 text-lg">Redes sociais</h3>
+          <!-- <h3 class="text-white font-bold mb-6 text-lg">Redes sociais</h3>
           <div class="social-icons flex space-x-4 mb-6">
             <a href="#" class="social-icon bg-white/10 hover:bg-white/20 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1">
               <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -114,7 +114,7 @@
                 <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
               </svg>
             </a>
-          </div>
+          </div> -->
           
           <div class="opening-hours">
             <h4 class="text-white font-semibold mb-2">Horário de funcionamento</h4>
