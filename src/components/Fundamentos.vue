@@ -1,103 +1,267 @@
 <template>
-  <section id="missao" class="relative py-20 bg-white">
-    <!-- Decoração sutil de fundo -->
-    <div class="absolute inset-0 overflow-hidden opacity-10">
-      <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iI2UwY2RhZiIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=')]"></div>
-    </div>
+  <section id="tipos-veiculos" class="relative py-20 bg-gray-900 overflow-hidden">
 
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-      <!-- Título com estilo minimalista -->
+      <!-- Título com estilo premium -->
       <div class="flex flex-col items-center mb-16" data-aos="fade-up">
-        <span class="text-sm font-semibold tracking-wider text-[#6e451d] uppercase mb-2">Nossa Essência</span>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center">
+        <span class="text-sm font-semibold tracking-wider text-red-500 uppercase mb-2">Nossa Seleção</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-white text-center">
           <span class="relative">
-            Nossos Fundamentos
-            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-[#183614] mt-2"></span>
+            Encontre o Tipo que Procura
+            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-red-600 mt-2"></span>
           </span>
         </h2>
+        <p class="mt-4 text-lg text-gray-300 max-w-2xl text-center">
+          Temos várias soluções para atender todas as suas necessidades automotivas.
+        </p>
       </div>
 
-      <!-- Cards em grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-        <!-- Missão -->
-        <div 
-          class="bg-gray-50 p-8 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:shadow-md hover:border-[#6e451d]"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          <div class="flex items-center mb-6">
-            <div class="bg-white p-3 rounded-lg shadow-xs mr-5 border border-gray-200">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#6e451d]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+      <!-- Grid de categorias -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Utilitário -->
+        <div class="group relative overflow-hidden rounded-xl bg-gray-800 border border-gray-700 hover:border-red-600 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold text-white">Utilitário</h3>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-red-400">Desde 4 990 €</span>
             </div>
-            <h3 class="text-2xl font-bold text-gray-800">Missão</h3>
+            <div class="px-6 pb-6">
+              <ul class="space-y-3 text-gray-300">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Citroën C4
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Opel Astra
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Peugeot 208
+                </li>
+              </ul>
+              <div class="mt-6">
+                <a href="#" class="inline-flex items-center text-red-400 hover:text-red-300 font-medium transition-colors duration-200">
+                  Ver Todos (49)
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
-          <p class="text-gray-600 leading-relaxed">
-            Nossa missão é transformar espaços com autenticidade, elegância e excelência em cada detalhe. Acreditamos que a madeira, quando trabalhada com dedicação e alto padrão, é capaz de imprimir personalidade e sofisticação a qualquer ambiente.
-          </p>
+          <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
 
-        <!-- Visão -->
-        <div 
-          class="bg-gray-50 p-8 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:shadow-md hover:border-[#183614]"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <div class="flex items-center mb-6">
-            <div class="bg-white p-3 rounded-lg shadow-xs mr-5 border border-gray-200">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#183614]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-              </svg>
+        <!-- S.U.V -->
+        <div class="group relative overflow-hidden rounded-xl bg-gray-800 border border-gray-700 hover:border-red-600 transition-all duration-300" data-aos="fade-up" data-aos-delay="150">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold text-white">S.U.V</h3>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-red-400">Desde 9 980 €</span>
             </div>
-            <h3 class="text-2xl font-bold text-gray-800">Visão</h3>
+            <div class="px-6 pb-6">
+              <ul class="space-y-3 text-gray-300">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Jeep Renegade
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Fiat 500X
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Seat Arona
+                </li>
+              </ul>
+              <div class="mt-6">
+                <a href="#" class="inline-flex items-center text-red-400 hover:text-red-300 font-medium transition-colors duration-200">
+                  Ver Todos (47)
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
-          <p class="text-gray-600 leading-relaxed">
-            Ser referência no mercado de revestimentos em madeira, destacando-se pela excelência no atendimento, inovação e compromisso com a sustentabilidade.
-          </p>
+          <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
 
-        <!-- Valores -->
-        <div 
-          class="bg-gray-50 p-8 rounded-xl shadow-sm border border-gray-100 transform transition-all duration-300 hover:shadow-md hover:border-[#6e451d]"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-          <div class="flex items-center mb-6">
-            <div class="bg-white p-3 rounded-lg shadow-xs mr-5 border border-gray-200">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#6e451d]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
+        <!-- Carrinha -->
+        <div class="group relative overflow-hidden rounded-xl bg-gray-800 border border-gray-700 hover:border-red-600 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold text-white">Carrinha</h3>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-red-400">Desde 6 990 €</span>
             </div>
-            <h3 class="text-2xl font-bold text-gray-800">Valores</h3>
+            <div class="px-6 pb-6">
+              <ul class="space-y-3 text-gray-300">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Opel Astra Sports Tourer
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Peugeot 308 SW
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Peugeot 308 SW
+                </li>
+              </ul>
+              <div class="mt-6">
+                <a href="#" class="inline-flex items-center text-red-400 hover:text-red-300 font-medium transition-colors duration-200">
+                  Ver Todos (51)
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
-          <ul class="space-y-3 text-gray-600">
-            <li class="flex items-start">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#6e451d] mt-0.5 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-              <span>Qualidade e perfeição em cada detalhe</span>
-            </li>
-            <li class="flex items-start">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#6e451d] mt-0.5 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-              <span>Compromisso com prazos e satisfação</span>
-            </li>
-            <li class="flex items-start">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#6e451d] mt-0.5 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-              <span>Sustentabilidade e respeito ambiental</span>
-            </li>
-            <li class="flex items-start">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#6e451d] mt-0.5 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-              <span>Ética e transparência nas relações</span>
-            </li>
-          </ul>
+          <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+
+        <!-- Berlina -->
+        <div class="group relative overflow-hidden rounded-xl bg-gray-800 border border-gray-700 hover:border-red-600 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold text-white">Berlina</h3>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-red-400">Desde 12 490 €</span>
+            </div>
+            <div class="px-6 pb-6">
+              <ul class="space-y-3 text-gray-300">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  BMW 318
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  BMW 318
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Tesla Model 3
+                </li>
+              </ul>
+              <div class="mt-6">
+                <a href="#" class="inline-flex items-center text-red-400 hover:text-red-300 font-medium transition-colors duration-200">
+                  Ver Todos (50)
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+
+        <!-- Desportivo -->
+        <div class="group relative overflow-hidden rounded-xl bg-gray-800 border border-gray-700 hover:border-red-600 transition-all duration-300" data-aos="fade-up" data-aos-delay="150">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold text-white">Desportivo</h3>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-red-400">Desde 7 740 €</span>
+            </div>
+            <div class="px-6 pb-6">
+              <ul class="space-y-3 text-gray-300">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Fiat 500C
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Fiat 500C
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  MINI Cabrio
+                </li>
+              </ul>
+              <div class="mt-6">
+                <a href="#" class="inline-flex items-center text-red-400 hover:text-red-300 font-medium transition-colors duration-200">
+                  Ver Todos (48)
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+
+        <!-- Comerciais -->
+        <div class="group relative overflow-hidden rounded-xl bg-gray-800 border border-gray-700 hover:border-red-600 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold text-white">Comerciais</h3>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-red-400">Desde 4 990 €</span>
+            </div>
+            <div class="px-6 pb-6">
+              <ul class="space-y-3 text-gray-300">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Opel Combo
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Renault Kangoo
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  Opel Astra GTC
+                </li>
+              </ul>
+              <div class="mt-6">
+                <a href="#" class="inline-flex items-center text-red-400 hover:text-red-300 font-medium transition-colors duration-200">
+                  Ver Todos (86)
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
       </div>
     </div>
@@ -106,7 +270,7 @@
 
 <script>
 export default {
-  name: 'NossosFundamentos',
+  name: 'TiposVeiculos',
   async mounted() {
     // Carrega o AOS apenas no cliente
     await import('aos/dist/aos.css');
@@ -120,30 +284,31 @@ export default {
 </script>
 
 <style scoped>
-/* Efeitos personalizados */
-.shadow-sm {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.shadow-xs {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.hover\:shadow-md:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+/* Efeitos de hover premium */
+.group:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.1);
 }
 
 /* Transições suaves */
-.transform {
-  transition: all 0.3s ease;
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }
 
-/* Padrão de fundo sutil */
-.bg-gray-50 {
-  background-color: #f9fafb;
+/* Gradiente sutil no hover */
+.group:hover .bg-gradient-to-r {
+  opacity: 1;
 }
 
-.border-gray-100 {
-  border-color: #f3f4f6;
+/* Estilo dos cards */
+.rounded-xl {
+  border-radius: 1rem;
+}
+
+/* Espaçamento interno consistente */
+.p-6 {
+  padding: 1.5rem;
 }
 </style>

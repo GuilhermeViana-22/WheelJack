@@ -1,266 +1,297 @@
 <template>
-  <section id="servicos" class="bg-white py-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <!-- Cabeçalho estilizado -->
-      <div class="flex flex-col items-center mb-16">
-        <span class="text-sm font-semibold tracking-wider text-[#6e451d] uppercase mb-2">O que fazemos</span>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center">
+  <section id="veiculos-automotivos" class="relative py-20 bg-gray-900 overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <!-- Título com estilo premium -->
+      <div class="flex flex-col items-center mb-16" data-aos="fade-up">
+        <span class="text-sm font-semibold tracking-wider text-red-500 uppercase mb-2">Conheça Nosso Portfólio</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-white text-center">
           <span class="relative">
-            Nossos Serviços
-            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-[#183614] mt-2"></span>
+            Veículos Automotivos
+            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-red-600 mt-2"></span>
           </span>
         </h2>
+        <p class="mt-4 text-lg text-gray-300 max-w-2xl text-center">
+          Descubra nossa seleção premium de veículos para todas as necessidades.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-        <!-- Serviço 1: Assoalhos -->
-        <div
-          class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
-          <img :src="getImageUrl(1)" alt="Assoalhos Nobres" class="w-full h-auto object-cover" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-full text-white">
-              <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">{{ getPraisePhrase(1) }}</p>
-            </div>
-          </div>
-        </div>
+      <!-- Filtros por categoria -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="100">
+        <button 
+          v-for="(filter, index) in filters"
+          :key="index"
+          @click="activeFilter = filter.value"
+          :class="[
+            'px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200',
+            activeFilter === filter.value 
+              ? 'bg-red-600 text-white' 
+              : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+          ]"
+        >
+          {{ filter.label }}
+        </button>
+      </div>
 
-        <!-- Serviço 2: Painéis Ripados -->
-        <div
-          class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
-          <img :src="getImageUrl(2)" alt="Painéis Ripados" class="w-full h-auto object-cover" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-full text-white">
-              <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">{{ getPraisePhrase(2) }}</p>
-            </div>
+      <!-- Grid de veículos -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Card de veículo -->
+        <div 
+          v-for="(vehicle, index) in filteredVehicles"
+          :key="vehicle.id"
+          class="group relative bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-red-600 transition-all duration-300"
+          data-aos="fade-up"
+          :data-aos-delay="100 + (index * 50)"
+        >
+          <!-- Badge de destaque -->
+          <div v-if="vehicle.highlight" class="absolute top-4 right-4 z-10">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-600 text-white">
+              Destaque
+            </span>
           </div>
-        </div>
 
-        <!-- Serviço 3: Painéis Demolição -->
-        <div
-          class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
-          <img :src="getImageUrl(3)" alt="Painéis de Demolição" class="w-full h-auto object-cover" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-full text-white">
-              <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">{{ getPraisePhrase(3) }}</p>
-            </div>
+          <!-- Imagem do veículo -->
+          <div class="h-48 overflow-hidden">
+            <img 
+              :src="vehicle.image" 
+              :alt="vehicle.model" 
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            >
           </div>
-        </div>
 
-        <!-- Serviço 4: Tacão -->
-        <div
-          class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
-          <img :src="getImageUrl(4)" alt="Tacão de Madeira" class="w-full h-auto object-cover" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-full text-white">
-              <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">{{ getPraisePhrase(4) }}</p>
+          <!-- Informações do veículo -->
+          <div class="p-5">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-white">{{ vehicle.brand }} {{ vehicle.model }}</h3>
+              <span class="text-sm font-medium text-red-400">{{ vehicle.year }}</span>
             </div>
-          </div>
-        </div>
 
-        <!-- Serviço 5: Taco Palito -->
-        <div
-          class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
-          <img :src="getImageUrl(5)" alt="Taco Palito" class="w-full h-auto object-cover" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-full text-white">
-              <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">{{ getPraisePhrase(5) }}</p>
+            <div class="flex items-center text-gray-400 text-sm mb-4">
+              <span class="flex items-center mr-4">
+                <svg class="w-4 h-4 text-red-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {{ vehicle.mileage }} km
+              </span>
+              <span class="flex items-center">
+                <svg class="w-4 h-4 text-red-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                {{ vehicle.transmission }}
+              </span>
             </div>
-          </div>
-        </div>
 
-        <!-- Serviço 6: Escadas -->
-        <div
-          class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
-          <img :src="getImageUrl(6)" alt="Escadas de Madeira" class="w-full h-auto object-cover" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-full text-white">
-              <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">{{ getPraisePhrase(6) }}</p>
+            <div class="flex items-center justify-between">
+              <span class="text-2xl font-bold text-red-500">{{ vehicle.price }}</span>
+              <button class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-medium transition-colors duration-200">
+                Detalhes
+              </button>
             </div>
           </div>
-        </div>
 
-        <!-- Serviço 7: Escadas Estruturais -->
-        <div
-          class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
-          <img :src="getImageUrl(7)" alt="Escadas Estruturais" class="w-full h-auto object-cover" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-full text-white">
-              <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">{{ getPraisePhrase(7) }}</p>
+          <!-- Efeito hover -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+            <div>
+              <h4 class="text-white font-bold mb-1">{{ vehicle.brand }} {{ vehicle.model }}</h4>
+              <p class="text-gray-300 text-sm mb-3">{{ vehicle.description }}</p>
+              <button class="w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-medium transition-colors duration-200">
+                Ver Oferta
+              </button>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Serviço 8: Revestimentos -->
-        <div
-          class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
-          <img :src="getImageUrl(8)" alt="Revestimento de Banheiras" class="w-full h-auto object-cover" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-full text-white">
-              <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">{{ getPraisePhrase(8) }}</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Serviço 9: Revestimentos -->
-        <div
-          class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
-          <img :src="getImageUrl(9)" alt="Revestimento de Banheiras" class="w-full h-auto object-cover" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-full text-white">
-              <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">{{ getPraisePhrase(9) }}</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Serviço 10: Revestimentos -->
-        <div
-          class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
-          <img :src="getImageUrl(10)" alt="Revestimento de Banheiras" class="w-full h-auto object-cover" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-full text-white">
-              <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">{{ getPraisePhrase(10) }}</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Serviço 11: Revestimentos -->
-        <div
-          class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
-          <img :src="getImageUrl(11)" alt="Revestimento de Banheiras" class="w-full h-auto object-cover" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-full text-white">
-              <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">{{ getPraisePhrase(11) }}</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Serviço 12: Revestimentos -->
-        <div
-          class="service-item relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group">
-          <img :src="getImageUrl(12)" alt="Revestimento de Banheiras" class="w-full h-auto object-cover" />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-[#183612]/90 via-[#183612]/30 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-full text-white">
-              <h3 class="text-xl font-bold mb-1">Arte Nobre Service</h3>
-              <p class="text-sm mb-3">{{ getPraisePhrase(12) }}</p>
-            </div>
-          </div>
-        </div>
+      <!-- Botão para carregar mais -->
+      <div class="text-center mt-12" data-aos="fade-up">
+        <button 
+          @click="loadMore"
+          class="px-6 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-red-600 text-white rounded-lg font-medium transition-all duration-200 inline-flex items-center"
+        >
+          Carregar Mais Veículos
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </button>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-// Importação das imagens permanece a mesma
-import img1 from '../assets/catalogo/tacos/1.png'
-import img2 from '../assets/catalogo/tacos/2.png'
-import img3 from '../assets/catalogo/tacos/3.png'
-import img4 from '../assets/catalogo/assoalhos/4.png'
-import img5 from '../assets/catalogo/paineis/7.png'
-import img6 from '../assets/catalogo/paineis/6.png'
-import img7 from '../assets/catalogo/escadas/1.jpeg'
-import img8 from '../assets/catalogo/escadas/27.png'
-import img9 from '../assets/catalogo/escadas/13.png'
-import img10 from '../assets/catalogo/deck/25.png'
-import img11 from '../assets/catalogo/deck/26.png'
-import img12 from '../assets/catalogo/tacos/15.png'
-
 export default {
+  name: 'VeiculosAutomotivos',
   data() {
     return {
-      images: {
-        1: img1,
-        2: img2,
-        3: img3,
-        4: img4,
-        5: img5,
-        6: img6,
-        7: img7,
-        8: img8,
-        9: img9,
-        10: img10,
-        11: img11,
-        12: img12
-      },
-      praisePhrases: [
-        "Excelência em cada detalhe, transformando madeira em arte",
-        "Inovação e tradição trabalhando juntas para seu lar",
-        "Qualidade que impressiona em cada projeto",
-        "O melhor acabamento para sua residência",
-        "Trabalho artesanal com precisão de máquina",
-        "Elevando o padrão de acabamentos em madeira",
-        "Soluções criativas para seu espaço",
-        "O toque nobre que sua casa merece",
-        "Madeira trabalhada com maestria e cuidado",
-        "Técnica apurada para resultados perfeitos",
-        "Dedicação que transforma ambientes",
-        "Harmonia entre beleza e funcionalidade",
-        "Profissionalismo em cada etapa do serviço",
-        "Acabamentos que encantam e duram",
-        "Tradição em madeira, visão em design",
-        "Sua casa com o charme da madeira nobre",
-        "Precisão e bom gosto em cada projeto",
-        "Inovação que respeita a essência da madeira",
-        "Qualidade que você pode ver e sentir",
-        "Transformando espaços com elegância",
-        "O luxo discreto da madeira bem trabalhada",
-        "Arte e técnica em perfeito equilíbrio"
-      ]
+      activeFilter: 'all',
+      filters: [
+        { label: 'Todos', value: 'all' },
+        { label: 'Utilitários', value: 'utility' },
+        { label: 'SUVs', value: 'suv' },
+        { label: 'Esportivos', value: 'sport' },
+        { label: 'Luxo', value: 'luxury' },
+        { label: 'Elétricos', value: 'electric' }
+      ],
+      vehicles: [
+        {
+          id: 1,
+          brand: 'BMW',
+          model: 'Série 3',
+          year: '2022',
+          price: '45.990 €',
+          mileage: '12.500',
+          transmission: 'Automático',
+          type: 'luxury',
+          highlight: true,
+          description: 'Série 3 em excelente estado, com apenas um ano de uso e garantia de fábrica.',
+          image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+        },
+        {
+          id: 2,
+          brand: 'Audi',
+          model: 'Q5',
+          year: '2021',
+          price: '39.990 €',
+          mileage: '18.200',
+          transmission: 'Automático',
+          type: 'suv',
+          description: 'SUV premium com acabamento em couro e sistema de navegação completo.',
+          image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+        },
+        {
+          id: 3,
+          brand: 'Tesla',
+          model: 'Model 3',
+          year: '2023',
+          price: '49.990 €',
+          mileage: '5.000',
+          transmission: 'Automático',
+          type: 'electric',
+          highlight: true,
+          description: 'Elétrico com autonomia de 500km, carregamento rápido e tecnologia avançada.',
+          image: 'https://images.unsplash.com/photo-1551836022-8b2858c9c69b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+        },
+        {
+          id: 4,
+          brand: 'Volkswagen',
+          model: 'Golf',
+          year: '2020',
+          price: '22.990 €',
+          mileage: '32.500',
+          transmission: 'Manual',
+          type: 'utility',
+          description: 'Clássico hatchback alemão, econômico e em perfeito estado de conservação.',
+          image: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+        },
+        {
+          id: 5,
+          brand: 'Porsche',
+          model: '911 Carrera',
+          year: '2021',
+          price: '89.990 €',
+          mileage: '8.700',
+          transmission: 'Automático',
+          type: 'sport',
+          highlight: true,
+          description: 'Esportivo lendário com motor traseiro e desempenho excepcional.',
+          image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+        },
+        {
+          id: 6,
+          brand: 'Jeep',
+          model: 'Renegade',
+          year: '2022',
+          price: '28.990 €',
+          mileage: '15.300',
+          transmission: 'Automático',
+          type: 'suv',
+          description: 'SUV compacto com tração 4x4 e design marcante, ideal para cidade e estrada.',
+          image: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+        },
+        {
+          id: 7,
+          brand: 'Ford',
+          model: 'Ranger',
+          year: '2021',
+          price: '35.990 €',
+          mileage: '25.800',
+          transmission: 'Automático',
+          type: 'utility',
+          description: 'Picape robusta com capacidade de carga e tecnologia para trabalho e lazer.',
+          image: 'https://images.unsplash.com/photo-1580274437635-89b4fdf0147b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+        },
+        {
+          id: 8,
+          brand: 'Mercedes-Benz',
+          model: 'Classe A',
+          year: '2023',
+          price: '38.990 €',
+          mileage: '3.200',
+          transmission: 'Automático',
+          type: 'luxury',
+          description: 'Compacto premium com interior sofisticado e tecnologia Mercedes-Benz.',
+          image: 'https://images.unsplash.com/photo-1616788494707-ec28f08d05a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+        }
+      ],
+      displayedVehicles: 8
+    }
+  },
+  computed: {
+    filteredVehicles() {
+      if (this.activeFilter === 'all') {
+        return this.vehicles.slice(0, this.displayedVehicles);
+      }
+      return this.vehicles
+        .filter(vehicle => vehicle.type === this.activeFilter)
+        .slice(0, this.displayedVehicles);
     }
   },
   methods: {
-    getImageUrl(index) {
-      return this.images[index]
-    },
-    getPraisePhrase(index) {
-      // Retorna uma frase elogiosa baseada no índice
-      return this.praisePhrases[(index - 1) % this.praisePhrases.length]
+    loadMore() {
+      this.displayedVehicles += 4;
     }
+  },
+  async mounted() {
+    // Carrega o AOS apenas no cliente
+    await import('aos/dist/aos.css');
+    const AOS = await import('aos');
+    AOS.init({
+      once: true,
+      duration: 800,
+      easing: 'ease-in-out'
+    });
   }
 }
 </script>
 
 <style scoped>
-.service-item {
-  aspect-ratio: 1/1.5;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-item:hover {
+/* Efeitos personalizados */
+.group:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.15);
 }
 
-.from-\[\#183612\]\/90 {
-  --tw-gradient-from: #183612e6;
-  --tw-gradient-to: #18361200;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+/* Animação fade-in */
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-property: opacity, transform;
 }
 
-.via-\[\#183612\]\/30 {
-  --tw-gradient-to: #18361200;
-  --tw-gradient-stops: #1836124d, var(--tw-gradient-to);
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Transições suaves */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Gradiente hover */
+.group:hover .bg-gradient-to-t {
+  opacity: 1;
 }
 </style>

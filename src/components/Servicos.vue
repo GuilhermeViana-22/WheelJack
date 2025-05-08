@@ -1,85 +1,61 @@
 <template>
-  <section id="servicos" class="bg-white py-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <!-- Cabeçalho estilizado -->
-      <div class="flex flex-col items-center mb-16">
-        <span class="text-sm font-semibold tracking-wider text-[#6e451d] uppercase mb-2">O que fazemos</span>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center">
+  <section id="categorias-veiculos" class="relative py-20 bg-gray-900 overflow-hidden">
+
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <!-- Título com estilo premium -->
+      <div class="flex flex-col items-center mb-16" data-aos="fade-up">
+        <span class="text-sm font-semibold tracking-wider text-red-500 uppercase mb-2">Nossa Seleção</span>
+        <h2 class="text-4xl md:text-5xl font-bold text-white text-center">
           <span class="relative">
-            Nossos Serviços
-            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-[#183614] mt-2"></span>
+            Encontre o Tipo que Procura
+            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-red-600 mt-2"></span>
           </span>
         </h2>
+        <p class="mt-4 text-lg text-gray-300 max-w-2xl text-center">
+          Temos várias soluções para atender todas as suas necessidades automotivas.
+        </p>
       </div>
 
-      <!-- Grid de serviços -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Grid de categorias -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cada categoria será renderizada aqui -->
         <div 
-          v-for="(service, index) in services"
+          v-for="(category, index) in categories"
           :key="index"
-          class="service-card relative overflow-hidden rounded-xl bg-gray-50 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
-          :data-index="index"
-          @mouseenter="handleMouseEnter(index)"
-          @mouseleave="handleMouseLeave(index)"
+          class="group relative overflow-hidden rounded-[1rem] bg-gray-800 border border-gray-700 hover:border-red-600 transition-all duration-300"
+          data-aos="fade-up"
+          :data-aos-delay="100 + (index * 50)"
         >
-          <!-- Skeleton loader -->
-          <div 
-            v-if="!service.loaded && !service.error"
-            class="skeleton-loader w-full h-72 bg-gradient-to-r from-gray-200 via-[#6e451d]/10 to-gray-200 animate-pulse"
-          ></div>
-
-          <!-- Imagem -->
-          <img
-            v-show="service.loaded && !service.error"
-            :src="service.image"
-            :alt="service.title"
-            class="service-image w-full h-72 object-cover transition-all duration-500"
-            :class="{ 
-              'scale-105': activeIndex === index,
-              'brightness-90': activeIndex === index
-            }"
-            @load="handleImageLoad(index)"
-            @error="handleImageError(index)"
-            loading="lazy"
-          />
-
-          <!-- Fallback para erro -->
-          <div 
-            v-if="service.error"
-            class="w-full h-72 bg-gradient-to-br from-[#183614]/10 to-[#6e451d]/10 flex items-center justify-center"
-          >
-            <svg class="w-12 h-12 text-[#6e451d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-          </div>
-
-          <!-- Overlay de informações -->
-          <div 
-            class="service-overlay absolute inset-0 bg-gradient-to-t from-[#183614]/90 via-transparent to-transparent opacity-0 transition-opacity duration-300 flex items-end p-6"
-            :class="{ 'opacity-100': activeIndex === index }"
-          >
-            <div class="transform translate-y-4 transition-transform duration-300" :class="{ 'translate-y-0': activeIndex === index }">
-              <h3 class="text-xl font-bold text-white mb-2">{{ service.title }}</h3>
-              <p class="text-gray-200 text-sm">
-                <span v-if="activeIndex === index" class="inline-block bg-[#6e451d] text-white text-xs px-2 py-1 rounded mb-1">Serviço Premium</span><br>
-                <template v-if="index % 3 === 0">
-                  Qualidade certificada e resultados excepcionais
-                </template>
-                <template v-else-if="index % 3 === 1">
-                  Tempo de entrega recorde no mercado
-                </template>
-                <template v-else>
-                  Excelência comprovada em cada projeto
-                </template>
-              </p>
-              <div v-if="activeIndex === index" class="mt-2 flex items-center">
-                <svg class="w-4 h-4 text-yellow-300 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                </svg>
-                <span class="text-white text-xs">5.0 (100% satisfação)</span>
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold text-white">{{ category.name }}</h3>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-700 text-red-400">Desde {{ category.price }}</span>
+            </div>
+            <div class="px-6 pb-6">
+              <ul class="space-y-3 text-gray-300">
+                <li 
+                  v-for="(model, modelIndex) in category.models.slice(0, 3)"
+                  :key="modelIndex"
+                  class="flex items-center"
+                >
+                  <svg class="w-4 h-4 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                  {{ model }}
+                </li>
+              </ul>
+              <div class="mt-6">
+                <a href="#" class="inline-flex items-center text-red-400 hover:text-red-300 font-medium transition-colors duration-200">
+                  Ver Todos ({{ category.count }})
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
+          <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
       </div>
     </div>
@@ -87,203 +63,96 @@
 </template>
 
 <script>
-// Importe suas imagens diretamente (se estiver usando Vue CLI ou Vite)
-import img1 from '../assets/arquivos/1.png'
-import img2 from '../assets/arquivos/2.png'
-import img3 from '../assets/arquivos/3.png'
-import img4 from '../assets/arquivos/4.png'
-import img5 from '../assets/arquivos/5.png'
-import img6 from '../assets/arquivos/6.png'
-
 export default {
-  name: 'ServicosGallery',
+  name: 'CategoriasVeiculos',
   data() {
     return {
-      activeIndex: null,
-      services: [
+      categories: [
         {
-          title: 'Assoalhos Nobres',
-          description: 'Instalação profissional de assoalhos de madeira de alta qualidade',
-          image: img1, // Usando a importação direta
-          loaded: false,
-          error: false
+          name: "Utilitário",
+          price: "4 990 €",
+          models: ["Citroën C4", "Opel Astra", "Peugeot 208"],
+          count: 49
         },
         {
-          title: 'Decks Personalizados',
-          description: 'Criação de decks sob medida para áreas externas',
-          image: img2,
-          loaded: false,
-          error: false
+          name: "S.U.V",
+          price: "9 980 €",
+          models: ["Jeep Renegade", "Fiat 500X", "Seat Arona"],
+          count: 47
         },
         {
-          title: 'Tacos Artesanais',
-          description: 'Tacos de madeira maciça com acabamento perfeito',
-          image: img3,
-          loaded: false,
-          error: false
+          name: "Carrinha",
+          price: "6 990 €",
+          models: ["Opel Astra Sports Tourer", "Peugeot 308 SW", "Peugeot 308 SW"],
+          count: 51
         },
         {
-          title: 'Forros Elegantes',
-          description: 'Forros em madeira para um acabamento sofisticado',
-          image: img4,
-          loaded: false,
-          error: false
+          name: "Berlina",
+          price: "12 490 €",
+          models: ["BMW 318", "BMW 318", "Tesla Model 3"],
+          count: 50
         },
         {
-          title: 'Painéis Decorativos',
-          description: 'Painéis de madeira para divisórias e revestimentos',
-          image: img5,
-          loaded: false,
-          error: false
+          name: "Desportivo",
+          price: "7 740 €",
+          models: ["Fiat 500C", "Fiat 500C", "MINI Cabrio"],
+          count: 48
         },
         {
-          title: 'Acabamentos Finos',
-          description: 'Serviços de lixamento e aplicação de vernizes ecológicos',
-          image: img6,
-          loaded: false,
-          error: false
+          name: "Comerciais",
+          price: "4 990 €",
+          models: ["Opel Combo", "Renault Kangoo", "Opel Astra GTC"],
+          count: 86
         }
-      ],
-      observers: []
+      ]
     }
   },
-  methods: {
-    handleImageLoad(index) {
-      this.services[index].loaded = true
-      this.services[index].error = false
-    },
-    handleImageError(index) {
-      this.services[index].error = true
-      this.services[index].loaded = false
-    },
-    handleMouseEnter(index) {
-      this.activeIndex = index
-    },
-    handleMouseLeave() {
-      this.activeIndex = null
-    },
-    initIntersectionObserver() {
-      if (typeof window === 'undefined') return
-
-      const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      }
-
-      const callback = (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const index = entry.target.dataset.index
-            setTimeout(() => {
-              if (!this.services[index].loaded && !this.services[index].error) {
-                this.services[index].loaded = true
-              }
-            }, 150 * index)
-          }
-        })
-      }
-
-      this.observers = []
-      const cards = document.querySelectorAll('.service-card')
-      if (cards) {
-        cards.forEach(card => {
-          const observer = new IntersectionObserver(callback, options)
-          observer.observe(card)
-          this.observers.push(observer)
-        })
-      }
-    },
-    animateCards() {
-      if (typeof window === 'undefined') return
-
-      const cards = document.querySelectorAll('.service-card')
-      if (cards) {
-        cards.forEach((card, index) => {
-          card.style.opacity = '0'
-          card.style.transform = 'translateY(20px)'
-          card.style.transition = `all 0.5s ease ${index * 0.1}s`
-          
-          setTimeout(() => {
-            card.style.opacity = '1'
-            card.style.transform = 'translateY(0)'
-          }, 100)
-        })
-      }
-    }
-  },
-  mounted() {
-    this.animateCards()
-    this.initIntersectionObserver()
-    
-    // Verifica se AOS está disponível (caso esteja usando)
-    if (typeof window !== 'undefined' && window.AOS) {
-      window.AOS.init({
-        once: true,
-        duration: 800
-      })
-    }
-  },
-  beforeUnmount() {
-    if (this.observers.length > 0) {
-      this.observers.forEach(observer => {
-        observer.disconnect()
-      })
-    }
+  async mounted() {
+    // Carrega o AOS apenas no cliente
+    await import('aos/dist/aos.css');
+    const AOS = await import('aos');
+    AOS.init({
+      once: true,
+      duration: 800,
+      easing: 'ease-in-out'
+    });
   }
 }
 </script>
 
 <style scoped>
-.service-card {
-  perspective: 1000px;
-  transform-style: preserve-3d;
-  will-change: transform;
+/* Efeitos de hover premium */
+.group:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.1);
 }
 
-.service-image {
-  transform-origin: center;
-  backface-visibility: hidden;
+/* Transições suaves */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }
 
-.service-overlay {
-  will-change: opacity, transform;
+/* Gradiente sutil no hover */
+.group:hover .bg-gradient-to-r {
+  opacity: 1;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Bordas arredondadas completas */
+.rounded-\[1rem\] {
+  border-radius: 1rem;
 }
 
-.animate-card {
-  animation: fadeInUp 0.6s ease-out forwards;
+/* Efeito fade-in para os itens */
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-property: opacity, transform;
 }
 
-@keyframes pulse {
-  0% { opacity: 0.6; }
-  50% { opacity: 0.8; }
-  100% { opacity: 0.6; }
-}
-
-.animate-pulse {
-  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  background-size: 200% 100%;
-}
-
-.service-card,
-.service-image,
-.service-overlay {
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* Efeito de gradiente sutil no hover */
-.service-card:hover .service-image:not(.error) {
-  filter: brightness(0.95);
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
