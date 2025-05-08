@@ -1,37 +1,37 @@
 <template>
-  <!-- Container principal com margin-top de 20vh -->
+  <!-- Container principal -->
   <div class="absolute w-full z-50 top-[2vh] flex justify-center px-4">
-    <!-- Navbar com padding interno melhorado -->
-    <nav class="bg-black/70 backdrop-blur-sm text-white shadow-xl rounded-lg border-b-4 border-gold-gradient max-w-7xl w-full transition-all duration-300 hover:bg-black/95  px-6">
-      <div class="flex justify-between items-center">
-        <!-- Logo com padding ajustado -->
+    <!-- Navbar com estilo moderno -->
+    <nav class="bg-black/70 backdrop-blur-sm text-white shadow-xl rounded-lg border-b-4 border-red-gradient max-w-7xl w-full transition-all duration-300 hover:bg-black/95 px-6">
+      <div class="flex justify-between items-center p-4">
+        <!-- Logo -->
         <div class="logo">
-          <img src="../assets/logos/5.png" alt="Arte Nobre Logo" class="logo-img" style="max-height: 80px;" />
+            FUEL
         </div>
 
         <!-- Menu Desktop -->
         <ul class="hidden md:flex space-x-6 items-center">
           <li v-for="item in menuItems" :key="item.text" class="relative group">
-            <template v-if="item.text === 'Produtos'">
-              <!-- Dropdown Produtos -->
+            <template v-if="item.text === 'Veículos'">
+              <!-- Dropdown Veículos -->
               <details class="relative">
-                <summary class="cursor-pointer hover:text-gold transition flex items-center px-3 py-2">
-                  Produtos
+                <summary class="cursor-pointer hover:text-red-400 transition flex items-center px-3 py-2">
+                  Veículos
                   <svg class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform"
                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                   </svg>
                 </summary>
                 <ul class="absolute left-1/2 transform -translate-x-1/2 mt-2 bg-black/95 text-white rounded-lg shadow-2xl z-50 min-w-[200px] border border-gray-700 backdrop-blur-sm p-2">
-                  <template v-for="cat in parentCategories" :key="cat.id">
+                  <template v-for="cat in vehicleCategories" :key="cat.id">
                     <li class="px-3 py-2 hover:bg-gray-800/80 transition rounded">
-                      <router-link :to="`/produtos?category=${cat.route}`" class="block">
+                      <router-link :to="`/veiculos?category=${cat.route}`" class="block">
                         {{ cat.title }}
                       </router-link>
-                      <ul v-if="getChildren(cat.id).length" class="pl-3 mt-1 border-l-2 border-gold">
+                      <ul v-if="getChildren(cat.id).length" class="pl-3 mt-1 border-l-2 border-red-400">
                         <li v-for="child in getChildren(cat.id)" :key="child.id"
                             class="px-2 py-1 hover:bg-gray-700/80 transition text-sm rounded">
-                          <router-link :to="`/produtos?category=${child.route}`" class="block">
+                          <router-link :to="`/veiculos?category=${child.route}`" class="block">
                             {{ child.title }}
                           </router-link>
                         </li>
@@ -46,7 +46,7 @@
               v-else-if="item.id"
               to="#"
               @click.prevent="scrollTo(item.id)"
-              class="hover:text-gold transition px-3 py-2 rounded"
+              class="hover:text-red-400 transition px-3 py-2 rounded"
             >
               {{ item.text }}
             </router-link>
@@ -55,17 +55,17 @@
               v-else-if="item.whatsapp"
               :href="item.whatsapp"
               target="_blank"
-              class="hover:text-gold transition px-3 py-2 rounded"
+              class="hover:text-red-400 transition px-3 py-2 rounded"
             >
               {{ item.text }}
             </a>
           </li>
         </ul>
 
-        <!-- Botão Contato Desktop -->
-        <a href="https://wa.me/11970419195" target="_blank"
-          class="hidden md:flex items-center bg-green-500/90 hover:bg-green-600 text-white px-4 py-2 rounded-md transition ml-3 text-sm">
-          Contato
+        <!-- Botão Vender Veículo Desktop -->
+        <a href="/anunciar-veiculo"
+          class="hidden md:flex items-center bg-red-500/90 hover:bg-red-600 text-white px-4 py-2 rounded-md transition ml-3 text-sm">
+          Vender meu veículo
         </a>
 
         <!-- Botão Mobile -->
@@ -78,22 +78,22 @@
       </div>
 
       <!-- Menu Mobile -->
-      <div v-show="isMenuOpen" class="md:hidden  mt-3 rounded-lg px-4 py-4 transition-all duration-300 ease-in-out">
+      <div v-show="isMenuOpen" class="md:hidden mt-3 rounded-lg px-4 py-4 transition-all duration-300 ease-in-out">
         <ul class="space-y-3">
           <li v-for="item in menuItems" :key="item.text">
-            <template v-if="item.text === 'Produtos'">
-              <div @click="toggleMobileProducts" class="flex justify-between items-center cursor-pointer py-2 px-3 rounded hover:bg-gray-800/80">
-                <span>Produtos</span>
-                <svg class="w-4 h-4 transform transition-transform" :class="{'rotate-180': showMobileProducts}"
+            <template v-if="item.text === 'Veículos'">
+              <div @click="toggleMobileVehicles" class="flex justify-between items-center cursor-pointer py-2 px-3 rounded hover:bg-gray-800/80">
+                <span>Veículos</span>
+                <svg class="w-4 h-4 transform transition-transform" :class="{'rotate-180': showMobileVehicles}"
                      fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                 </svg>
               </div>
-              <div v-show="showMobileProducts" class="pl-4 mt-2 space-y-2 border-l-2 border-gold">
-                <template v-for="cat in parentCategories" :key="cat.id">
+              <div v-show="showMobileVehicles" class="pl-4 mt-2 space-y-2 border-l-2 border-red-400">
+                <template v-for="cat in vehicleCategories" :key="cat.id">
                   <div class="px-3 py-2 rounded hover:bg-gray-700/80 transition">
                     <router-link
-                      :to="`/produtos?category=${cat.route}`"
+                      :to="`/veiculos?category=${cat.route}`"
                       @click="closeMenu"
                       class="block"
                     >
@@ -102,7 +102,7 @@
                     <div v-if="getChildren(cat.id).length" class="pl-4 mt-2 space-y-2">
                       <div v-for="child in getChildren(cat.id)" :key="child.id">
                         <router-link
-                          :to="`/produtos?category=${child.route}`"
+                          :to="`/veiculos?category=${child.route}`"
                           @click="closeMenu"
                           class="block text-sm py-2 px-3 rounded hover:bg-gray-600/80 transition"
                         >
@@ -134,9 +134,9 @@
             </a>
           </li>
           <li class="pt-3">
-            <a href="https://wa.me/11970419195" target="_blank"
-              class="flex justify-center items-center bg-green-500/90 hover:bg-green-600 text-white py-3 px-5 rounded-lg transition">
-              Contato
+            <a href="/anunciar-veiculo"
+              class="flex justify-center items-center bg-red-500/90 hover:bg-red-600 text-white py-3 px-5 rounded-lg transition">
+              Vender meu veículo
             </a>
           </li>
         </ul>
@@ -151,31 +151,31 @@ import { ref } from 'vue';
 export default {
   setup() {
     const isMenuOpen = ref(false);
-    const showMobileProducts = ref(false);
+    const showMobileVehicles = ref(false);
     
-    const categories = ref([
-    { id: 1, title: 'Assoalhos', route: 'Assoalhos' },
-    { id: 2, title: 'Tacos', route: 'Tacos' },
-    { id: 3, title: 'Paineis', route: 'Paineis' },
-
-    { id: 5, title: 'Paineis Ripados', father_id: 3, route: 'PaineisDemolicao' },
-    { id: 6, title: 'Escadas', route: 'Escadas' },
-    { id: 7, title: 'Revestimentos', route: 'Revestimentos' },
-    { id: 8, title: 'Forros', route: 'Forros' },
-    { id: 9, title: 'Decks', route: 'Decks' },  // Alterado de Pergolados para Decks
-    { id: 10, title: 'Brises', route: 'Brises' },  // Alterado de Pergolados para Decks
+    const vehicleCategories = ref([
+      { id: 1, title: 'Carros', route: 'carros' },
+      { id: 2, title: 'Motos', route: 'motos' },
+      { id: 3, title: 'Caminhões', route: 'caminhoes' },
+      { id: 4, title: 'SUV', father_id: 1, route: 'suv' },
+      { id: 5, title: 'Hatch', father_id: 1, route: 'hatch' },
+      { id: 6, title: 'Sedan', father_id: 1, route: 'sedan' },
+      { id: 7, title: 'Esportivos', father_id: 1, route: 'esportivos' },
+      { id: 8, title: 'Custom', father_id: 2, route: 'custom' },
+      { id: 9, title: 'Esportiva', father_id: 2, route: 'esportiva' },
+      { id: 10, title: 'Carga', father_id: 3, route: 'carga' },
     ]);
 
     const menuItems = [
       { text: "Início", id: "inicio" },
-      { text: "Missão", id: "missao" },
+      { text: "Sobre Nós", id: "sobre" },
       { text: "Serviços", id: "servicos" },
-      { text: "Produtos" },
-      { text: "Orçamento", whatsapp: "https://wa.me/5511970419195" },
+      { text: "Veículos" },
+      { text: "Financiamento", whatsapp: "https://wa.me/5511970419195" },
     ];
 
-    const parentCategories = categories.value.filter(cat => !cat.father_id);
-    const getChildren = (id) => categories.value.filter(cat => cat.father_id === id);
+    const parentCategories = vehicleCategories.value.filter(cat => !cat.father_id);
+    const getChildren = (id) => vehicleCategories.value.filter(cat => cat.father_id === id);
 
     const scrollTo = (sectionId) => {
       if (window.location.pathname !== "/") {
@@ -196,29 +196,30 @@ export default {
     const toggleMenu = () => {
       isMenuOpen.value = !isMenuOpen.value;
       if (!isMenuOpen.value) {
-        showMobileProducts.value = false;
+        showMobileVehicles.value = false;
       }
     };
 
     const closeMenu = () => {
       isMenuOpen.value = false;
-      showMobileProducts.value = false;
+      showMobileVehicles.value = false;
     };
 
-    const toggleMobileProducts = () => {
-      showMobileProducts.value = !showMobileProducts.value;
+    const toggleMobileVehicles = () => {
+      showMobileVehicles.value = !showMobileVehicles.value;
     };
 
     return {
       isMenuOpen,
-      showMobileProducts,
+      showMobileVehicles,
       menuItems,
+      vehicleCategories,
       parentCategories,
       getChildren,
       scrollTo,
       scrollToAndClose,
       toggleMenu,
-      toggleMobileProducts,
+      toggleMobileVehicles,
       closeMenu
     };
   }
@@ -226,14 +227,14 @@ export default {
 </script>
 
 <style scoped>
-.text-gold {
-  color: #d4af37;
+.text-red-400 {
+  color: #f63b3b;
 }
-.border-gold {
-  border-color: #d4af37;
+.border-red-400 {
+  border-color: #f63b3b;
 }
-.border-gold-gradient {
-  border-image: linear-gradient(90deg, #d4af37, #f1c27d, #d4af37);
+.border-red-gradient {
+  border-image: linear-gradient(90deg, #f63b3b, #f63b3b, #f63b3b);
   border-image-slice: 1;
 }
 .transition {
